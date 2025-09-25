@@ -1,257 +1,258 @@
-﻿state,YEAR,total,,,,,,,
-Australian Capital Territory,1993,7703,,,,,,,
-New South Wales ,1993,166039,,,,,,,
-Northern Territory ,1993,4771,,,,,,,
-Queensland ,1993,98090,,,,,,,
-South Australia ,1993,57136,,,,,,,
-Tasmania,1993,13649,,,,,,,
-Victoria,1993,114409,,,,,,,
-Western Australia ,1993,72327,,,,,,,
-Australian Capital Territory,1994,6974,,,,,,,
-New South Wales ,1994,185379,,,,,,,
-Northern Territory ,1994,5597,,,,,,,
-Queensland ,1994,96296,,,,,,,
-South Australia ,1994,49903,,,,,,,
-Tasmania,1994,15431,,,,,,,
-Victoria,1994,105505,,,,,,,
-Western Australia ,1994,76567,,,,,,,
-Australian Capital Territory,1995,23335,,,,,,,
-New South Wales ,1995,510442,,,,,,,
-Northern Territory ,1995,22296,,,,,,,
-Queensland ,1995,245436,,,,,,,
-South Australia ,1995,140117,,,,,,,
-Tasmania,1995,38552,,,,,,,
-Victoria,1995,289388,,,,,,,
-Western Australia ,1995,230789,,,,,,,
-Australian Capital Territory,1996,21965,,,,,,,
-New South Wales ,1996,581840,,,,,,,
-Northern Territory ,1996,22248,,,,,,,
-Queensland ,1996,258864,,,,,,,
-South Australia ,1996,135036,,,,,,,
-Tasmania,1996,42834,,,,,,,
-Victoria,1996,296836,,,,,,,
-Western Australia ,1996,217835,,,,,,,
-Australian Capital Territory,1997,26601,,,,,,,
-New South Wales ,1997,636772,,,,,,,
-Northern Territory ,1997,20739,,,,,,,
-Queensland ,1997,268129,,,,,,,
-South Australia ,1997,128494,,,,,,,
-Tasmania,1997,46242,,,,,,,
-Victoria,1997,307046,,,,,,,
-Western Australia ,1997,223814,,,,,,,
-Australian Capital Territory,1998,26601,,,,,,,
-New South Wales ,1998,663774,,,,,,,
-Northern Territory ,1998,20787,,,,,,,
-Queensland ,1998,271433,,,,,,,
-South Australia ,1998,150794,,,,,,,
-Tasmania,1998,48356,,,,,,,
-Victoria,1998,306018,,,,,,,
-Western Australia ,1998,235017,,,,,,,
-Australian Capital Territory,1999,31911,,,,,,,
-New South Wales ,1999,643831,,,,,,,
-Northern Territory ,1999,19749,,,,,,,
-Queensland ,1999,280842,,,,,,,
-South Australia ,1999,160382,,,,,,,
-Tasmania,1999,44062,,,,,,,
-Victoria,1999,330523,,,,,,,
-Western Australia ,1999,223401,,,,,,,
-Australian Capital Territory,2000,32285,,,,,,,
-New South Wales ,2000,707068,,,,,,,
-Northern Territory ,2000,22308,,,,,,,
-Queensland ,2000,217269,,,,,,,
-South Australia ,2000,138961,,,,,,,
-Tasmania,2000,39660,,,,,,,
-Victoria,2000,352252,,,,,,,
-Western Australia ,2000,241963,,,,,,,
-Australian Capital Territory,2001,27008,,,,,,,
-New South Wales ,2001,719298,,,,,,,
-Northern Territory ,2001,25396,,,,,,,
-Queensland ,2001,291564,,,,,,,
-South Australia ,2001,183316,,,,,,,
-Tasmania,2001,39468,,,,,,,
-Victoria,2001,365450,,,,,,,
-Western Australia ,2001,248825,,,,,,,
-Australian Capital Territory,2002,27118,,,,,,,
-New South Wales ,2002,646845,,,,,,,
-Northern Territory ,2002,24332,,,,,,,
-Queensland ,2002,278778,,,,,,,
-South Australia ,2002,178150,,,,,,,
-Tasmania,2002,35044,,,,,,,
-Victoria,2002,324113,,,,,,,
-Western Australia ,2002,252720,,,,,,,
-Australian Capital Territory,2003,26515,,,,,,,
-New South Wales ,2003,595156,,,,,,,
-Northern Territory ,2003,20106,,,,,,,
-Queensland ,2003,259189,,,,,,,
-South Australia ,2003,146108,,,,,,,
-Tasmania,2003,31757,,,,,,,
-Victoria,2003,291824,,,,,,,
-Western Australia ,2003,240316,,,,,,,
-Australian Capital Territory,2004,22918,,,,,,,
-New South Wales ,2004,529036,,,,,,,
-Northern Territory ,2004,17723,,,,,,,
-Queensland ,2004,234318,,,,,,,
-South Australia ,2004,135863,,,,,,,
-Tasmania,2004,27337,,,,,,,
-Victoria,2004,261533,,,,,,,
-Western Australia ,2004,200441,,,,,,,
-Australian Capital Territory,2005,22191,,,,,,,
-New South Wales ,2005,501948,,,,,,,
-Northern Territory ,2005,18050,,,,,,,
-Queensland ,2005,214411,,,,,,,
-South Australia ,2005,125454,,,,,,,
-Tasmania,2005,26865,,,,,,,
-Victoria,2005,248903,,,,,,,
-Western Australia ,2005,187462,,,,,,,
-Australian Capital Territory,2006,23429,,,,,,,
-New South Wales ,2006,469209,,,,,,,
-Northern Territory ,2006,19935,,,,,,,
-Queensland ,2006,209514,,,,,,,
-South Australia ,2006,124224,,,,,,,
-Tasmania,2006,25549,,,,,,,
-Victoria,2006,238356,,,,,,,
-Western Australia ,2006,195868,,,,,,,
-Australian Capital Territory,2007,22092,,,,,,,
-New South Wales ,2007,458550,,,,,,,
-Northern Territory ,2007,20016,,,,,,,
-Queensland ,2007,183529,,,,,,,
-South Australia ,2007,116909,,,,,,,
-Tasmania,2007,23550,,,,,,,
-Victoria,2007,239107,,,,,,,
-Western Australia ,2007,188560,,,,,,,
-Australian Capital Territory,2008,22359,,,,,,,
-New South Wales ,2008,435090,,,,,,,
-Northern Territory ,2008,21500,,,,,,,
-Queensland ,2008,183087,,,,,,,
-South Australia ,2008,107934,,,,,,,
-Tasmania,2008,21857,,,,,,,
-Victoria,2008,250210,,,,,,,
-Western Australia ,2008,191566,,,,,,,
-Australian Capital Territory,2009,24276,,,,,,,
-New South Wales ,2009,404240,,,,,,,
-Northern Territory ,2009,23457,,,,,,,
-Queensland ,2009,186421,,,,,,,
-South Australia ,2009,106206,,,,,,,
-Tasmania,2009,21389,,,,,,,
-Victoria,2009,229273,,,,,,,
-Western Australia ,2009,169961,,,,,,,
-Australian Capital Territory,2010,25837,,,,,,,
-New South Wales ,2010,379395,,,,,,,
-Northern Territory ,2010,21674,,,,,,,
-Queensland ,2010,191794,,,,,,,
-South Australia ,2010,96898,,,,,,,
-Tasmania,2010,17773,,,,,,,
-Victoria,2010,222837,,,,,,,
-Western Australia ,2010,160422,,,,,,,
-Australian Capital Territory,2011,18979,,,,,,,
-New South Wales ,2011,377413,,,,,,,
-Northern Territory ,2011,23362,,,,,,,
-Queensland ,2011,204911,,,,,,,
-South Australia ,2011,99283,,,,,,,
-Tasmania,2011,15932,,,,,,,
-Victoria,2011,221232,,,,,,,
-Western Australia ,2011,182664,,,,,,,
-Australian Capital Territory,2012,18040,,,,,,,
-New South Wales ,2012,375246,,,,,,,
-Northern Territory ,2012,21278,,,,,,,
-Queensland ,2012,219311,,,,,,,
-South Australia ,2012,93090,,,,,,,
-Tasmania,2012,14384,,,,,,,
-Victoria,2012,234073,,,,,,,
-Western Australia ,2012,187329,,,,,,,
-Australian Capital Territory,2013,16605,,,,,,,
-New South Wales ,2013,349763,,,,,,,
-Northern Territory ,2013,21205,,,,,,,
-Queensland ,2013,202496,,,,,,,
-South Australia ,2013,86602,,,,,,,
-Tasmania,2013,14744,,,,,,,
-Victoria,2013,222047,,,,,,,
-Western Australia ,2013,186297,,,,,,,
-Australian Capital Territory,2014,16433,,,,,,,
-New South Wales ,2014,326916,,,,,,,
-Northern Territory ,2014,21905,,,,,,,
-Queensland ,2014,180847,,,,,,,
-South Australia ,2014,83630,,,,,,,
-Tasmania,2014,18898,,,,,,,
-Victoria,2014,222641,,,,,,,
-Western Australia ,2014,188824,,,,,,,
-Australian Capital Territory,2015,19287,,,,,,,
-New South Wales ,2015,315269,,,,,,,
-Northern Territory ,2015,21529,,,,,,,
-Queensland ,2015,179658,,,,,,,
-South Australia ,2015,86984,,,,,,,
-Tasmania,2015,19551,,,,,,,
-Victoria,2015,242213,,,,,,,
-Western Australia ,2015,210081,,,,,,,
-Australian Capital Territory,2016,17964,,,,,,,
-New South Wales ,2016,309987,,,,,,,
-Northern Territory ,2016,24066,,,,,,,
-Queensland ,2016,197052,,,,,,,
-South Australia ,2016,91576,,,,,,,
-Tasmania,2016,17624,,,,,,,
-Victoria,2016,276339,,,,,,,
-Western Australia ,2016,208384,,,,,,,
-Australian Capital Territory,2017,19229,,,,,,,
-New South Wales ,2017,302163,,,,,,,
-Northern Territory ,2017,25160,,,,,,,
-Queensland ,2017,209787,,,,,,,
-South Australia ,2017,84103,,,,,,,
-Tasmania,2017,19580,,,,,,,
-Victoria,2017,234992,,,,,,,
-Western Australia ,2017,193888,,,,,,,
-Australian Capital Territory,2018,17272,,,,,,,
-New South Wales ,2018,301091,,,,,,,
-Northern Territory ,2018,23687,,,,,,,
-Queensland ,2018,227042,,,,,,,
-South Australia ,2018,91511,,,,,,,
-Tasmania,2018,17906,,,,,,,
-Victoria,2018,229673,,,,,,,
-Western Australia ,2018,193136,,,,,,,
-Australian Capital Territory,2019,18305,,,,,,,
-New South Wales ,2019,300378,,,,,,,
-Northern Territory ,2019,22234,,,,,,,
-Queensland ,2019,245623,,,,,,,13334
-South Australia ,2019,102107,,,,,,,
-Tasmania,2019,19900,,,,,,,
-Victoria,2019,246205,,,,,,,
-Western Australia ,2019,197475,,,,,,,
-Australian Capital Territory,2020,14887,,,,,,,
-New South Wales ,2020,242450,,,,,,,
-Northern Territory ,2020,,,,,,,,
-Queensland ,2020,205447,,,,,,,
-South Australia ,2020,83323,,,,,,,
-Tasmania,2020,16399,,,,,,,
-Victoria,2020,200906,,,,,,,
-Western Australia ,2020,145045,,,,,,,
-Australian Capital Territory,2021,15863,,,,,,,
-New South Wales ,2021,241783,,,,,,,
-Northern Territory ,2021,26586,,,,,,,
-Queensland ,2021,216840,,,,,,,
-South Australia ,2021,87980,,,,,,,
-Tasmania,2021,17116,,,,,,,
-Victoria,2021,189807,,,,,,,
-Western Australia ,2021,159564,,,,,,,
-Australian Capital Territory,2022,15261,,,,,,,
-New South Wales ,2022,262792,,,,,,,
-Northern Territory ,2022,31549,,,,,,,
-Queensland ,2022,304885,,,,,,,
-South Australia ,2022,89911,,,,,,,
-Tasmania,2022,19008,,,,,,,
-Victoria,2022,195219,,,,,,,
-Western Australia ,2022,167398,,,,,,,
-Australian Capital Territory,2023,14835,,,,,,,
-New South Wales ,2023,295432,,,,,,,
-Northern Territory ,2023,36534,,,,,,,
-Queensland ,2023,342496,,,,,,,
-South Australia ,2023,101305,,,,,,,
-Tasmania,2023,23620,,,,,,,
-Victoria,2023,233800,,,,,,,
-Western Australia ,2023,177791,,,,,,,
-Australian Capital Territory,2024,13334,,,,,,,
-New South Wales ,2024,298993,,,,,,,
-Northern Territory ,2024,22394,,,,,,,
-Queensland ,2024,337820,,,,,,,
-South Australia ,2024,97648,,,,,,,
-Tasmania,2024,24278,,,,,,,
-Victoria,2024,298780,,,,,,,
-Western Australia ,2024,174563,,,,,,,
+﻿state,YEAR,total
+Australian Capital Territory,1993,7703
+New South Wales,1993,166039
+Northern Territory,1993,4771
+Queensland,1993,98090
+South Australia,1993,57136
+Tasmania,1993,13649
+Victoria,1993,114409
+Western Australia,1993,72327
+Australian Capital Territory,1994,6974
+New South Wales,1994,185379
+Northern Territory,1994,5597
+Queensland,1994,96296
+South Australia ,1994,49903
+Tasmania,1994,15431
+Victoria,1994,105505
+Western Australia ,1994,76567
+Australian Capital Territory,1995,23335
+New South Wales ,1995,510442
+Northern Territory ,1995,22296
+Queensland ,1995,245436
+South Australia ,1995,140117
+Tasmania,1995,38552
+Victoria,1995,289388
+Western Australia ,1995,230789
+Australian Capital Territory,1996,21965
+New South Wales ,1996,581840
+Northern Territory ,1996,22248
+Queensland ,1996,258864
+South Australia ,1996,135036
+Tasmania,1996,42834
+Victoria,1996,296836
+Western Australia ,1996,217835
+Australian Capital Territory,1997,26601
+New South Wales ,1997,636772
+Northern Territory ,1997,20739
+Queensland ,1997,268129
+South Australia ,1997,128494
+Tasmania,1997,46242
+Victoria,1997,307046
+Western Australia ,1997,223814
+Australian Capital Territory,1998,26601
+New South Wales ,1998,663774
+Northern Territory ,1998,20787
+Queensland ,1998,271433
+South Australia ,1998,150794
+Tasmania,1998,48356
+Victoria,1998,306018
+Western Australia ,1998,235017
+Australian Capital Territory,1999,31911
+New South Wales ,1999,643831
+Northern Territory ,1999,19749
+Queensland ,1999,280842
+South Australia ,1999,160382
+Tasmania,1999,44062
+Victoria,1999,330523
+Western Australia ,1999,223401
+Australian Capital Territory,2000,32285
+New South Wales ,2000,707068
+Northern Territory ,2000,22308
+Queensland ,2000,217269
+South Australia ,2000,138961
+Tasmania,2000,39660
+Victoria,2000,352252
+Western Australia ,2000,241963
+Australian Capital Territory,2001,27008
+New South Wales ,2001,719298
+Northern Territory ,2001,25396
+Queensland ,2001,291564
+South Australia ,2001,183316
+Tasmania,2001,39468
+Victoria,2001,365450
+Western Australia ,2001,248825
+Australian Capital Territory,2002,27118
+New South Wales ,2002,646845
+Northern Territory ,2002,24332
+Queensland ,2002,278778
+South Australia ,2002,178150
+Tasmania,2002,35044
+Victoria,2002,324113
+Western Australia ,2002,252720
+Australian Capital Territory,2003,26515
+New South Wales ,2003,595156
+Northern Territory ,2003,20106
+Queensland ,2003,259189
+South Australia ,2003,146108
+Tasmania,2003,31757
+Victoria,2003,291824
+Western Australia ,2003,240316
+Australian Capital Territory,2004,22918
+New South Wales ,2004,529036
+Northern Territory ,2004,17723
+Queensland ,2004,234318
+South Australia ,2004,135863
+Tasmania,2004,27337
+Victoria,2004,261533
+Western Australia ,2004,200441
+Australian Capital Territory,2005,22191
+New South Wales ,2005,501948
+Northern Territory ,2005,18050
+Queensland ,2005,214411
+South Australia ,2005,125454
+Tasmania,2005,26865
+Victoria,2005,248903
+Western Australia ,2005,187462
+Australian Capital Territory,2006,23429
+New South Wales ,2006,469209
+Northern Territory ,2006,19935
+Queensland ,2006,209514
+South Australia ,2006,124224
+Tasmania,2006,25549
+Victoria,2006,238356
+Western Australia ,2006,195868
+Australian Capital Territory,2007,22092
+New South Wales ,2007,458550
+Northern Territory ,2007,20016
+Queensland ,2007,183529
+South Australia ,2007,116909
+Tasmania,2007,23550
+Victoria,2007,239107
+Western Australia ,2007,188560
+Australian Capital Territory,2008,22359
+New South Wales ,2008,435090
+Northern Territory ,2008,21500
+Queensland ,2008,183087
+South Australia ,2008,107934
+Tasmania,2008,21857
+Victoria,2008,250210
+Western Australia ,2008,191566
+Australian Capital Territory,2009,24276
+New South Wales ,2009,404240
+Northern Territory ,2009,23457
+Queensland ,2009,186421
+South Australia ,2009,106206
+Tasmania,2009,21389
+Victoria,2009,229273
+Western Australia ,2009,169961
+Australian Capital Territory,2010,25837
+New South Wales ,2010,379395
+Northern Territory ,2010,21674
+Queensland ,2010,191794
+South Australia ,2010,96898
+Tasmania,2010,17773
+Victoria,2010,222837
+Western Australia ,2010,160422
+Australian Capital Territory,2011,18979
+New South Wales ,2011,377413
+Northern Territory ,2011,23362
+Queensland ,2011,204911
+South Australia ,2011,99283
+Tasmania,2011,15932
+Victoria,2011,221232
+Western Australia ,2011,182664
+Australian Capital Territory,2012,18040
+New South Wales ,2012,375246
+Northern Territory ,2012,21278
+Queensland ,2012,219311
+South Australia ,2012,93090
+Tasmania,2012,14384
+Victoria,2012,234073
+Western Australia ,2012,187329
+Australian Capital Territory,2013,16605
+New South Wales ,2013,349763
+Northern Territory ,2013,21205
+Queensland ,2013,202496
+South Australia ,2013,86602
+Tasmania,2013,14744
+Victoria,2013,222047
+Western Australia ,2013,186297
+Australian Capital Territory,2014,16433
+New South Wales ,2014,326916
+Northern Territory ,2014,21905
+Queensland ,2014,180847
+South Australia ,2014,83630
+Tasmania,2014,18898
+Victoria,2014,222641
+Western Australia ,2014,188824
+Australian Capital Territory,2015,19287
+New South Wales ,2015,315269
+Northern Territory ,2015,21529
+Queensland ,2015,179658
+South Australia ,2015,86984
+Tasmania,2015,19551
+Victoria,2015,242213
+Western Australia ,2015,210081
+Australian Capital Territory,2016,17964
+New South Wales ,2016,309987
+Northern Territory ,2016,24066
+Queensland ,2016,197052
+South Australia ,2016,91576
+Tasmania,2016,17624
+Victoria,2016,276339
+Western Australia ,2016,208384
+Australian Capital Territory,2017,19229
+New South Wales ,2017,302163
+Northern Territory ,2017,25160
+Queensland ,2017,209787
+South Australia ,2017,84103
+Tasmania,2017,19580
+Victoria,2017,234992
+Western Australia ,2017,193888
+Australian Capital Territory,2018,17272
+New South Wales ,2018,301091
+Northern Territory ,2018,23687
+Queensland ,2018,227042
+South Australia ,2018,91511
+Tasmania,2018,17906
+Victoria,2018,229673
+Western Australia ,2018,193136
+Australian Capital Territory,2019,18305
+New South Wales ,2019,300378
+Northern Territory ,2019,22234
+Queensland ,2019,245623,13334
+South Australia ,2019,102107
+Tasmania,2019,19900
+Victoria,2019,246205
+Western Australia ,2019,197475
+Australian Capital Territory,2020,14887
+New South Wales ,2020,242450
+Northern Territory ,2020
+Queensland ,2020,205447
+South Australia ,2020,83323
+Tasmania,2020,16399
+Victoria,2020,200906
+Western Australia ,2020,145045
+Australian Capital Territory,2021,15863
+New South Wales ,2021,241783
+Northern Territory ,2021,26586
+Queensland ,2021,216840
+South Australia ,2021,87980
+Tasmania,2021,17116
+Victoria,2021,189807
+Western Australia ,2021,159564
+Australian Capital Territory,2022,15261
+New South Wales ,2022,262792
+Northern Territory ,2022,31549
+Queensland ,2022,304885
+South Australia ,2022,89911
+Tasmania,2022,19008
+Victoria,2022,195219
+Western Australia ,2022,167398
+Australian Capital Territory,2023,14835
+New South Wales ,2023,295432
+Northern Territory ,2023,36534
+Queensland ,2023,342496
+South Australia ,2023,101305
+Tasmania,2023,23620
+Victoria,2023,233800
+Western Australia ,2023,177791
+Australian Capital Territory,2024,13334
+New South Wales ,2024,298993
+Northern Territory ,2024,22394
+Queensland ,2024,337820
+South Australia ,2024,97648
+Tasmania,2024,24278
+Victoria,2024,298780
+Western Australia ,2024,174563
+
