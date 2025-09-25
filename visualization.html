@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.0.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "title": "Personal Safety in Australia from 1993-2024",
+  "projection": {"type": "equalEarth"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/ne_10m_admin_1_states_provinces%20(1).json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/ne_10m_admin_1_states_provinces%20(1).json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/fit3179_week_9_hw.csv",
+              "format": {"type": "csv", "parse": {"total": "number"}}
+            },
+            "key": "state",
+            "fields": ["total"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "black"},
+      "encoding": {
+        "color": {
+          "field": "total",
+          "type": "quantitative",
+          "scale": {"scheme": "blues"},
+          "title": "Victims by States/Territory"
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State/Territory"},
+          {"field": "total", "title": "Victims", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
