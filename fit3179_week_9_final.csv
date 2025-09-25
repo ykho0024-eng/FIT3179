@@ -1,7 +1,7 @@
 ﻿state,YEAR,total,population
 Australian Capital Territory,1993,7703,300490
 New South Wales,1993,166039,6020171
-Northern Territory ,1993,4771,173590
+Northern Territory,1993,4771,173590
 Queensland,1993,98090,3130986
 South Australia,1993,57136,1461102
 Tasmania,1993,13649,472983
@@ -9,7 +9,7 @@ Victoria,1993,114409,4466738
 Western Australia,1993,72327,1690348
 Australian Capital Territory,1994,6974,303289
 New South Wales,1994,185379,6071872
-Northern Territory ,1994,5597,176761
+Northern Territory,1994,5597,176761
 Queensland,1994,96296,3198877
 South Australia,1994,49903,1463977
 Tasmania,1994,15431,474076
@@ -17,7 +17,7 @@ Victoria,1994,105505,4483205
 Western Australia,1994,76567,1718549
 Australian Capital Territory,1995,23335,307022
 New South Wales,1995,510442,6143971
-Northern Territory ,1995,22296,182829
+Northern Territory,1995,22296,182829
 Queensland,1995,245436,3271743
 South Australia,1995,140117,1466605
 Tasmania,1995,38552,475148
@@ -25,7 +25,7 @@ Victoria,1995,289388,4517353
 Western Australia,1995,230789,1751933
 Australian Capital Territory,1996,21965,310655
 New South Wales,1996,581840,6214548
-Northern Territory ,1996,22248,187342
+Northern Territory,1996,22248,187342
 Queensland,1996,258864,3330579
 South Australia,1996,135036,1471997
 Tasmania,1996,42834,475529
@@ -33,7 +33,7 @@ Victoria,1996,296836,4552904
 Western Australia,1996,217835,1783556
 Australian Capital Territory,1997,26601,310281
 New South Wales,1997,636772,6274966
-Northern Territory ,1997,20739,191259
+Northern Territory,1997,20739,191259
 Queensland,1997,268129,3380394
 South Australia,1997,128494,1479003
 Tasmania,1997,46242,474215
@@ -41,7 +41,7 @@ Victoria,1997,307046,4586156
 Western Australia,1997,223814,1810928
 Australian Capital Territory,1998,26601,312300
 New South Wales,1998,663774,6338790
-Northern Territory ,1998,20787,194390
+Northern Territory,1998,20787,194390
 Queensland,1998,271433,3427505
 South Australia,1998,150794,1487042
 Tasmania,1998,48356,473450
@@ -49,7 +49,7 @@ Victoria,1998,306018,4629345
 Western Australia,1998,235017,1840078
 Australian Capital Territory,1999,31911,315431
 New South Wales,1999,643831,6409971
-Northern Territory ,1999,19749,197757
+Northern Territory,1999,19749,197757
 Queensland,1999,280842,3481034
 South Australia,1999,160382,1495218
 Tasmania,1999,44062,473294
@@ -57,7 +57,7 @@ Victoria,1999,330523,4677581
 Western Australia,1999,223401,1866265
 Australian Capital Territory,2000,32285,318941
 New South Wales,2000,707068,6485081
-Northern Territory ,2000,22308,200045
+Northern Territory,2000,22308,200045
 Queensland,2000,217269,3537670
 South Australia,2000,138961,1500129
 Tasmania,2000,39660,473200
@@ -65,7 +65,7 @@ Victoria,2000,352252,4730855
 Western Australia,2000,241963,1892531
 Australian Capital Territory,2001,27008,322874
 New South Wales,2001,719298,6558484
-Northern Territory ,2001,25396,201751
+Northern Territory,2001,25396,201751
 Queensland,2001,291564,3611203
 South Australia,2001,183316,1507825
 Tasmania,2001,39468,473890
@@ -73,7 +73,7 @@ Victoria,2001,365450,4790212
 Western Australia,2001,248825,1917752
 Australian Capital Territory,2002,27118,325950
 New South Wales,2002,646845,6599441
-Northern Territory ,2002,24332,201549
+Northern Territory,2002,24332,201549
 Queensland,2002,278778,3700791
 South Australia,2002,178150,1515723
 Tasmania,2002,35044,475998
@@ -81,7 +81,7 @@ Victoria,2002,324113,4845024
 Western Australia,2002,252720,1938610
 Australian Capital Territory,2003,26515,327596
 New South Wales,2003,595156,6634509
-Northern Territory ,2003,20106,201708
+Northern Territory,2003,20106,201708
 Queensland,2003,259189,3788560
 South Australia,2003,146108,1524727
 Tasmania,2003,31757,481411
@@ -89,7 +89,7 @@ Victoria,2003,291824,4900176
 Western Australia,2003,240316,1966130
 Australian Capital Territory,2004,22918,329498
 New South Wales,2004,529036,6669206
-Northern Territory ,2004,17723,203857
+Northern Territory,2004,17723,203857
 Queensland,2004,234318,3872351
 South Australia,2004,135863,1532562
 Tasmania,2004,27337,484778
@@ -97,7 +97,7 @@ Victoria,2004,261533,4957147
 Western Australia,2004,200441,1994241
 Australian Capital Territory,2005,22191,333505
 New South Wales,2005,501948,6718023
-Northern Territory ,2005,18050,207385
+Northern Territory,2005,18050,207385
 Queensland,2005,214411,3964175
 South Australia,2005,125454,1544852
 Tasmania,2005,26865,488098
@@ -105,7 +105,7 @@ Victoria,2005,248903,5023203
 Western Australia,2005,187462,2029936
 Australian Capital Territory,2006,23429,338381
 New South Wales,2006,469209,6786160
-Northern Territory ,2006,19935,211029
+Northern Territory,2006,19935,211029
 Queensland,2006,209514,4055845
 South Australia,2006,124224,1561300
 Tasmania,2006,25549,491515
@@ -113,7 +113,7 @@ Victoria,2006,238356,5103965
 Western Australia,2006,195868,2076867
 Australian Capital Territory,2007,22092,344176
 New South Wales,2007,458550,6883852
-Northern Territory ,2007,20016,216618
+Northern Territory,2007,20016,216618
 Queensland,2007,183529,4159990
 South Australia,2007,116909,1578489
 Tasmania,2007,23550,495858
@@ -121,7 +121,7 @@ Victoria,2007,239107,5199503
 Western Australia,2007,188560,2135006
 Australian Capital Territory,2008,22359,351101
 New South Wales,2008,435090,7001782
-Northern Territory ,2008,21500,222526
+Northern Territory,2008,21500,222526
 Queensland,2008,183087,4275551
 South Australia,2008,107934,1597880
 Tasmania,2008,21857,501774
@@ -129,7 +129,7 @@ Victoria,2008,250210,5313285
 Western Australia,2008,191566,2208928
 Australian Capital Territory,2009,24276,357859
 New South Wales,2009,404240,7101504
-Northern Territory ,2009,23457,227783
+Northern Territory,2009,23457,227783
 Queensland,2009,186421,4367454
 South Australia,2009,106206,1618578
 Tasmania,2009,21389,506461
@@ -137,7 +137,7 @@ Victoria,2009,229273,5419249
 Western Australia,2009,169961,2263747
 Australian Capital Territory,2010,25837,364833
 New South Wales,2010,379395,7179891
-Northern Territory ,2010,21674,230299
+Northern Territory,2010,21674,230299
 Queensland,2010,191794,4436882
 South Australia,2010,96898,1632482
 Tasmania,2010,17773,510219
@@ -145,7 +145,7 @@ Victoria,2010,222837,5495711
 Western Australia,2010,160422,2319063
 Australian Capital Territory,2011,18979,372070
 New South Wales,2011,377413,7258722
-Northern Territory ,2011,23362,232952
+Northern Territory,2011,23362,232952
 Queensland,2011,204911,4518649
 South Australia,2011,99283,1647183
 Tasmania,2011,15932,511739
@@ -153,7 +153,7 @@ Victoria,2011,221232,5591818
 Western Australia,2011,182664,2385947
 Australian Capital Territory,2012,18040,379812
 New South Wales,2012,375246,7353189
-Northern Territory ,2012,21278,238728
+Northern Territory,2012,21278,238728
 Queensland,2012,219311,4611304
 South Australia,2012,93090,1663082
 Tasmania,2012,14384,511813
@@ -161,7 +161,7 @@ Victoria,2012,234073,5709586
 Western Australia,2012,187329,2457489
 Australian Capital Territory,2013,16605,386318
 New South Wales,2013,349763,7454938
-Northern Territory ,2013,21205,242304
+Northern Territory,2013,21205,242304
 Queensland,2013,202496,4685439
 South Australia,2013,86602,1678052
 Tasmania,2013,14744,513015
@@ -169,7 +169,7 @@ Victoria,2013,222047,5832585
 Western Australia,2013,186297,2502188
 Australian Capital Territory,2014,16433,391981
 New South Wales,2014,326916,7562171
-Northern Territory ,2014,21905,242753
+Northern Territory,2014,21905,242753
 Queensland,2014,180847,4747263
 South Australia,2014,83630,1693107
 Tasmania,2014,18898,514040
@@ -177,7 +177,7 @@ Victoria,2014,222641,5957512
 Western Australia,2014,188824,2528619
 Australian Capital Territory,2015,19287,398874
 New South Wales,2015,315269,7671401
-Northern Territory ,2015,21529,244090
+Northern Territory,2015,21529,244090
 Queensland,2015,179658,4804933
 South Australia,2015,86984,1705937
 Tasmania,2015,19551,515694
@@ -185,7 +185,7 @@ Victoria,2015,242213,6093049
 Western Australia,2015,210081,2547745
 Australian Capital Territory,2016,17964,408878
 New South Wales,2016,309987,7795625
-Northern Territory ,2016,24066,246065
+Northern Territory,2016,24066,246065
 Queensland,2016,197052,4882939
 South Australia,2016,91576,1719580
 Tasmania,2016,17624,521981
@@ -193,7 +193,7 @@ Victoria,2016,276339,6235781
 Western Australia,2016,208384,2569606
 Australian Capital Territory,2017,19229,420226
 New South Wales,2017,302163,7900946
-Northern Territory ,2017,25160,246862
+Northern Territory,2017,25160,246862
 Queensland,2017,209787,4960965
 South Australia,2017,84103,1735654
 Tasmania,2017,19580,531561
@@ -201,7 +201,7 @@ Victoria,2017,234992,6358210
 Western Australia,2017,193888,2599928
 Australian Capital Territory,2018,17272,430758
 New South Wales,2018,301091,8003564
-Northern Territory ,2018,23687,245920
+Northern Territory,2018,23687,245920
 Queensland,2018,227042,5046434
 South Australia,2018,91511,1755715
 Tasmania,2018,17906,542927
@@ -209,7 +209,7 @@ Victoria,2018,229673,6479695
 Western Australia,2018,193136,2636404
 Australian Capital Territory,2019,18305,440267
 New South Wales,2019,300378,8088361
-Northern Territory ,2019,22234,246213
+Northern Territory,2019,22234,246213
 Queensland,2019,245623,5129741
 South Australia,2019,102107,1778928
 Tasmania,2019,19900,553340
@@ -217,7 +217,7 @@ Victoria,2019,246205,6590050
 Western Australia,2019,197475,2688799
 Australian Capital Territory,2020,14887,447650
 New South Wales,2020,242450,8094300
-Northern Territory ,2020,13334,247819
+Northern Territory,2020,13334,247819
 Queensland,2020,205447,5184329
 South Australia,2020,83323,1794514
 Tasmania,2020,16399,561881
@@ -225,7 +225,7 @@ Victoria,2020,200906,6567195
 Western Australia,2020,145045,2728187
 Australian Capital Territory,2021,15863,456005
 New South Wales,2021,241783,8117057
-Northern Territory ,2021,26586,250500
+Northern Territory,2021,26586,250500
 Queensland,2021,216840,5249672
 South Australia,2021,87980,1807839
 Tasmania,2021,17116,569609
@@ -233,7 +233,7 @@ Victoria,2021,189807,6555013
 Western Australia,2021,159564,2763240
 Australian Capital Territory,2022,15261,465873
 New South Wales,2022,262792,8264048
-Northern Territory ,2022,31549,255294
+Northern Territory,2022,31549,255294
 Queensland,2022,304885,5376678
 South Australia,2022,89911,1840187
 Tasmania,2022,19008,573343
@@ -241,7 +241,7 @@ Victoria,2022,195219,6700395
 Western Australia,2022,167398,2839523
 Australian Capital Territory,2023,14835,474862
 New South Wales,2023,295432,8437334
-Northern Territory ,2023,36534,259143
+Northern Territory,2023,36534,259143
 Queensland,2023,342496,5516476
 South Australia,2023,101305,1870937
 Tasmania,2023,23620,574214
@@ -249,9 +249,10 @@ Victoria,2023,233800,6881068
 Western Australia,2023,177791,2937647
 Australian Capital Territory,2024,13334,481344
 New South Wales,2024,298993,8541186
-Northern Territory ,2024,22394,262254
+Northern Territory,2024,22394,262254
 Queensland,2024,337820,5619059
 South Australia,2024,97648,1891270
 Tasmania,2024,24278,575481
 Victoria,2024,298780,7007650
 Western Australia,2024,174563,3009399
+
