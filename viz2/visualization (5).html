@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.0.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Total Offence Cases and Rate Over Time",
+  "width": 800,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/viz2/Total.csv"
+  },
+  "transform": [
+    {
+      "calculate": "(datum['Total Offence'] / datum.Population) * 10000",
+      "as": "Rate"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "color": "#1f77b4",
+        "point": {
+          "shape": "circle",
+          "size": 80,
+          "color": "#1f77b4",
+          "tooltip": {"content": "data"}
+        }
+      },
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal", "title": "Year"},
+        "y": {
+          "field": "Total Offence",
+          "type": "quantitative",
+          "title": "Total Cases",
+          "axis": {"titleColor": "#1f77b4", "orient": "left"}
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "temporal",
+            "title": "Year",
+            "format": "%Y"
+          },
+          {
+            "field": "Total Offence",
+            "type": "quantitative",
+            "title": "Total Cases",
+            "format": ",.0f"
+          },
+          {
+            "field": "Population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "color": "#ff7f0e",
+        "strokeDash": [5, 5],
+        "point": {
+          "shape": "circle",
+          "size": 80,
+          "color": "#ff7f0e",
+          "tooltip": {"content": "data"}
+        }
+      },
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal"},
+        "y": {
+          "field": "Rate",
+          "type": "quantitative",
+          "title": "Rate per 10,000 Population",
+          "axis": {"titleColor": "#ff7f0e", "orient": "right"}
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "temporal",
+            "title": "Year",
+            "format": "%Y"
+          },
+          {
+            "field": "Rate",
+            "type": "quantitative",
+            "title": "Rate per 10,000",
+            "format": ",.2f"
+          },
+          {
+            "field": "Population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {"scale": {"y": "independent"}},
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
