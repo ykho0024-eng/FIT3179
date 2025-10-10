@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.0.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Offence Types Composition Over Time",
+  "width": 800,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/viz2/Total.csv"
+  },
+  "transform": [
+    {
+      "fold": ["Total Physical Offence", "Assault", "Sexual assault"],
+      "as": ["OffenceType", "Count"]
+    },
+    {
+      "calculate": "(datum.Count / datum['Total Offence']) * 100",
+      "as": "Percentage"
+    },
+    {
+      "calculate": "format(datum.Percentage, '.1f') + '%'",
+      "as": "PercentageLabel"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "title": "Year",
+      "timeUnit": "year",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "Count",
+      "type": "quantitative",
+      "title": "Total Offence Cases",
+      "stack": true
+    },
+    "color": {
+      "field": "OffenceType",
+      "type": "nominal",
+      "title": "Offence Type",
+      "scale": {
+        "domain": ["Total Physical Offence", "Assault", "Sexual assault"],
+        "range": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+      }
+    },
+    "tooltip": [
+      {"field": "Year", "type": "temporal", "title": "Year", "format": "%Y"},
+      {"field": "OffenceType", "type": "nominal", "title": "Offence Type"},
+      {
+        "field": "Count",
+        "type": "quantitative",
+        "title": "Cases",
+        "format": ",.0f"
+      },
+      {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Percentage of Total",
+        "format": ".1f"
+      },
+      {
+        "field": "Total Offence",
+        "type": "quantitative",
+        "title": "Total Offence",
+        "format": ",.0f"
+      }
+    ]
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
