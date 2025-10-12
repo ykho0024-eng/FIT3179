@@ -9,6 +9,7 @@
   <div id="vis"/>
   <script>
     const spec = {
+ {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Offence Types Composition Over Time",
   "width": 800,
@@ -18,11 +19,21 @@
   },
   "transform": [
     {
-      "fold": ["Total Physical Offence", "Assault", "Sexual assault"],
+      "fold": ["Assault", "Sexual assault"],
       "as": ["OffenceType", "Count"]
     },
     {
-      "calculate": "(datum.Count / datum['Total Offence']) * 100",
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "Count", 
+          "as": "YearTotal"
+        }
+      ],
+      "groupby": ["Year"]
+    },
+    {
+      "calculate": "(datum.Count / datum.YearTotal) * 100",
       "as": "Percentage"
     },
     {
@@ -30,19 +41,21 @@
       "as": "PercentageLabel"
     }
   ],
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "width": {"band": 0.8}  // This makes the bars wider
+  },
   "encoding": {
     "x": {
       "field": "Year",
       "type": "temporal",
       "title": "Year",
-      "timeUnit": "year",
       "axis": {"grid": false}
     },
     "y": {
       "field": "Count",
-      "type": "quantitative",
-      "title": "Total Offence Cases",
+      "type": "quantitative", 
+      "title": "Number of Cases",
       "stack": true
     },
     "color": {
@@ -50,29 +63,29 @@
       "type": "nominal",
       "title": "Offence Type",
       "scale": {
-        "domain": ["Total Physical Offence", "Assault", "Sexual assault"],
-        "range": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+        "domain": ["Assault", "Sexual assault"],
+        "range": ["#1f77b4", "#ff7f0e"]
       }
     },
     "tooltip": [
       {"field": "Year", "type": "temporal", "title": "Year", "format": "%Y"},
       {"field": "OffenceType", "type": "nominal", "title": "Offence Type"},
       {
-        "field": "Count",
+        "field": "Count", 
         "type": "quantitative",
         "title": "Cases",
         "format": ",.0f"
       },
       {
         "field": "Percentage",
-        "type": "quantitative",
+        "type": "quantitative", 
         "title": "Percentage of Total",
         "format": ".1f"
       },
       {
-        "field": "Total Offence",
+        "field": "YearTotal",
         "type": "quantitative",
-        "title": "Total Offence",
+        "title": "Total Cases",
         "format": ",.0f"
       }
     ]
