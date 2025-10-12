@@ -1,54 +1,51 @@
-﻿Age Group,Types of Offence,Gender,Counts,,,,,,,,,,
-0–9 years,Sexual Assault,Males,"2,008",,,,,,,,,,
-10–17 years,Sexual Assault,Males,"3,148",,,,,,,,,,
-18–24 years,Sexual Assault,Males,544,,,,,,,,,,
-25–34 years,Sexual Assault,Males,556,,,,,,,,,,
-35–44 years,Sexual Assault,Males,359,,,,,,,,,,
-45–54 years,Sexual Assault,Males,183,,,,,,,,,,
-55–64 years,Sexual Assault,Males,74,,,,,,,,,,
-65 years and over,Sexual Assault,Males,63,,,,,,,,,,
-0–9 years,Sexual Assault,Females,"4,687",,,,,,,,,,
-10–17 years,Sexual Assault,Females,"12,109",,,,,,,,,,
-18–24 years,Sexual Assault,Females,"5,109",,,,,,,,,,
-25–34 years,Sexual Assault,Females,"4,922",,,,,,,,,,
-35–44 years,Sexual Assault,Females,"3,039",,,,,,,,,,
-45–54 years,Sexual Assault,Females,"1,497",,,,,,,,,,
-55–64 years,Sexual Assault,Females,481,,,,,,,,,,
-65 years and over,Sexual Assault,Females,438,,,,,,,,,,
-0–9 years,Assault,Males,"2,916",,,,,,,,,,
-10–17 years,Assault,Males,"12,161",,,,,,,,,,
-18–24 years,Assault,Males,"14,726",,,,,,,,,,
-25–34 years,Assault,Males,"23,527",,,,,,,,,,
-35–44 years,Assault,Males,"19,521",,,,,,,,,,
-45–54 years,Assault,Males,"14,786",,,,,,,,,,
-55–64 years,Assault,Males,"8,980",,,,,,,,,,
-65 years and over,Assault,Males,"5,384",,,,,,,,,,
-0–9 years,Assault,Females,"2,018",,,,,,,,,,
-10–17 years,Assault,Females,"13,652",,,,,,,,,,
-18–24 years,Assault,Females,"20,754",,,,,,,,,,
-25–34 years,Assault,Females,"32,224",,,,,,,,,,
-35–44 years,Assault,Females,"27,149",,,,,,,,,,
-45–54 years,Assault,Females,"16,620",,,,,,,,,,
-55–64 years,Assault,Females,"7,051",,,,,,,,,,
-65 years and over,Assault,Females,"4,240",,,,,,,,,,
-0–9 years,Total Offence,Males,"4,924",,,,,,,,,,
-10–17 years,Total Offence,Males,"15,309",,,,,,,,,,
-18–24 years,Total Offence,Males,"15,270",,,,,,,,,,
-25–34 years,Total Offence,Males,"24,083",,,,,,,,,,
-35–44 years,Total Offence,Males,"19,880",,,,,,,,,,
-45–54 years,Total Offence,Males,"14,969",,,,,,,,,,
-55–64 years,Total Offence,Males,"9,054",,,,,,,,,,
-65 years and over,Total Offence,Males,"5,447",,,,,,,,,,
-0–9 years,Total Offence,Females,"6,705",,,,,,,,,,
-10–17 years,Total Offence,Females,"25,761",,,,,,,,,,
-18–24 years,Total Offence,Females,"25,863",,,,,,,,,,
-25–34 years,Total Offence,Females,"37,146",,,,,,,,,,
-35–44 years,Total Offence,Females,"30,188",,,,,,,,,,
-45–54 years,Total Offence,Females,"18,117",,,,,,,,,,
-55–64 years,Total Offence,Females,"7,532",,,,,,,,,,
-65 years and over,Total Offence,Females,"4,678",,,,,,,,,,
-,,,,,,,,,,,,,
-,,,,,,,,,,,,,
-,,,,,,,,,,,,,
-,,,,,,,,,,,,,
-,,,,,,,,,,,,,
+﻿Age Group,Types of Offence,Gender,Counts
+0–9 years,Sexual Assault,Males,2,008
+10–17 years,Sexual Assault,Males,3,148
+18–24 years,Sexual Assault,Males,544
+25–34 years,Sexual Assault,Males,556
+35–44 years,Sexual Assault,Males,359
+45–54 years,Sexual Assault,Males,183
+55–64 years,Sexual Assault,Males,74
+65 years and over,Sexual Assault,Males,63
+0–9 years,Sexual Assault,Females,4,687
+10–17 years,Sexual Assault,Females,12,109
+18–24 years,Sexual Assault,Females,5,109
+25–34 years,Sexual Assault,Females,4,922
+35–44 years,Sexual Assault,Females,3,039
+45–54 years,Sexual Assault,Females,1,497
+55–64 years,Sexual Assault,Females,481
+65 years and over,Sexual Assault,Females,438
+0–9 years,Assault,Males,2,916
+10–17 years,Assault,Males,12,161
+18–24 years,Assault,Males,14,726
+25–34 years,Assault,Males,23,527
+35–44 years,Assault,Males,19,521
+45–54 years,Assault,Males,14,786
+55–64 years,Assault,Males,8,980
+65 years and over,Assault,Males,5,384
+0–9 years,Assault,Females,2,018
+10–17 years,Assault,Females,13,652
+18–24 years,Assault,Females,20,754
+25–34 years,Assault,Females,32,224
+35–44 years,Assault,Females,27,149
+45–54 years,Assault,Females,16,620
+55–64 years,Assault,Females,7,051
+65 years and over,Assault,Females,4,240
+0–9 years,Total Offence,Males,4,924
+10–17 years,Total Offence,Males,15,309
+18–24 years,Total Offence,Males,15,270
+25–34 years,Total Offence,Males,24,083
+35–44 years,Total Offence,Males,19,880
+45–54 years,Total Offence,Males,14,969
+55–64 years,Total Offence,Males,9,054
+65 years and over,Total Offence,Males,5,447
+0–9 years,Total Offence,Females,6,705
+10–17 years,Total Offence,Females,25,761
+18–24 years,Total Offence,Females,25,863
+25–34 years,Total Offence,Females,37,146
+35–44 years,Total Offence,Females,30,188
+45–54 years,Total Offence,Females,18,117
+55–64 years,Total Offence,Females,7,532
+65 years and over,Total Offence,Females,4,678
+
+
