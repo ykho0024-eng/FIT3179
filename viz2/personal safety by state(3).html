@@ -12,7 +12,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 600,
-  "title": "Personal Safety in Australia by State & Type of Offence(1993–2024)",
+  "title": "Personal Safety in Australia by State & Type of Offence (1995–2024)",
   "projection": {"type": "mercator", "center": [134, -25], "scale": 750},
   "params": [
     {
@@ -57,10 +57,10 @@
     },
     {
       "name": "offence_type",
-      "value": "Total Physical Offence",
+      "value": "Total Offence",
       "bind": {
         "input": "select",
-        "options": ["Total Physical Offence", "Assault", "Sexual assault"],
+        "options": ["Total Offence", "Assault", "Sexual assault"],
         "name": "Offence Type: "
       }
     }
@@ -87,7 +87,29 @@
       },
       "transform": [
         {
-          "filter": "toNumber(datum.Year) == year_selection && datum.Offence == offence_type"
+          "filter": "toNumber(datum.Year) == year_selection"
+        },
+        {
+          "calculate": "if(offence_type == 'Total Offence', (datum.Offence == 'Assault' || datum.Offence == 'Sexual assault'), datum.Offence == offence_type)",
+          "as": "include_record"
+        },
+        {
+          "filter": "datum.include_record"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "Case",
+              "as": "Display_Cases"
+            },
+            {
+              "op": "max",
+              "field": "Population",
+              "as": "State_Population"
+            }
+          ],
+          "groupby": ["State", "Year"]
         },
         {
           "lookup": "State",
@@ -105,19 +127,31 @@
           "as": ["geo_properties", "geo_geometry"]
         },
         {
-          "calculate": "toNumber(datum.Case) / toNumber(datum.Population) * 100000",
+          "calculate": "toNumber(datum.Display_Cases) / toNumber(datum.State_Population) * 100000",
           "as": "Crime_Rate_per_100000"
         },
         {
-          "calculate": "if(datum.Offence == 'Total Physical Offence', datum.Crime_Rate_per_100000 / 15 * 10, if(datum.Offence == 'Assault', (datum.Crime_Rate_per_100000 - 400) / (1500 - 400) * 10, (datum.Crime_Rate_per_100000 - 30) / (150 - 30) * 10))",
+          "calculate": "min(datum.Crime_Rate_per_100000, 2500)",
+          "as": "Capped_Crime_Rate"
+        },
+        {
+          "calculate": "if(offence_type == 'Total Offence', (datum.Capped_Crime_Rate - 500) / (2500 - 500) * 10, if(offence_type == 'Assault', (datum.Crime_Rate_per_100000 - 400) / (1500 - 400) * 10, (datum.Crime_Rate_per_100000 - 30) / (120 - 30) * 10))",
           "as": "Normalized_Rate"
+        },
+        {
+          "calculate": "min(max(datum.Normalized_Rate, 0), 10)",
+          "as": "Normalized_Rate_Clamped"
+        },
+        {
+          "calculate": "offence_type",
+          "as": "Selected_Offence"
         }
       ],
       "mark": {"type": "geoshape"},
       "encoding": {
         "shape": {"field": "geo_geometry", "type": "geojson"},
         "color": {
-          "field": "Normalized_Rate",
+          "field": "Normalized_Rate_Clamped",
           "type": "quantitative",
           "title": "Crime Rate (Normalized)",
           "scale": {
@@ -146,17 +180,25 @@
         },
         "tooltip": [
           {"field": "State", "title": "State/Territory"},
-          {"field": "Offence", "title": "Offence Type"},
+          {"field": "Selected_Offence", "title": "Offence Type"},
           {"field": "Year", "title": "Year"},
-          {"field": "Case", "title": "Case Count", "format": ","},
-          {"field": "Population", "title": "Population", "format": ","},
+          {
+            "field": "Display_Cases",
+            "title": "Case Count",
+            "format": ","
+          },
+          {
+            "field": "State_Population",
+            "title": "Population",
+            "format": ","
+          },
           {
             "field": "Crime_Rate_per_100000",
             "title": "Rate per 100,000",
             "format": ".2f"
           },
           {
-            "field": "Normalized_Rate",
+            "field": "Normalized_Rate_Clamped",
             "title": "Normalized Score",
             "format": ".1f"
           }
