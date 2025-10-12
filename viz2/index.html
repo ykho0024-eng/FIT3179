@@ -1,99 +1,148 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Multiple Visualisations | Personal Safety Maps</title>
-  <!-- Import pure.css -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-  <style>
-    .vis-container {
-      width: 100%;
-      max-width: 100%;
-      height: 800px;
-      border: none;
-    }
-  </style>
+    <title>Personal Safety in Australia</title>
+    <!-- Import Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Import Vega & Vega-Lite-->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <!-- Import vega-embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: no-repeat url('https://github.com/ykho0024-eng/FIT3179/raw/main/images/australia-background.jpg');
+            background-size: cover;
+            background-position: top;
+        }
+        .card {
+            margin-bottom: 2rem;
+        }
+        .vis-container {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="page">
+<div class="container-fluid">
+    <div class="row pt-3 pb-5">
+        <div class="col-12">
+            <div class="row justify-content-center pt-5 pb-5">
+                <div class="col-10 justify-content-center">
+                    
+                    <!-- Header Card -->
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-header bg-dark text-white">
+                            <div class="text-center">
+                                <h1 style="font-size: 3rem">Personal Safety in Australia</h1>
+                                <h4>Understanding Violence Patterns Across States and Demographics</h4>
+                            </div>
+                        </div>
+                        <div class="card-body align-content-center">
+                            <div class="row justify-content-center text-justify">
+                                <div class="col-10">
+                                    <p>Personal safety remains a fundamental aspect of wellbeing, reflecting how secure people feel in their daily lives and relationships. This visual narrative explores trends in physical and sexual violence in Australia, using national survey and crime data from the Australian Bureau of Statistics (ABS). Through a series of visualisations, we uncover how experiences of personal violence have evolved over time, vary across states, and differ by gender, relationship, and demographic factors.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Page header -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h1>Personal Safety of Australia</h1>
-        <p>Personal safety remains a fundamental aspect of wellbeing, reflecting how secure people feel in their daily lives and relationships. This visual narrative explores trends in physical and sexual violence in Australia, using national survey and crime data from the Australian Bureau of Statistics (ABS). Through a series of visualisations, we uncover how experiences of personal violence have evolved over time, vary across states, and differ by gender, relationship, and demographic factors.
-</p>
-      </div>
-    </div>
+                    <!-- National Overview Card -->
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body pt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>National Overview — How Has Personal Safety Changed Over Time?</h4>
+                                        <p class="text-muted small">
+                                            <i>Trends in total violence prevalence from 1993 to 2024.</i></p>
+                                        <p>We begin with a national perspective. This visualisation shows how the prevalence of total violence has shifted between 1993 and 2024, providing a broad overview of the changing landscape of personal safety in Australia.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <iframe src="total graph(1).html" class="vis-container"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Two column layout -->
-    <div class="pure-g" style="margin-top:25px;">
-      <div class="pure-u-1-1">
-        <div class="description description-left">
-          <h2>  National Overview — How Has Personal Safety Changed Over Time? </h2>
-          <p>We begin with a national perspective. This visualisation shows how the prevalence of total violence has shifted between 1993 and 2024</p>
+                    <!-- Offence Type Composition Card -->
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body pt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>Offence Type Composition from 1995-2024</h4>
+                                        <p class="text-muted small">
+                                            <i>Breakdown of physical offences by type over time.</i></p>
+                                        <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- State Comparison Card -->
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body pt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-3 col-10 order-xl-2 order-1 text-justify">
+                                    <h4 class="text-right">State Comparison: Geographic Variation</h4>
+                                    <p class="text-muted text-right small"><i>Physical offence rates across Australian states and territories.</i></p>
+                                    <p>The map uses normalized color scaling to enable visual comparison across different offence types. Each crime category is converted to a common 0-10 scale based on expected ranges: Total Physical Offence (0-15 per 100,000), Assault (400-1500 per 100,000), and Sexual Assault (30-150 per 100,000). The formula (Actual_Rate - Min_Range) / (Max_Range - Min_Range) * 10 transforms all values to this consistent scale.</p>
+                                </div>
+                                <div class="col-xl-7 col-10 order-xl-1 order-2 text-center">
+                                    <hr class="p-3 m-0">
+                                    <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gender Comparison Card -->
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body pt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>Gender Comparison — Differences in Experiences</h4>
+                                        <p class="text-muted small">
+                                            <i>Age and gender distribution of victims across offence types.</i></p>
+                                        <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group. The visualization reveals distinct patterns in victim demographics, showing how vulnerability varies across different stages of life and between genders.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <iframe src="victims demographic(4).html" class="vis-container"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="text-center mt-4">
+                        <p style="font-size: 14px; color: #333;">
+                            Visualisations created by Yan Xuan Khoo. Data source: Australian Bureau of Statistics.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="pure-u-1-1">
-        <iframe src="total graph(1).html" class="vis-container"></iframe>
-      </div>
     </div>
-
-    <!-- Second map -->
-    <div class="pure-g" style="margin-top:25px;">
-      <div class="pure-u-1-1">
-        <div class="description description-left">
-          <h2> Offence Type Composition from 1995-2025 </h2>
-          <p>"Due to unpublished data of assault in some state and some years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency."</p>
-        </div>
-      
-      </div>
-      <div class="pure-u-1-1">
-        <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
-      </div>
-    </div>
-
-     <!-- Third map -->
-    <div class="pure-g" style="margin-top:25px;">
-      <div class="pure-u-1-1">
-        <div class="description description-right">
-          <h2> State Comparison: Geographic Variation </h2>
-          <p>"The map uses normalized color scaling to enable visual comparison across different offence types. Each crime category is converted to a common 0-10 scale based on expected ranges: Total Physical Offence (0-15 per 100,000), Assault (400-1500 per 100,000), and Sexual Assault (30-150 per 100,000). The formula (Actual_Rate - Min_Range) / (Max_Range - Min_Range) * 10 transforms all values to this consistent scale"</p>
-        </div>
-      
-      </div>
-      <div class="pure-u-1-1">
-        <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
-      </div>
-    </div>
-
-     <div class="pure-g" style="margin-top:25px;">
-      <div class="pure-u-1-1">
-        <div class="description description-right">
-          <h2> Gender Comparison — Differences in Experiences  </h2>
-          <p>"This grouped bar chart compares men’s and women’s experiences of physical and sexual assault by age"</p>
-        </div>
-      
-      </div>
-      <div class="pure-u-1-1">
-        <iframe src="victims demographic(4).html" class="vis-container"></iframe>
-      </div>
-    </div>
-    
-<div style="margin-top: 50px; text-align: center; font-size: 14px; color: #333;">
-  Visualisations created by Yan Xuan Khoo. Data source:ABS(Australia Bureau Statistic).
 </div>
-
-  </div> <!-- end page -->
 </body>
-
 </html>
