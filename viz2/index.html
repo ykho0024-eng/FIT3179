@@ -21,12 +21,22 @@
             background-position: top;
         }
         .card {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem; /* Reduced spacing between cards */
         }
         .vis-container {
             width: 100%;
-            height: 600px;
+            height: 700px; /* Increased height for larger graphs */
             border: none;
+        }
+        .card-body {
+            padding: 1.5rem 2rem; /* Reduced padding */
+        }
+        .card-body p {
+            line-height: 1.4; /* Reduced line spacing */
+            margin-bottom: 0.8rem; /* Reduced spacing between paragraphs */
+        }
+        .card-body h4 {
+            margin-bottom: 0.8rem; /* Reduced spacing below headings */
         }
     </style>
 </head>
@@ -34,7 +44,7 @@
 <div class="container-fluid">
     <div class="row pt-3 pb-5">
         <div class="col-12">
-            <div class="row justify-content-center pt-5 pb-5">
+            <div class="row justify-content-center pt-4 pb-4"> <!-- Reduced padding -->
                 <div class="col-10 justify-content-center">
                     
                     <!-- Header Card -->
@@ -74,26 +84,27 @@
                         </div>
                     </div>
 
-                    <!-- Offence Type Composition Card -->
+                    <!-- Offence Type Composition Card - FULL WIDTH -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
-                                <div class="col-xl-3 col-10 order-xl-2 order-1 text-justify">
-                                    <h4 class="text-right">Offence Type Composition from 1995-2024</h4>
-                                    <p class="text-muted text-right small">
-                                        <i>Breakdown of physical offences by type over time.</i></p>
-                                    <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
-                                </div>
-                                <div class="col-xl-7 col-10 order-xl-1 order-2 text-center">
-                                    <hr class="p-3 m-0">
-                                    <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>Offence Type Composition from 1995-2024</h4>
+                                        <p class="text-muted small">
+                                            <i>Breakdown of physical offences by type over time.</i></p>
+                                        <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
+                                    </div>
                                     <hr>
+                                    <div class="text-center">
+                                        <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- State Comparison Card - FULL WIDTH like Overview -->
+                    <!-- State Comparison Card - FULL WIDTH -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
