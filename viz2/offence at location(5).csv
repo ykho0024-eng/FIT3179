@@ -1,12 +1,12 @@
 ﻿Offence Type,Location,Cases
-Assault ,Dwelling,135681
-Assault ,Outbuilding/residential land,1580
-Assault ,Transport,7259
-Assault ,Street/footpath,32058
-Assault ,Other community location,20691
-Assault ,Retail,18255
-Assault ,Recreational,7942
-Assault ,Other,3102
+Assault,Dwelling,135681
+Assault,Outbuilding/residential land,1580
+Assault,Transport,7259
+Assault,Street/footpath,32058
+Assault,Other community location,20691
+Assault,Retail,18255
+Assault,Recreational,7942
+Assault,Other,3102
 Sexual Assault,Dwelling,27563
 Sexual Assault,Outbuilding/residential land,177
 Sexual Assault,Transport,885
@@ -15,4 +15,5 @@ Sexual Assault,Other community location,4647
 Sexual Assault,Retail,1839
 Sexual Assault,Recreational,1484
 Sexual Assault,Other,544
+
 
