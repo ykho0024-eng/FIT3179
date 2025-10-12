@@ -78,15 +78,15 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
-                                <div class="col-10">
+                                <div class="col-xl-3 col-10 order-xl-2 order-1 text-justify">
                                     <div class="justify-content-center text-justify">
-                                        <h4>Offence Type Composition from 1995-2024</h4>
-                                        <p class="text-muted small">
+                                        <h4 class="text-right">Offence Type Composition from 1995-2024</h4>
+                                        <p class="text-muted small text-right small">
                                             <i>Breakdown of physical offences by type over time.</i></p>
                                         <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
                                     </div>
-                                    <hr>
-                                    <div class="text-center">
+                                    <hr class="p-3 m-0">
+                                    <div class="col-xl-7 col-10 order-xl-1 order-2 text-center">
                                         <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
                                     </div>
                                 </div>
@@ -98,13 +98,13 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
-                                <div class="col-xl-3 col-10 order-xl-2 order-1 text-justify">
-                                    <h4 class="text-right">State Comparison: Geographic Variation</h4>
-                                    <p class="text-muted text-right small"><i>Physical offence rates across Australian states and territories.</i></p>
+                                <div class="col-10">
+                                    <h4> State Comparison: Geographic Variation</h4>
+                                    <p class="text-muted small"><i>Physical offence rates across Australian states and territories.</i></p>
                                     <p>The map uses normalized color scaling to enable visual comparison across different offence types. Each crime category is converted to a common 0-10 scale based on expected ranges: Total Physical Offence (0-15 per 100,000), Assault (400-1500 per 100,000), and Sexual Assault (30-150 per 100,000). The formula (Actual_Rate - Min_Range) / (Max_Range - Min_Range) * 10 transforms all values to this consistent scale.</p>
                                 </div>
-                                <div class="col-xl-7 col-10 order-xl-1 order-2 text-center">
-                                    <hr class="p-3 m-0">
+                                <div class="text-center">
+                                    <hr>
                                     <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
                                     <hr>
                                 </div>
