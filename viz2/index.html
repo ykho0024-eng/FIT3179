@@ -76,6 +76,12 @@
             display: flex;
             flex-direction: column;
         }
+        .centered-graph {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -102,7 +108,7 @@
                         </div>
                     </div>
 
-                    <!-- National Overview Card -->
+                    <!-- National Overview Card - CENTERED -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
@@ -114,8 +120,8 @@
                                 </div>
                             </div>
                             
-                            <div class="row justify-content-center visualization-section">
-                                <div class="col-12 text-center graph-content">
+                            <div class="row justify-content-center">
+                                <div class="col-12 centered-graph">
                                     <iframe src="total graph(1).html" class="vis-container"></iframe>
                                 </div>
                             </div>
@@ -127,7 +133,7 @@
                         </div>
                     </div>
 
-                    <!-- Offence Type Composition Card -->
+                    <!-- Offence Type Composition Card - CENTERED -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
@@ -139,8 +145,8 @@
                                 </div>
                             </div>
                             
-                            <div class="row justify-content-center visualization-section">
-                                <div class="col-12 text-center graph-content">
+                            <div class="row justify-content-center">
+                                <div class="col-12 centered-graph">
                                     <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
                                 </div>
                             </div>
@@ -152,7 +158,7 @@
                         </div>
                     </div>
 
-                    <!-- State Comparison Card -->
+                    <!-- State Comparison Card - CENTERED -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
@@ -164,8 +170,8 @@
                                 </div>
                             </div>
                             
-                            <div class="row justify-content-center visualization-section">
-                                <div class="col-12 text-center graph-content">
+                            <div class="row justify-content-center">
+                                <div class="col-12 centered-graph">
                                     <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
                                 </div>
                             </div>
@@ -177,7 +183,7 @@
                         </div>
                     </div>
 
-                    <!-- Gender Comparison Card -->
+                    <!-- Gender Comparison Card - SIDE BY SIDE -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
@@ -204,7 +210,7 @@
                         </div>
                     </div>
 
-                    <!-- Location Distribution Card -->
+                    <!-- Location Distribution Card - SIDE BY SIDE -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
@@ -226,6 +232,30 @@
                                 </div>
                                 <div class="col-lg-8 col-md-10 col-12 order-lg-2 order-2 graph-content">
                                     <iframe src="piechart for location(5).html" class="vis-container"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="card border-0 shadow-lg">
+                        <div class="card-body pt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-10 text-center">
+                                    <h4 class="centered-title">Linking Weapons to Crimes</h4>
+                                    <p class="text-muted centered-subtitle small">
+                                        <i>Use of weapon in commission of offence </i>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-12 centered-graph">
+                                    <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <div class="col-10 description-text text-center">
+                                    <p>This Sankey diagram illustrates the relationship between weapon types and offence categories, revealing patterns in how different weapons are associated with various crimes.</p>
                                 </div>
                             </div>
                         </div>
