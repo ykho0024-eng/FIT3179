@@ -40,79 +40,67 @@
         
         /* Original Card Styles */
         .card {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+        
         .vis-container {
             width: 100%;
-            height: 700px;
+            height: 800px; /* Increased height */
             border: none;
         }
+        
         .card-body {
-            padding: 1.5rem 1rem;
+            padding: 2rem;
         }
+        
         .card-body p {
             line-height: 1.4;
             margin-bottom: 0.8rem;
         }
+        
         .card-body h4 {
             margin-bottom: 0.8rem;
         }
+        
         .centered-graph {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        
         .centered-title {
             text-align: center;
             margin-bottom: 1rem;
         }
+        
         .centered-subtitle {
             text-align: center;
             margin-bottom: 1.5rem;
         }
+        
         .description-text {
             text-align: justify;
         }
         
-        /* NPS Layout Styles */
-        #container {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        /* NPS Layout Styles with Boxes */
+        .nps-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
         }
         
-        #title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        #title h2 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        #title h5 {
-            color: var(--dark-gray);
-            font-weight: normal;
-            font-size: 1.2rem;
-        }
-        
-        hr {
-            border: 0;
-            height: 1px;
-            background: #ddd;
-            margin: 30px 0;
-        }
-        
-        .divider {
-            height: 20px;
+        .section-heading {
+            margin-bottom: 1.5rem;
         }
         
         .section-heading h3 {
             color: var(--primary-color);
             margin-bottom: 10px;
+            font-size: 1.5rem;
         }
         
         .section-heading h6 {
@@ -120,20 +108,22 @@
             font-weight: normal;
             margin-top: 0;
             font-style: italic;
+            font-size: 0.9rem;
         }
         
         .nps-vis-container {
             width: 100%;
-            height: 500px;
+            height: 800px; /* Increased height to match cards */
             border: none;
         }
         
         .right_side_text, .left_side_text {
             padding: 0 15px;
             line-height: 1.6;
+            height: 100%;
         }
         
-        .right_side_text li, .left_side_text li, .right_side_text p, .left_side_text p {
+        .right_side_text p, .left_side_text p {
             margin-bottom: 15px;
         }
         
@@ -144,10 +134,6 @@
         
         #margin {
             height: 100%;
-        }
-        
-        ul {
-            padding-left: 20px;
         }
         
         footer {
@@ -162,9 +148,19 @@
         /* Mixed layout container */
         .mixed-container {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Ensure proper spacing */
+        .pure-g {
+            margin-bottom: 0;
+        }
+        
+        /* Make text columns more balanced */
+        .text-column {
+            padding: 0 20px;
         }
     </style>
 </head>
@@ -238,103 +234,101 @@
             </div>
         </div>
 
-        <!-- START OF NPS STYLE SECTIONS -->
+        <!-- START OF NPS STYLE SECTIONS WITH BOXES -->
 
-        <hr>
-
-        <!-- Offence Type Composition Section (NPS Style) -->
-        <div class="section-heading">
-          <h3>Offence Type Composition from 1995-2024</h3>
-          <h6>Breakdown of physical offences by type over time</h6>
-        </div>
-
-        <div class="pure-g">
-          <!-- Text -->
-          <div class="pure-u-1-4">
-            <div class="left_side_text">
-              <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency.</p>
-              <p>This visualization shows how the composition of different offence types has evolved over nearly three decades, revealing shifts in the nature of violent crimes over time.</p>
+        <!-- Offence Type Composition Section (NPS Style with Box) -->
+        <div class="nps-section">
+            <div class="section-heading">
+                <h3>Offence Type Composition from 1995-2024</h3>
+                <h6>Breakdown of physical offences by type over time</h6>
             </div>
-          </div>
-          <!-- Chart -->
-          <div class="pure-u-3-4">
-            <iframe src="Offence Types Composition(2).html" class="nps-vis-container"></iframe>
-          </div>
-        </div>
 
-        <div class="divider"></div>
-
-        <!-- Gender Comparison Section (NPS Style) -->
-        <div class="section-heading">
-          <h3>Gender Comparison — Differences in Experiences</h3>
-          <h6>Age and gender distribution of victims across offence types</h6>
-        </div>
-
-        <div class="pure-g">
-          <!-- Text -->
-          <div class="pure-u-1-4">
-            <div class="left_side_text">
-              <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group.</p>
-              <p>The visualization reveals distinct patterns in victim demographics, showing how vulnerability varies across different stages of life and between genders.</p>
-              <p>Key differences emerge in the types of violence experienced by men and women at various ages.</p>
+            <div class="pure-g">
+                <!-- Text -->
+                <div class="pure-u-1-4">
+                    <div class="left_side_text text-column">
+                        <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency.</p>
+                        <p>This visualization shows how the composition of different offence types has evolved over nearly three decades, revealing shifts in the nature of violent crimes over time.</p>
+                    </div>
+                </div>
+                <!-- Chart -->
+                <div class="pure-u-3-4">
+                    <iframe src="Offence Types Composition(2).html" class="nps-vis-container"></iframe>
+                </div>
             </div>
-          </div>
-          <!-- Chart -->
-          <div class="pure-u-3-4">
-            <iframe src="victims demographic(4).html" class="nps-vis-container"></iframe>
-          </div>
         </div>
 
-        <div class="divider"></div>
-
-        <!-- Location Distribution Section (NPS Style) -->
-        <div class="section-heading">
-          <h3>Crime Distribution by Location</h3>
-          <h6>Geographic patterns of offences across different locations</h6>
-        </div>
-
-        <div class="pure-g">
-          <!-- Chart -->
-          <div class="pure-u-3-4">
-            <iframe src="piechart for location(5).html" class="nps-vis-container"></iframe>
-          </div>
-          <!-- Text -->
-          <div class="pure-u-1-4">
-            <div class="right_side_text">
-              <p>This interactive visualization shows how crime cases are distributed across various locations for different offence types.</p>
-              <p>Use the controls to explore how assault and sexual assault cases vary by location, revealing important insights about where these offences most commonly occur.</p>
-              <p>The data highlights patterns in crime location that can inform prevention strategies.</p>
+        <!-- Gender Comparison Section (NPS Style with Box) -->
+        <div class="nps-section">
+            <div class="section-heading">
+                <h3>Gender Comparison — Differences in Experiences</h3>
+                <h6>Age and gender distribution of victims across offence types</h6>
             </div>
-          </div>
-        </div>
 
-        <div class="divider"></div>
-
-        <!-- Sankey Graph Section (NPS Style) -->
-        <div class="section-heading">
-          <h3>Linking Weapons to Crimes</h3>
-          <h6>Use of weapon in commission of offence</h6>
-        </div>
-
-        <div class="pure-g">
-          <!-- Text -->
-          <div class="pure-u-1-4">
-            <div class="left_side_text">
-              <p>This Sankey diagram illustrates the relationship between weapon types and offence categories.</p>
-              <p>The visualization reveals patterns in how different weapons are associated with various crimes, showing the flow from weapon type to specific offences.</p>
-              <p>Understanding these connections can help in developing targeted intervention strategies.</p>
+            <div class="pure-g">
+                <!-- Text -->
+                <div class="pure-u-1-4">
+                    <div class="left_side_text text-column">
+                        <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group.</p>
+                        <p>The visualization reveals distinct patterns in victim demographics, showing how vulnerability varies across different stages of life and between genders.</p>
+                        <p>Key differences emerge in the types of violence experienced by men and women at various ages.</p>
+                    </div>
+                </div>
+                <!-- Chart -->
+                <div class="pure-u-3-4">
+                    <iframe src="victims demographic(4).html" class="nps-vis-container"></iframe>
+                </div>
             </div>
-          </div>
-          <!-- Chart -->
-          <div class="pure-u-3-4">
-            <iframe src="sankey graph weapon (6).html" class="nps-vis-container"></iframe>
-          </div>
         </div>
 
-        <div class="divider"></div>
+        <!-- Location Distribution Section (NPS Style with Box) -->
+        <div class="nps-section">
+            <div class="section-heading">
+                <h3>Crime Distribution by Location</h3>
+                <h6>Geographic patterns of offences across different locations</h6>
+            </div>
+
+            <div class="pure-g">
+                <!-- Chart -->
+                <div class="pure-u-3-4">
+                    <iframe src="piechart for location(5).html" class="nps-vis-container"></iframe>
+                </div>
+                <!-- Text -->
+                <div class="pure-u-1-4">
+                    <div class="right_side_text text-column">
+                        <p>This interactive visualization shows how crime cases are distributed across various locations for different offence types.</p>
+                        <p>Use the controls to explore how assault and sexual assault cases vary by location, revealing important insights about where these offences most commonly occur.</p>
+                        <p>The data highlights patterns in crime location that can inform prevention strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sankey Graph Section (NPS Style with Box) -->
+        <div class="nps-section">
+            <div class="section-heading">
+                <h3>Linking Weapons to Crimes</h3>
+                <h6>Use of weapon in commission of offence</h6>
+            </div>
+
+            <div class="pure-g">
+                <!-- Text -->
+                <div class="pure-u-1-4">
+                    <div class="left_side_text text-column">
+                        <p>This Sankey diagram illustrates the relationship between weapon types and offence categories.</p>
+                        <p>The visualization reveals patterns in how different weapons are associated with various crimes, showing the flow from weapon type to specific offences.</p>
+                        <p>Understanding these connections can help in developing targeted intervention strategies.</p>
+                    </div>
+                </div>
+                <!-- Chart -->
+                <div class="pure-u-3-4">
+                    <iframe src="sankey graph weapon (6).html" class="nps-vis-container"></iframe>
+                </div>
+            </div>
+        </div>
 
         <footer>
-          <p>Visualisations created by Yan Xuan Khoo. Data source: Australian Bureau of Statistics.</p>
+            <p>Visualisations created by Yan Xuan Khoo. Data source: Australian Bureau of Statistics.</p>
         </footer>
 
       </div>
