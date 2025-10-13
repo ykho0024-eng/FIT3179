@@ -1,30 +1,30 @@
-﻿Weapons,Offence Type,Cases,Proportion,,,,,,,,
-Firearm,Assault,525,0.255064859,,,,,,,,
-Knife,Assault,6281,3.051547393,,,,,,,,
-Syringe,Assault,129,0.06267308,,,,,,,,
-Bottle/glass,Assault,1226,0.595637176,,,,,,,,
-Bat/bar/club,Assault,1751,0.850702036,,,,,,,,
-No weapon used,Assault,"187,494",91.0916776,,,,,,,,
-Other(h),Assault,8424,4.092697857,,,,,,,,
-Firearm,Sexual Assault,33,0.088089264,,,,,,,,
-Knife,Sexual Assault,127,0.339010197,,,,,,,,
-Syringe,Sexual Assault,11,0.029363088,,,,,,,,
-Bottle/glass,Sexual Assault,3,0.008008115,,,,,,,,
-Bat/bar/club,Sexual Assault,13,0.034701831,,,,,,,,
-Other(h),Sexual Assault,99,0.264267791,,,,,,,,
-No weapon used,Sexual Assault,37176,99.23655971,,,,,,,,
-Firearm,Homicide and related offences,49,11.86440678,,,,,,,,
-Knife,Homicide and related offences,102,24.69733656,,,,,,,,
-No weapon used,Homicide and related offences,183,44.30992736,,,,,,,,
-Other(h),Homicide and related offences,79,19.1283293,,,,,,,,
-Firearm,Kidnapping/abduction,23,4.159132007,,,,,,,,
-Knife,Kidnapping/abduction,34,6.148282098,,,,,,,,
-No weapon used,Kidnapping/abduction,461,83.36347197,,,,,,,,
-Other(h),Kidnapping/abduction,35,6.329113924,,,,,,,,
-Firearm,Robbery,488,5.22260274,,,,,,,,
-Knife,Robbery,2533,27.10830479,,,,,,,,
-Syringe,Robbery,29,0.310359589,,,,,,,,
-Bottle/glass,Robbery,51,0.545804795,,,,,,,,
-Bat/bar/club,Robbery,198,2.119006849,,,,,,,,
-Other(h),Robbery,874,9.35359589,,,,,,,,
-No weapon used,Robbery,5171,55.34032534,,,,,,,,
+﻿Weapons,Offence Type,Cases,Proportion
+Firearm,Assault,525,0.255064859
+Knife,Assault,6281,3.051547393
+Syringe,Assault,129,0.06267308
+Bottle/glass,Assault,1226,0.595637176
+Bat/bar/club,Assault,1751,0.850702036
+No weapon used,Assault,"187,494",91.0916776
+Other,Assault,8424,4.092697857
+Firearm,Sexual Assault,33,0.088089264
+Knife,Sexual Assault,127,0.339010197
+Syringe,Sexual Assault,11,0.029363088
+Bottle/glass,Sexual Assault,3,0.008008115
+Bat/bar/club,Sexual Assault,13,0.034701831
+Other,Sexual Assault,99,0.264267791
+No weapon used,Sexual Assault,37176,99.23655971
+Firearm,Homicide and related offences,49,11.86440678
+Knife,Homicide and related offences,102,24.69733656
+No weapon used,Homicide and related offences,183,44.30992736
+Other,Homicide and related offences,79,19.1283293
+Firearm,Kidnapping/abduction,23,4.159132007
+Knife,Kidnapping/abduction,34,6.148282098
+No weapon used,Kidnapping/abduction,461,83.36347197
+Other,Kidnapping/abduction,35,6.329113924
+Firearm,Robbery,488,5.22260274
+Knife,Robbery,2533,27.10830479
+Syringe,Robbery,29,0.310359589
+Bottle/glass,Robbery,51,0.545804795
+Bat/bar/club,Robbery,198,2.119006849
+Other(h),Robbery,874,9.35359589
+No weapon used,Robbery,5171,55.34032534
