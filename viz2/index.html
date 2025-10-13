@@ -112,22 +112,18 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
-                                <div class="col-10 text-center">
-                                    <h4 class="centered-title">National Overview — How Has Personal Safety Changed Over Time?</h4>
-                                    <p class="text-muted centered-subtitle small">
-                                        <i>Trends in total violence prevalence from 1993 to 2024.</i>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="row justify-content-center">
-                                <div class="col-12 centered-graph">
-                                    <iframe src="total graph(1).html" class="vis-container"></iframe>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center mt-3">
-                                <div class="col-10 description-text text-center">
-                                    <p>We begin with a national perspective. This visualisation shows how the prevalence of total violence has shifted between 1993 and 2024, providing a broad overview of the changing landscape of personal safety in Australia.</p>
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>National Overview — How Has Personal Safety Changed Over Time?</h4>
+                                        <p class="text-muted small">
+                                            <i>Trends in total violence prevalence from 1993 to 2024.</i>
+                                        </p>
+                                        <p>We begin with a national perspective. This visualisation shows how the prevalence of total violence has shifted between 1993 and 2024, providing a broad overview of the changing landscape of personal safety in Australia.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <iframe src="total graph(1).html" class="vis-container"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -137,22 +133,18 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
-                                <div class="col-10 text-center">
-                                    <h4 class="centered-title">Offence Type Composition from 1995-2024</h4>
-                                    <p class="text-muted centered-subtitle small">
-                                        <i>Breakdown of physical offences by type over time.</i>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="row justify-content-center">
-                                <div class="col-12 centered-graph">
-                                    <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center mt-3">
-                                <div class="col-10 description-text text-center">
-                                    <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>Offence Type Composition from 1995-2024</h4>
+                                        <p class="text-muted small">
+                                            <i>Breakdown of physical offences by type over time.</i>
+                                        </p>
+                                        <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -162,22 +154,39 @@
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
-                                <div class="col-10 text-center">
-                                    <h4 class="centered-title">State Comparison: Geographic Variation</h4>
-                                    <p class="text-muted centered-subtitle small">
-                                        <i>Physical offence rates across Australian states and territories.</i>
-                                    </p>
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>State Comparison: Geographic Variation</h4>
+                                        <p class="text-muted small">
+                                            <i>Physical offence rates across Australian states and territories.</i>
+                                        </p>
+                                        <p>The map uses normalized color scaling to enable visual comparison across different offence types. Each crime category is converted to a common 0-10 scale based on expected ranges: Total Physical Offence (0-15 per 100,000), Assault (400-1500 per 100,000), and Sexual Assault (30-150 per 100,000). The formula (Actual_Rate - Min_Range) / (Max_Range - Min_Range) * 10 transforms all values to this consistent scale.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
+                                    </div>
                                 </div>
                             </div>
-                            
+                        </div>
+                    </div>
+
+                    <!-- Weapon Usage Card - CENTERED -->
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body pt-4">
                             <div class="row justify-content-center">
-                                <div class="col-12 centered-graph">
-                                    <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center mt-3">
-                                <div class="col-10 description-text text-center">
-                                    <p>The map uses normalized color scaling to enable visual comparison across different offence types. Each crime category is converted to a common 0-10 scale based on expected ranges: Total Physical Offence (0-15 per 100,000), Assault (400-1500 per 100,000), and Sexual Assault (30-150 per 100,000). The formula (Actual_Rate - Min_Range) / (Max_Range - Min_Range) * 10 transforms all values to this consistent scale.</p>
+                                <div class="col-10">
+                                    <div class="justify-content-center text-justify">
+                                        <h4>Weapon Choice Across Criminal Offences</h4>
+                                        <p class="text-muted small">
+                                            <i>Relationships between weapon types and offence categories.</i>
+                                        </p>
+                                        <p>This Sankey diagram illustrates the relationship between weapon types and offence categories, revealing patterns in how different weapons are associated with various crimes. The flow visualization clearly shows the distribution and prevalence of weapons across offence types, with thicker streams indicating more frequent combinations. By tracing the connections from left to right, you can observe which weapons are most commonly involved in specific offences, providing valuable insights into the nature of violent crimes and the tools typically employed in different criminal contexts.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <iframe src="sankey-graph.html" class="vis-container"></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +245,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                      <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
                             <div class="row justify-content-center">
