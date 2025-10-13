@@ -21,22 +21,22 @@
             background-position: top;
         }
         .card {
-            margin-bottom: 1.5rem; /* Reduced spacing between cards */
+            margin-bottom: 1.5rem;
         }
         .vis-container {
             width: 100%;
-            height: 700px; /* Increased height for larger graphs */
+            height: 700px;
             border: none;
         }
         .card-body {
-            padding: 1.5rem 1rem; /* Reduced horizontal padding */
+            padding: 1.5rem 1rem;
         }
         .card-body p {
-            line-height: 1.4; /* Reduced line spacing */
-            margin-bottom: 0.8rem; /* Reduced spacing between paragraphs */
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
         }
         .card-body h4 {
-            margin-bottom: 0.8rem; /* Reduced spacing below headings */
+            margin-bottom: 0.8rem;
         }
         .centered-title {
             text-align: center;
@@ -49,14 +49,41 @@
         .description-text {
             text-align: justify;
         }
+        /* New styles for better alignment */
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .visualization-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 700px;
+        }
+        .text-content {
+            padding: 20px;
+        }
+        .graph-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .equal-height-row {
+            display: flex;
+            align-items: stretch;
+        }
+        .equal-height-col {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row pt-3 pb-5">
-        <div class="col-12">
-            <div class="row justify-content-center pt-4 pb-4"> <!-- Reduced padding -->
-                <div class="col-11 justify-content-center"> <!-- Slightly wider container -->
+    <div class="row pt-3 pb-5 justify-content-center">
+        <div class="col-12 content-wrapper">
+            <div class="row justify-content-center pt-4 pb-4">
+                <div class="col-12">
                     
                     <!-- Header Card -->
                     <div class="card border-0 shadow-lg">
@@ -66,9 +93,9 @@
                                 <h4>Understanding Violence Patterns Across States and Demographics</h4>
                             </div>
                         </div>
-                        <div class="card-body align-content-center">
-                            <div class="row justify-content-center text-justify">
-                                <div class="col-10">
+                        <div class="card-body">
+                            <div class="row justify-content-center">
+                                <div class="col-10 text-center">
                                     <p>Personal safety remains a fundamental aspect of wellbeing, reflecting how secure people feel in their daily lives and relationships. This visual narrative explores trends in physical and sexual violence in Australia, using national survey and crime data from the Australian Bureau of Statistics (ABS). Through a series of visualisations, we uncover how experiences of personal violence have evolved over time, vary across states, and differ by gender, relationship, and demographic factors.</p>
                                 </div>
                             </div>
@@ -78,9 +105,8 @@
                     <!-- National Overview Card -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
-                            <!-- Centered Title Section -->
                             <div class="row justify-content-center">
-                                <div class="col-10">
+                                <div class="col-10 text-center">
                                     <h4 class="centered-title">National Overview — How Has Personal Safety Changed Over Time?</h4>
                                     <p class="text-muted centered-subtitle small">
                                         <i>Trends in total violence prevalence from 1993 to 2024.</i>
@@ -88,24 +114,24 @@
                                 </div>
                             </div>
                             
-                            <!-- Content with Description and Visualization -->
-                            <div class="row justify-content-center">
-                                <div class="col-10 description-text">
-                                    <p>We begin with a national perspective. This visualisation shows how the prevalence of total violence has shifted between 1993 and 2024, providing a broad overview of the changing landscape of personal safety in Australia.</p>
-                                </div>
-                                <div class="col-12 text-center">
+                            <div class="row justify-content-center visualization-section">
+                                <div class="col-12 text-center graph-content">
                                     <iframe src="total graph(1).html" class="vis-container"></iframe>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <div class="col-10 description-text text-center">
+                                    <p>We begin with a national perspective. This visualisation shows how the prevalence of total violence has shifted between 1993 and 2024, providing a broad overview of the changing landscape of personal safety in Australia.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Offence Type Composition Card - FULL WIDTH -->
+                    <!-- Offence Type Composition Card -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
-                            <!-- Centered Title Section -->
                             <div class="row justify-content-center">
-                                <div class="col-10">
+                                <div class="col-10 text-center">
                                     <h4 class="centered-title">Offence Type Composition from 1995-2024</h4>
                                     <p class="text-muted centered-subtitle small">
                                         <i>Breakdown of physical offences by type over time.</i>
@@ -113,24 +139,24 @@
                                 </div>
                             </div>
                             
-                            <!-- Content with Description and Visualization -->
-                            <div class="row justify-content-center">
-                                <div class="col-10 description-text">
-                                    <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
-                                </div>
-                                <div class="col-12 text-center">
+                            <div class="row justify-content-center visualization-section">
+                                <div class="col-12 text-center graph-content">
                                     <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <div class="col-10 description-text text-center">
+                                    <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency. This visualization shows how the composition of different offence types has evolved over nearly three decades.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- State Comparison Card - FULL WIDTH -->
+                    <!-- State Comparison Card -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
-                            <!-- Centered Title Section -->
                             <div class="row justify-content-center">
-                                <div class="col-10">
+                                <div class="col-10 text-center">
                                     <h4 class="centered-title">State Comparison: Geographic Variation</h4>
                                     <p class="text-muted centered-subtitle small">
                                         <i>Physical offence rates across Australian states and territories.</i>
@@ -138,24 +164,24 @@
                                 </div>
                             </div>
                             
-                            <!-- Content with Description and Visualization -->
-                            <div class="row justify-content-center">
-                                <div class="col-10 description-text">
-                                    <p>The map uses normalized color scaling to enable visual comparison across different offence types. Each crime category is converted to a common 0-10 scale based on expected ranges: Total Physical Offence (0-15 per 100,000), Assault (400-1500 per 100,000), and Sexual Assault (30-150 per 100,000). The formula (Actual_Rate - Min_Range) / (Max_Range - Min_Range) * 10 transforms all values to this consistent scale.</p>
-                                </div>
-                                <div class="col-12 text-center">
+                            <div class="row justify-content-center visualization-section">
+                                <div class="col-12 text-center graph-content">
                                     <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <div class="col-10 description-text text-center">
+                                    <p>The map uses normalized color scaling to enable visual comparison across different offence types. Each crime category is converted to a common 0-10 scale based on expected ranges: Total Physical Offence (0-15 per 100,000), Assault (400-1500 per 100,000), and Sexual Assault (30-150 per 100,000). The formula (Actual_Rate - Min_Range) / (Max_Range - Min_Range) * 10 transforms all values to this consistent scale.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Gender Comparison Card - TEXT ON RIGHT -->
+                    <!-- Gender Comparison Card -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
-                            <!-- Centered Title Section -->
                             <div class="row justify-content-center">
-                                <div class="col-10">
+                                <div class="col-10 text-center">
                                     <h4 class="centered-title">Gender Comparison — Differences in Experiences</h4>
                                     <p class="text-muted centered-subtitle small">
                                         <i>Age and gender distribution of victims across offence types.</i>
@@ -163,24 +189,26 @@
                                 </div>
                             </div>
                             
-                            <!-- Content with Visualization and Description -->
-                            <div class="row justify-content-center">
-                                <div class="col-xl-8 col-10 order-xl-1 order-2 text-center">
+                            <div class="row equal-height-row justify-content-center visualization-section">
+                                <div class="col-lg-8 col-md-10 col-12 order-lg-1 order-2 graph-content">
                                     <iframe src="victims demographic(4).html" class="vis-container"></iframe>
                                 </div>
-                                <div class="col-xl-2 col-10 order-xl-2 order-1 description-text">
-                                    <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group. The visualization reveals distinct patterns in victim demographics, showing how vulnerability varies across different stages of life and between genders.</p>
+                                <div class="col-lg-4 col-md-8 col-12 order-lg-2 order-1 text-content equal-height-col">
+                                    <div class="d-flex align-items-center justify-content-center h-100">
+                                        <div class="description-text">
+                                            <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group. The visualization reveals distinct patterns in victim demographics, showing how vulnerability varies across different stages of life and between genders.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Location Distribution Card - TEXT ON LEFT -->
+                    <!-- Location Distribution Card -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
-                            <!-- Centered Title Section -->
                             <div class="row justify-content-center">
-                                <div class="col-10">
+                                <div class="col-10 text-center">
                                     <h4 class="centered-title">Crime Distribution by Location</h4>
                                     <p class="text-muted centered-subtitle small">
                                         <i>Geographic patterns of offences across different locations.</i>
@@ -188,12 +216,15 @@
                                 </div>
                             </div>
                             
-                            <!-- Content with Description and Visualization -->
-                            <div class="row justify-content-center">
-                                <div class="col-xl-2 col-10 order-xl-1 order-1 description-text">
-                                    <p>This interactive visualization shows how crime cases are distributed across various locations for different offence types. Use the controls to explore how assault and sexual assault cases vary by location, revealing important insights about where these offences most commonly occur.</p>
+                            <div class="row equal-height-row justify-content-center visualization-section">
+                                <div class="col-lg-4 col-md-8 col-12 order-lg-1 order-1 text-content equal-height-col">
+                                    <div class="d-flex align-items-center justify-content-center h-100">
+                                        <div class="description-text">
+                                            <p>This interactive visualization shows how crime cases are distributed across various locations for different offence types. Use the controls to explore how assault and sexual assault cases vary by location, revealing important insights about where these offences most commonly occur.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-xl-8 col-10 order-xl-2 order-2 text-center">
+                                <div class="col-lg-8 col-md-10 col-12 order-lg-2 order-2 graph-content">
                                     <iframe src="piechart for location(5).html" class="vis-container"></iframe>
                                 </div>
                             </div>
