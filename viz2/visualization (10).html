@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@6.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.0.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "height": 700,
+  "width": 1000,
+  "padding": 40,
+  "data": [
+    {
+      "name": "rawData",
+      "values": [
+        {
+          "key": {"stk1": "Firearm", "stk2": "Assault"},
+          "doc_count": 525,
+          "stk1": "Firearm",
+          "stk2": "Assault",
+          "size": 525,
+          "log_size": 50.12240970190168
+        },
+        {
+          "key": {"stk1": "Knife", "stk2": "Assault"},
+          "doc_count": 6281,
+          "stk1": "Knife",
+          "stk2": "Assault",
+          "size": 6281,
+          "log_size": 69.96354944078874
+        },
+        {
+          "key": {"stk1": "Syringe", "stk2": "Assault"},
+          "doc_count": 129,
+          "stk1": "Syringe",
+          "stk2": "Assault",
+          "size": 129,
+          "log_size": 38.94027560364466
+        },
+        {
+          "key": {"stk1": "Bottle/glass", "stk2": "Assault"},
+          "doc_count": 1226,
+          "stk1": "Bottle/glass",
+          "stk2": "Assault",
+          "size": 1226,
+          "log_size": 56.89861955768729
+        },
+        {
+          "key": {"stk1": "Bat/bar/club", "stk2": "Assault"},
+          "doc_count": 1751,
+          "stk1": "Bat/bar/club",
+          "stk2": "Assault",
+          "size": 1751,
+          "log_size": 59.7481061719707
+        },
+        {
+          "key": {"stk1": "No weapon used", "stk2": "Assault"},
+          "doc_count": 187494,
+          "stk1": "No weapon used",
+          "stk2": "Assault",
+          "size": 187494,
+          "log_size": 97.13205965896299
+        },
+        {
+          "key": {"stk1": "Other", "stk2": "Assault"},
+          "doc_count": 8424,
+          "stk1": "Other",
+          "stk2": "Assault",
+          "size": 8424,
+          "log_size": 72.3116700417645
+        },
+        {
+          "key": {"stk1": "Firearm", "stk2": "Sexual Assault"},
+          "doc_count": 33,
+          "stk1": "Firearm",
+          "stk2": "Sexual Assault",
+          "size": 33,
+          "log_size": 28.210884196929293
+        },
+        {
+          "key": {"stk1": "Knife", "stk2": "Sexual Assault"},
+          "doc_count": 127,
+          "stk1": "Knife",
+          "stk2": "Sexual Assault",
+          "size": 127,
+          "log_size": 38.816242111356935
+        },
+        {
+          "key": {"stk1": "Syringe", "stk2": "Sexual Assault"},
+          "doc_count": 11,
+          "stk1": "Syringe",
+          "stk2": "Sexual Assault",
+          "size": 11,
+          "log_size": 19.879253198304003
+        },
+        {
+          "key": {"stk1": "Bottle/glass", "stk2": "Sexual Assault"},
+          "doc_count": 3,
+          "stk1": "Bottle/glass",
+          "stk2": "Sexual Assault",
+          "size": 3,
+          "log_size": 11.090354888959125
+        },
+        {
+          "key": {"stk1": "Bat/bar/club", "stk2": "Sexual Assault"},
+          "doc_count": 13,
+          "stk1": "Bat/bar/club",
+          "stk2": "Sexual Assault",
+          "size": 13,
+          "log_size": 21.112458636922067
+        },
+        {
+          "key": {"stk1": "Other", "stk2": "Sexual Assault"},
+          "doc_count": 99,
+          "stk1": "Other",
+          "stk2": "Sexual Assault",
+          "size": 99,
+          "log_size": 36.841361487904734
+        },
+        {
+          "key": {"stk1": "No weapon used", "stk2": "Sexual Assault"},
+          "doc_count": 37176,
+          "stk1": "No weapon used",
+          "stk2": "Sexual Assault",
+          "size": 37176,
+          "log_size": 84.1875645558217
+        },
+        {
+          "key": {"stk1": "Firearm", "stk2": "Homicide and related offences"},
+          "doc_count": 49,
+          "stk1": "Firearm",
+          "stk2": "Homicide and related offences",
+          "size": 49,
+          "log_size": 31.296184043425168
+        },
+        {
+          "key": {"stk1": "Knife", "stk2": "Homicide and related offences"},
+          "doc_count": 102,
+          "stk1": "Knife",
+          "stk2": "Homicide and related offences",
+          "size": 102,
+          "log_size": 37.07783190583709
+        },
+        {
+          "key": {
+            "stk1": "No weapon used",
+            "stk2": "Homicide and related offences"
+          },
+          "doc_count": 183,
+          "stk1": "No weapon used",
+          "stk2": "Homicide and related offences",
+          "size": 183,
+          "log_size": 41.71948606087189
+        },
+        {
+          "key": {"stk1": "Other", "stk2": "Homicide and related offences"},
+          "doc_count": 79,
+          "stk1": "Other",
+          "stk2": "Homicide and related offences",
+          "size": 79,
+          "log_size": 35.05621307739105
+        },
+        {
+          "key": {"stk1": "Firearm", "stk2": "Kidnapping/abduction"},
+          "doc_count": 23,
+          "stk1": "Firearm",
+          "stk2": "Kidnapping/abduction",
+          "size": 23,
+          "log_size": 25.424430642783566
+        },
+        {
+          "key": {"stk1": "Knife", "stk2": "Kidnapping/abduction"},
+          "doc_count": 34,
+          "stk1": "Knife",
+          "stk2": "Kidnapping/abduction",
+          "size": 34,
+          "log_size": 28.442784491915308
+        },
+        {
+          "key": {"stk1": "No weapon used", "stk2": "Kidnapping/abduction"},
+          "doc_count": 461,
+          "stk1": "No weapon used",
+          "stk2": "Kidnapping/abduction",
+          "size": 461,
+          "log_size": 49.08451912865391
+        },
+        {
+          "key": {"stk1": "Other", "stk2": "Kidnapping/abduction"},
+          "doc_count": 35,
+          "stk1": "Other",
+          "stk2": "Kidnapping/abduction",
+          "size": 35,
+          "log_size": 28.66815150764888
+        },
+        {
+          "key": {"stk1": "Firearm", "stk2": "Robbery"},
+          "doc_count": 488,
+          "stk1": "Firearm",
+          "stk2": "Robbery",
+          "size": 488,
+          "log_size": 49.53889991579898
+        },
+        {
+          "key": {"stk1": "Knife", "stk2": "Robbery"},
+          "doc_count": 2533,
+          "stk1": "Knife",
+          "stk2": "Robbery",
+          "size": 2533,
+          "log_size": 62.70043488704867
+        },
+        {
+          "key": {"stk1": "Syringe", "stk2": "Robbery"},
+          "doc_count": 29,
+          "stk1": "Syringe",
+          "stk2": "Robbery",
+          "size": 29,
+          "log_size": 27.209579053297244
+        },
+        {
+          "key": {"stk1": "Bottle/glass", "stk2": "Robbery"},
+          "doc_count": 51,
+          "stk1": "Bottle/glass",
+          "stk2": "Robbery",
+          "size": 51,
+          "log_size": 31.60994974865142
+        },
+        {
+          "key": {"stk1": "Bat/bar/club", "stk2": "Robbery"},
+          "doc_count": 198,
+          "stk1": "Bat/bar/club",
+          "stk2": "Robbery",
+          "size": 198,
+          "log_size": 42.34643859779594
+        },
+        {
+          "key": {"stk1": "Other", "stk2": "Robbery"},
+          "doc_count": 874,
+          "stk1": "Other",
+          "stk2": "Robbery",
+          "size": 874,
+          "log_size": 54.19379109086091
+        },
+        {
+          "key": {"stk1": "No weapon used", "stk2": "Robbery"},
+          "doc_count": 5171,
+          "stk1": "No weapon used",
+          "stk2": "Robbery",
+          "size": 5171,
+          "log_size": 68.40811791913399
+        }
+      ],
+      "transform": [
+        {"type": "formula", "expr": "datum.key.stk1", "as": "stk1"},
+        {"type": "formula", "expr": "datum.key.stk2", "as": "stk2"},
+        {"type": "formula", "expr": "datum.doc_count", "as": "size"},
+        {
+          "type": "formula",
+          "expr": "log(datum.doc_count + 1) * 8",
+          "as": "log_size"
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "source": "rawData",
+      "transform": [
+        {"type": "formula", "expr": "datum.stk1+datum.stk2", "as": "key"},
+        {"type": "fold", "fields": ["stk1", "stk2"], "as": ["stack", "grpId"]},
+        {
+          "type": "formula",
+          "expr": "datum.stack == 'stk1' ? datum.stk1+datum.stk2 : datum.stk2+datum.stk1",
+          "as": "sortField"
+        },
+        {
+          "type": "stack",
+          "groupby": ["stack"],
+          "sort": {"field": "sortField", "order": "descending"},
+          "field": "log_size"
+        },
+        {"type": "formula", "expr": "(datum.y0+datum.y1)/2", "as": "yc"}
+      ]
+    },
+    {
+      "name": "groups",
+      "source": "nodes",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["stack", "grpId"],
+          "fields": ["log_size"],
+          "ops": ["sum"],
+          "as": ["total"]
+        },
+        {
+          "type": "stack",
+          "groupby": ["stack"],
+          "sort": {"field": "grpId", "order": "descending"},
+          "field": "total"
+        },
+        {"type": "formula", "expr": "scale('y', datum.y0)", "as": "scaledY0"},
+        {"type": "formula", "expr": "scale('y', datum.y1)", "as": "scaledY1"},
+        {
+          "type": "formula",
+          "expr": "datum.stack == 'stk1'",
+          "as": "rightLabel"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.total/domain('y')[1]",
+          "as": "percentage"
+        }
+      ]
+    },
+    {
+      "name": "offenceGroups",
+      "source": "rawData",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["stk2"],
+          "fields": ["log_size"],
+          "ops": ["sum"],
+          "as": ["total"]
+        },
+        {
+          "type": "stack",
+          "groupby": [],
+          "sort": {"field": "stk2", "order": "ascending"},
+          "field": "total"
+        }
+      ]
+    },
+    {
+      "name": "destinationNodes",
+      "source": "nodes",
+      "transform": [{"type": "filter", "expr": "datum.stack == 'stk2'"}]
+    },
+    {
+      "name": "edges",
+      "source": "nodes",
+      "transform": [
+        {"type": "filter", "expr": "datum.stack == 'stk1'"},
+        {
+          "type": "lookup",
+          "from": "destinationNodes",
+          "key": "key",
+          "fields": ["key"],
+          "as": ["target"]
+        },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "shape": "diagonal",
+          "sourceY": {"expr": "scale('y', datum.yc)"},
+          "sourceX": {"expr": "scale('x', 'stk1') + bandwidth('x')"},
+          "targetY": {"expr": "scale('y', datum.target.yc)"},
+          "targetX": {"expr": "scale('x', 'stk2')"}
+        },
+        {
+          "type": "formula",
+          "expr": "range('y')[0]-scale('y', datum.log_size)",
+          "as": "strokeWidth"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.log_size/domain('y')[1]",
+          "as": "percentage"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "range": "width",
+      "domain": ["stk1", "stk2"],
+      "paddingOuter": 0.05,
+      "paddingInner": 0.95
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "range": "height",
+      "domain": {"data": "nodes", "field": "y1"}
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": [
+        "#1f77b4",
+        "#ff7f0e",
+        "#2ca02c",
+        "#d62728",
+        "#9467bd",
+        "#8c564b",
+        "#e377c2",
+        "#7f7f7f"
+      ],
+      "domain": {"data": "rawData", "field": "stk1"}
+    },
+    {
+      "name": "offenceColor",
+      "type": "ordinal",
+      "range": ["#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"],
+      "domain": {"data": "offenceGroups", "field": "stk2"}
+    },
+    {
+      "name": "stackNames",
+      "type": "ordinal",
+      "range": ["Weapons", "Offence Types"],
+      "domain": ["stk1", "stk2"]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "name": "offenceContainers",
+      "from": {"data": "offenceGroups"},
+      "encode": {
+        "enter": {
+          "fill": {"value": "transparent"},
+          "stroke": {"scale": "offenceColor", "field": "stk2"},
+          "strokeWidth": {"value": 0},
+          "cornerRadius": {"value": 6}
+        },
+        "update": {
+          "x": {"signal": "scale('x', 'stk2') - 8"},
+          "x2": {"signal": "scale('x', 'stk2') + bandwidth('x') + 8"},
+          "y": {"scale": "y", "field": "y0", "offset": -4},
+          "y2": {"scale": "y", "field": "y1", "offset": 4},
+          "tooltip": {"signal": "datum.stk2 + ' Container'"}
+        }
+      }
+    },
+    {
+      "type": "path",
+      "name": "edgeMark",
+      "from": {"data": "edges"},
+      "clip": true,
+      "encode": {
+        "update": {
+          "stroke": {"scale": "color", "field": "stk1"},
+          "strokeWidth": {"field": "strokeWidth"},
+          "path": {"field": "path"},
+          "strokeOpacity": {"value": 0.6},
+          "zindex": {"value": 0},
+          "tooltip": {
+            "signal": "datum.stk1 + ' → ' + datum.stk2 + '    Cases: ' + format(datum.size, ',.0f')"
+          }
+        },
+        "hover": {"strokeOpacity": {"value": 0.9}}
+      }
+    },
+    {
+      "type": "rect",
+      "name": "groupMark",
+      "from": {"data": "groups"},
+      "encode": {
+        "enter": {
+          "fill": [
+            {
+              "test": "datum.stack == 'stk1'",
+              "scale": "color",
+              "field": "grpId"
+            },
+            {"scale": "offenceColor", "field": "grpId"}
+          ],
+          "stroke": {"value": "#fff"},
+          "strokeWidth": {"value": 2},
+          "width": {"scale": "x", "band": 1}
+        },
+        "update": {
+          "x": {"scale": "x", "field": "stack"},
+          "y": {"field": "scaledY0"},
+          "y2": {"field": "scaledY1"},
+          "fillOpacity": {"value": 0.8}
+        },
+        "hover": {"fillOpacity": {"value": 1}}
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "groups"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "scale('x', datum.stack) + (datum.rightLabel ? bandwidth('x') + 8 : -8)"
+          },
+          "yc": {"signal": "(datum.scaledY0 + datum.scaledY1)/2"},
+          "align": {"signal": "datum.rightLabel ? 'left' : 'right'"},
+          "baseline": {"value": "middle"},
+          "fontWeight": {"value": "bold"},
+          "fontSize": {"value": 11},
+          "text": {
+            "signal": "abs(datum.scaledY0-datum.scaledY1) > 13 ? datum.grpId : ''"
+          }
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Weapon Usage Across Offence Types (Logarithmic Scale)",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
