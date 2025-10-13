@@ -38,6 +38,14 @@
         .card-body h4 {
             margin-bottom: 0.8rem; /* Reduced spacing below headings */
         }
+        .centered-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .centered-subtitle {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -127,16 +135,22 @@
                     <!-- Gender Comparison Card - TEXT ON RIGHT -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
+                            <!-- Centered Title Section -->
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <h4 class="centered-title">Gender Comparison — Differences in Experiences</h4>
+                                    <p class="text-muted centered-subtitle small">
+                                        <i>Age and gender distribution of victims across offence types.</i>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Content with Visualization and Description -->
                             <div class="row justify-content-center">
                                 <div class="col-xl-8 col-10 order-xl-1 order-2 text-center">
-                                    <hr class="p-3 m-0">
                                     <iframe src="victims demographic(4).html" class="vis-container"></iframe>
-                                    <hr>
                                 </div>
                                 <div class="col-xl-2 col-10 order-xl-2 order-1 text-justify">
-                                    <h4 class="text-left">Gender Comparison — Differences in Experiences</h4>
-                                    <p class="text-muted text-left small">
-                                        <i>Age and gender distribution of victims across offence types.</i></p>
                                     <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group. The visualization reveals distinct patterns in victim demographics, showing how vulnerability varies across different stages of life and between genders.</p>
                                 </div>
                             </div>
@@ -146,21 +160,28 @@
                     <!-- Location Distribution Card - TEXT ON LEFT -->
                     <div class="card border-0 shadow-lg">
                         <div class="card-body pt-4">
+                            <!-- Centered Title Section -->
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <h4 class="centered-title">Crime Distribution by Location</h4>
+                                    <p class="text-muted centered-subtitle small">
+                                        <i>Geographic patterns of offences across different locations.</i>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Content with Description and Visualization -->
                             <div class="row justify-content-center">
                                 <div class="col-xl-2 col-10 order-xl-1 order-1 text-justify">
-                                    <h4 class="text-left">Crime Distribution by Location</h4>
-                                    <p class="text-muted text-left small">
-                                        <i>Geographic patterns of offences across different locations.</i></p>
                                     <p>This interactive visualization shows how crime cases are distributed across various locations for different offence types. Use the controls to explore how assault and sexual assault cases vary by location, revealing important insights about where these offences most commonly occur.</p>
                                 </div>
                                 <div class="col-xl-8 col-10 order-xl-2 order-2 text-center">
-                                    <hr class="p-3 m-0">
                                     <iframe src="piechart for location(5).html" class="vis-container"></iframe>
-                                    <hr>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <!-- Footer -->
                     <div class="text-center mt-4">
                         <p style="font-size: 14px; color: #333;">
