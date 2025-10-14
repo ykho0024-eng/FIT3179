@@ -1,50 +1,65 @@
-﻿Age Group,Types of Offence,Gender,Counts
-0–9 years,Sexual Assault,Males,2008
-10–17 years,Sexual Assault,Males,3148
-18–24 years,Sexual Assault,Males,544
-25–34 years,Sexual Assault,Males,556
-35–44 years,Sexual Assault,Males,359
-45–54 years,Sexual Assault,Males,183
-55–64 years,Sexual Assault,Males,74
-65 years and over,Sexual Assault,Males,63
-0–9 years,Sexual Assault,Females,4687
-10–17 years,Sexual Assault,Females,12109
-18–24 years,Sexual Assault,Females,5109
-25–34 years,Sexual Assault,Females,4922
-35–44 years,Sexual Assault,Females,3039
-45–54 years,Sexual Assault,Females,1497
-55–64 years,Sexual Assault,Females,481
-65 years and over,Sexual Assault,Females,438
-0–9 years,Assault,Males,2916
-10–17 years,Assault,Males,12161
-18–24 years,Assault,Males,14726
-25–34 years,Assault,Males,23527
-35–44 years,Assault,Males,19521
-45–54 years,Assault,Males,14786
-55–64 years,Assault,Males,8980
-65 years and over,Assault,Males,5384
-0–9 years,Assault,Females,2018
-10–17 years,Assault,Females,13652
-18–24 years,Assault,Females,20754
-25–34 years,Assault,Females,32224
-35–44 years,Assault,Females,27149
-45–54 years,Assault,Females,16620
-55–64 years,Assault,Females,7051
-65 years and over,Assault,Females,4240
-0–9 years,Total Offence,Males,4924
-10–17 years,Total Offence,Males,15309
-18–24 years,Total Offence,Males,15270
-25–34 years,Total Offence,Males,24083
-35–44 years,Total Offence,Males,19880
-45–54 years,Total Offence,Males,14969
-55–64 years,Total Offence,Males,9054
-65 years and over,Total Offence,Males,5447
-0–9 years,Total Offence,Females,6705
-10–17 years,Total Offence,Females,25761
-18–24 years,Total Offence,Females,25863
-25–34 years,Total Offence,Females,37146
-35–44 years,Total Offence,Females,30188
-45–54 years,Total Offence,Females,18117
-55–64 years,Total Offence,Females,7532
-65 years and over,Total Offence,Females,4678
-
+﻿Age Group,Types of Offence,Gender,Counts,,,,,,,,
+0–9 years,Sexual Assault,Males,"2,008",,,,,,,,
+10–17 years,Sexual Assault,Males,"3,148",,,,,,,,
+18–24 years,Sexual Assault,Males,544,,,,,,,,
+25–34 years,Sexual Assault,Males,556,,,,,,,,
+35–44 years,Sexual Assault,Males,359,,,,,,,,
+45–54 years,Sexual Assault,Males,183,,,,,,,,
+55–64 years,Sexual Assault,Males,74,,,,,,,,
+65 years and over,Sexual Assault,Males,63,,,,,,,,
+0–9 years,Sexual Assault,Females,"4,687",,,,,,,,
+10–17 years,Sexual Assault,Females,"12,109",,,,,,,,
+18–24 years,Sexual Assault,Females,"5,109",,,,,,,,
+25–34 years,Sexual Assault,Females,"4,922",,,,,,,,
+35–44 years,Sexual Assault,Females,"3,039",,,,,,,,
+45–54 years,Sexual Assault,Females,"1,497",,,,,,,,
+55–64 years,Sexual Assault,Females,481,,,,,,,,
+65 years and over,Sexual Assault,Females,438,,,,,,,,
+0–9 years,Assault,Males,"2,916",,,,,,,,
+10–17 years,Assault,Males,"12,161",,,,,,,,
+18–24 years,Assault,Males,"14,726",,,,,,,,
+25–34 years,Assault,Males,"23,527",,,,,,,,
+35–44 years,Assault,Males,"19,521",,,,,,,,
+45–54 years,Assault,Males,"14,786",,,,,,,,
+55–64 years,Assault,Males,"8,980",,,,,,,,
+65 years and over,Assault,Males,"5,384",,,,,,,,
+0–9 years,Assault,Females,"2,018",,,,,,,,
+10–17 years,Assault,Females,"13,652",,,,,,,,
+18–24 years,Assault,Females,"20,754",,,,,,,,
+25–34 years,Assault,Females,"32,224",,,,,,,,
+35–44 years,Assault,Females,"27,149",,,,,,,,
+45–54 years,Assault,Females,"16,620",,,,,,,,
+55–64 years,Assault,Females,"7,051",,,,,,,,
+65 years and over,Assault,Females,"4,240",,,,,,,,
+0–9 years,Robbery,Males,27,,,,,,,,
+10–17 years,Robbery,Males,"2,384",,,,,,,,
+18–24 years,Robbery,Males,"1,436",,,,,,,,
+25–34 years,Robbery,Males,"1,475",,,,,,,,
+35–44 years,Robbery,Males,955,,,,,,,,
+45–54 years,Robbery,Males,613,,,,,,,,
+55–64 years,Robbery,Males,333,,,,,,,,
+65 years and over,Robbery,Males,224,,,,,,,,
+0–9 years,Robbery,Females,3,,,,,,,,
+10–17 years,Robbery,Females,443,,,,,,,,
+18–24 years,Robbery,Females,449,,,,,,,,
+25–34 years,Robbery,Females,517,,,,,,,,
+35–44 years,Robbery,Females,424,,,,,,,,
+45–54 years,Robbery,Females,297,,,,,,,,
+55–64 years,Robbery,Females,185,,,,,,,,
+65 years and over,Robbery,Females,130,,,,,,,,
+Under 18,Kidnapping/abduction,Males,72,,,,,,,,
+18–34 years,Kidnapping/abduction,Males,122,,,,,,,,
+35–54 years,Kidnapping/abduction,Males,58,,,,,,,,
+55 years and over,Kidnapping/abduction,Males,12,,,,,,,,
+Under 18,Kidnapping/abduction,Females,84,,,,,,,,
+18–34 years,Kidnapping/abduction,Females,118,,,,,,,,
+35–54 years,Kidnapping/abduction,Females,61,,,,,,,,
+55 years and over,Kidnapping/abduction,Females,10,,,,,,,,
+Under 18,Homicide and related offences,Males,24,,,,,,,,
+18–34 years,Homicide and related offences,Males,98,,,,,,,,
+35–54 years,Homicide and related offences,Males,79,,,,,,,,
+55 years and over,Homicide and related offences,Males,63,,,,,,,,
+Under 18,Homicide and related offences,Females,13,,,,,,,,
+18–34 years,Homicide and related offences,Females,39,,,,,,,,
+35–54 years,Homicide and related offences,Females,53,,,,,,,,
+55 years and over,Homicide and related offences,Females,48,,,,,,,,
