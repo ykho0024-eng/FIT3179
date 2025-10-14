@@ -16,10 +16,17 @@
   "params": [
     {
       "name": "offence_select",
-      "value": "Total Offence",
+      "value": "Total Offences",
       "bind": {
         "input": "select",
-        "options": ["Sexual Assault", "Assault", "Total Offence"],
+        "options": [
+          "Total Offences",
+          "Assault",
+          "Sexual Assault",
+          "Homicide and related offences",
+          "Robbery",
+          "Kidnapping/abduction"
+        ],
         "name": "Select Offence Type:"
       }
     }
@@ -54,10 +61,10 @@
           "scale": {
             "domain": [
               {
-                "signal": "if(offence_select == 'Sexual Assault', -5000, if(offence_select == 'Assault', -40000, -40000))"
+                "signal": "if(offence_select == 'Sexual Assault', -12200, if(offence_select == 'Assault', -40000, if(offence_select == 'Homicide and related offences', -200, if(offence_select == 'Robbery', -2500, if(offence_select == 'Kidnapping/abduction', -150, -70000)))))"
               },
               {
-                "signal": "if(offence_select == 'Sexual Assault', 5000, if(offence_select == 'Assault', 40000, 40000))"
+                "signal": "if(offence_select == 'Sexual Assault', 12200, if(offence_select == 'Assault', 40000, if(offence_select == 'Homicide and related offences', 200, if(offence_select == 'Robbery', 2500, if(offence_select == 'Kidnapping/abduction', 150, 70000)))))"
               }
             ]
           }
