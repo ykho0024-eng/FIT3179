@@ -21,36 +21,9 @@
       "bind": {
         "input": "select",
         "options": [
-          1995,
-          1996,
-          1997,
-          1998,
-          1999,
-          2000,
-          2001,
-          2002,
-          2003,
-          2004,
-          2005,
-          2006,
-          2007,
-          2008,
-          2009,
-          2010,
-          2011,
-          2012,
-          2013,
-          2014,
-          2015,
-          2016,
-          2017,
-          2018,
-          2019,
-          2020,
-          2021,
-          2022,
-          2023,
-          2024
+          1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+          2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
+          2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
         ],
         "name": "Select Year: "
       }
@@ -60,8 +33,15 @@
       "value": "Total Offence",
       "bind": {
         "input": "select",
-        "options": ["Total Offence", "Assault", "Sexual assault"],
-        "name": "Offence Type: "
+        "options": [
+          "Total Offence",
+          "Assault",
+          "Sexual assault",
+          "Homicide and related offences",
+          "Robbery",
+          "Kidnapping/abduction"
+        ],
+        "name": "Offence Type:"
       }
     }
   ],
@@ -90,7 +70,7 @@
           "filter": "toNumber(datum.Year) == year_selection"
         },
         {
-          "calculate": "if(offence_type == 'Total Offence', (datum.Offence == 'Assault' || datum.Offence == 'Sexual assault'), datum.Offence == offence_type)",
+          "calculate": "if(offence_type == 'Total Offence', true, datum.Offence == offence_type)",
           "as": "include_record"
         },
         {
@@ -109,7 +89,11 @@
               "as": "State_Population"
             }
           ],
-          "groupby": ["State", "Year"]
+          "groupby": ["State", "Year", "Offence"]
+        },
+        {
+          "calculate": "toNumber(datum.Display_Cases) / toNumber(datum.State_Population) * 10000",
+          "as": "Rate_per_10000"
         },
         {
           "lookup": "State",
@@ -127,20 +111,16 @@
           "as": ["geo_properties", "geo_geometry"]
         },
         {
-          "calculate": "toNumber(datum.Display_Cases) / toNumber(datum.State_Population) * 100000",
-          "as": "Crime_Rate_per_100000"
-        },
-        {
-          "calculate": "min(datum.Crime_Rate_per_100000, 2500)",
-          "as": "Capped_Crime_Rate"
-        },
-        {
-          "calculate": "if(offence_type == 'Total Offence', (datum.Capped_Crime_Rate - 500) / (2500 - 500) * 10, if(offence_type == 'Assault', (datum.Crime_Rate_per_100000 - 400) / (1500 - 400) * 10, (datum.Crime_Rate_per_100000 - 30) / (120 - 30) * 10))",
+          "calculate": "if(offence_type == 'Homicide and related offences', datum.Rate_per_10000 / 1, if(offence_type == 'Robbery', (datum.Rate_per_10000 - 1) / 9, if(offence_type == 'Kidnapping/abduction', datum.Rate_per_10000 / 1, if(offence_type == 'Sexual assault', datum.Rate_per_10000 / 20, if(offence_type == 'Assault', (datum.Rate_per_10000 - 50) / 150, datum.Rate_per_10000 / 500)))))",
           "as": "Normalized_Rate"
         },
         {
-          "calculate": "min(max(datum.Normalized_Rate, 0), 10)",
+          "calculate": "min(max(datum.Normalized_Rate, 0), 1)",
           "as": "Normalized_Rate_Clamped"
+        },
+        {
+          "calculate": "datum.Normalized_Rate_Clamped * 10",
+          "as": "Normalized_Rate_Scaled"
         },
         {
           "calculate": "offence_type",
@@ -151,7 +131,7 @@
       "encoding": {
         "shape": {"field": "geo_geometry", "type": "geojson"},
         "color": {
-          "field": "Normalized_Rate_Clamped",
+          "field": "Normalized_Rate_Scaled",
           "type": "quantitative",
           "title": "Crime Rate (Normalized)",
           "scale": {
@@ -193,33 +173,17 @@
             "format": ","
           },
           {
-            "field": "Crime_Rate_per_100000",
-            "title": "Rate per 100,000",
+            "field": "Rate_per_10000",
+            "title": "Rate per 10,000",
             "format": ".2f"
           },
           {
             "field": "Normalized_Rate_Clamped",
             "title": "Normalized Score",
-            "format": ".1f"
+            "format": ".3f"
           }
         ]
       }
-    },
-    {
-      "data": {"values": [{}]},
-      "mark": {
-        "type": "text",
-        "x": 50,
-        "y": 70,
-        "align": "left",
-        "fontSize": 12,
-        "fontWeight": "normal",
-        "fill": "#2e2e2e",
-        "background": "#f9f9f9",
-        "dx": 5,
-        "dy": -5
-      },
-      "projection": null
     }
   ],
   "config": {}
