@@ -176,6 +176,21 @@
         .full-width-content {
             width: 100%;
         }
+        
+        /* Fix for Pure CSS grid alignment */
+        .pure-g [class*="pure-u"] {
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        /* Ensure proper text and graph alignment */
+        .text-content {
+            padding-right: 20px;
+        }
+        
+        .graph-content {
+            padding-left: 0;
+        }
     </style>
 </head>
 
@@ -258,14 +273,14 @@
             </div>
 
             <div class="pure-g">
-                <!-- Text -->
+                <!-- Text on LEFT -->
                 <div class="pure-u-1-4">
                     <div class="left_side_text text-column">
                         <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency.</p>
                         <p>This visualization shows how the composition of different offence types has evolved over nearly three decades, revealing shifts in the nature of violent crimes over time.</p>
                     </div>
                 </div>
-                <!-- Chart -->
+                <!-- Chart on RIGHT -->
                 <div class="pure-u-3-4">
                     <iframe src="Offence Types Composition(2).html" class="nps-vis-container"></iframe>
                 </div>
@@ -280,7 +295,7 @@
             </div>
 
             <div class="pure-g">
-                <!-- Text -->
+                <!-- Text on LEFT -->
                 <div class="pure-u-1-4">
                     <div class="left_side_text text-column">
                         <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group.</p>
@@ -288,7 +303,7 @@
                         <p>Key differences emerge in the types of violence experienced by men and women at various ages.</p>
                     </div>
                 </div>
-                <!-- Chart -->
+                <!-- Chart on RIGHT -->
                 <div class="pure-u-3-4">
                     <iframe src="victims demographic(4).html" class="nps-vis-container"></iframe>
                 </div>
@@ -303,11 +318,11 @@
             </div>
 
             <div class="pure-g">
-                <!-- Chart -->
+                <!-- Chart on LEFT -->
                 <div class="pure-u-3-4">
                     <iframe src="piechart for location(5).html" class="nps-vis-container"></iframe>
                 </div>
-                <!-- Text -->
+                <!-- Text on RIGHT -->
                 <div class="pure-u-1-4">
                     <div class="right_side_text text-column">
                         <p>This interactive visualization shows how crime cases are distributed across various locations for different offence types.</p>
