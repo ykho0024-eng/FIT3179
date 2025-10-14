@@ -47,7 +47,7 @@
         
         .vis-container {
             width: 100%;
-            height: 600px; /* Reduced height */
+            height: 600px;
             border: none;
         }
         
@@ -64,27 +64,11 @@
             margin-bottom: 0.8rem;
         }
         
-        .centered-graph {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .centered-title {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        
-        .centered-subtitle {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        
         .description-text {
             text-align: justify;
         }
         
-        /* NPS Layout Styles with Boxes */
+        /* NPS Layout Styles */
         .nps-section {
             background: white;
             border-radius: 8px;
@@ -113,17 +97,16 @@
         
         .nps-vis-container {
             width: 100%;
-            height: 600px; /* Reduced height to match cards */
+            height: 600px;
             border: none;
         }
         
-        .right_side_text, .left_side_text {
+        .side-text {
             padding: 0 15px;
             line-height: 1.6;
-            height: 100%;
         }
         
-        .right_side_text p, .left_side_text p {
+        .side-text p {
             margin-bottom: 15px;
         }
         
@@ -145,7 +128,7 @@
             border-top: 1px solid #ddd;
         }
         
-        /* Wider container */
+        /* Main container */
         .mixed-container {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 30px;
@@ -153,43 +136,24 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
         
-        /* Make main container wider by reducing margins */
-        .pure-u-3-4 {
-            width: 90% !important; /* Wider main content */
-        }
-        
-        .pure-u-1-8 {
-            width: 5% !important; /* Smaller margins */
-        }
-        
-        /* Ensure proper spacing */
+        /* Pure CSS grid fixes */
         .pure-g {
-            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
         }
         
-        /* Make text columns more balanced */
+        .pure-u-1-4, .pure-u-3-4 {
+            display: block;
+        }
+        
+        /* Ensure proper text and graph alignment */
         .text-column {
             padding: 0 20px;
         }
         
-        /* Full width card content */
+        /* Full width for card content */
         .full-width-content {
             width: 100%;
-        }
-        
-        /* Fix for Pure CSS grid alignment */
-        .pure-g [class*="pure-u"] {
-            display: inline-block;
-            vertical-align: top;
-        }
-        
-        /* Ensure proper text and graph alignment */
-        .text-content {
-            padding-right: 20px;
-        }
-        
-        .graph-content {
-            padding-left: 0;
         }
     </style>
 </head>
@@ -216,7 +180,7 @@
             </div>
             <div class="card-body align-content-center">
                 <div class="row justify-content-center text-justify">
-                    <div class="col-12 full-width-content"> <!-- Wider content -->
+                    <div class="col-12">
                         <p>Personal safety remains a fundamental aspect of wellbeing, reflecting how secure people feel in their daily lives and relationships. This visual narrative explores trends in physical and sexual violence in Australia, using national survey and crime data from the Australian Bureau of Statistics (ABS). Through a series of visualisations, we uncover how experiences of personal violence have evolved over time, vary across states, and differ by gender, relationship, and demographic factors.</p>
                     </div>
                 </div>
@@ -227,7 +191,7 @@
         <div class="card border-0 shadow-lg">
             <div class="card-body pt-4">
                 <div class="row justify-content-center">
-                    <div class="col-12 full-width-content"> <!-- Wider content -->
+                    <div class="col-12">
                         <div class="justify-content-center text-justify">
                             <h4>National Overview — How Has Personal Safety Changed Over Time?</h4>
                             <p class="text-muted small">
@@ -247,7 +211,7 @@
         <div class="card border-0 shadow-lg">
             <div class="card-body pt-4">
                 <div class="row justify-content-center">
-                    <div class="col-12 full-width-content"> <!-- Wider content -->
+                    <div class="col-12">
                         <div class="justify-content-center text-justify">
                             <h4>State Comparison: Geographic Variation</h4>
                             <p class="text-muted small">
@@ -263,9 +227,9 @@
             </div>
         </div>
 
-        <!-- START OF NPS STYLE SECTIONS WITH BOXES -->
+        <!-- START OF NPS STYLE SECTIONS -->
 
-        <!-- Offence Type Composition Section (NPS Style with Box) -->
+        <!-- Offence Type Composition Section -->
         <div class="nps-section">
             <div class="section-heading">
                 <h3>Offence Type Composition from 1995-2024</h3>
@@ -275,7 +239,7 @@
             <div class="pure-g">
                 <!-- Text on LEFT -->
                 <div class="pure-u-1-4">
-                    <div class="left_side_text text-column">
+                    <div class="side-text">
                         <p>Due to unpublished data of assault in some states and years, physical offences are grouped as Assault and Other Physical Offences (homicide, kidnapping) for data consistency.</p>
                         <p>This visualization shows how the composition of different offence types has evolved over nearly three decades, revealing shifts in the nature of violent crimes over time.</p>
                     </div>
@@ -287,7 +251,7 @@
             </div>
         </div>
 
-        <!-- Gender Comparison Section (NPS Style with Box) -->
+        <!-- Gender Comparison Section -->
         <div class="nps-section">
             <div class="section-heading">
                 <h3>Gender Comparison — Differences in Experiences</h3>
@@ -297,7 +261,7 @@
             <div class="pure-g">
                 <!-- Text on LEFT -->
                 <div class="pure-u-1-4">
-                    <div class="left_side_text text-column">
+                    <div class="side-text">
                         <p>This population pyramid compares men's and women's experiences of physical and sexual assault by age group.</p>
                         <p>The visualization reveals distinct patterns in victim demographics, showing how vulnerability varies across different stages of life and between genders.</p>
                         <p>Key differences emerge in the types of violence experienced by men and women at various ages.</p>
@@ -310,7 +274,7 @@
             </div>
         </div>
 
-        <!-- Location Distribution Section (NPS Style with Box) -->
+        <!-- Location Distribution Section -->
         <div class="nps-section">
             <div class="section-heading">
                 <h3>Crime Distribution by Location</h3>
@@ -324,7 +288,7 @@
                 </div>
                 <!-- Text on RIGHT -->
                 <div class="pure-u-1-4">
-                    <div class="right_side_text text-column">
+                    <div class="side-text">
                         <p>This interactive visualization shows how crime cases are distributed across various locations for different offence types.</p>
                         <p>Use the controls to explore how assault and sexual assault cases vary by location, revealing important insights about where these offences most commonly occur.</p>
                         <p>The data highlights patterns in crime location that can inform prevention strategies.</p>
@@ -333,11 +297,11 @@
             </div>
         </div>
 
-        <!-- Sankey Graph Section (Same style as first sections - Card Style) -->
+        <!-- Sankey Graph Section (Card Style) -->
         <div class="card border-0 shadow-lg">
             <div class="card-body pt-4">
                 <div class="row justify-content-center">
-                    <div class="col-12 full-width-content"> <!-- Wider content -->
+                    <div class="col-12">
                         <div class="justify-content-center text-justify">
                             <h4>Linking Weapons to Crimes</h4>
                             <p class="text-muted small">
