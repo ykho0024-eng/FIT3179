@@ -1,19 +1,32 @@
-﻿Offence Type,Location,Cases
-Assault,Dwelling,135681
-Assault,Outbuilding/residential land,1580
-Assault,Transport,7259
-Assault,Street/footpath,32058
-Assault,Other community location,20691
-Assault,Retail,18255
-Assault,Recreational,7942
-Assault,Other,3102
-Sexual Assault,Dwelling,27563
-Sexual Assault,Outbuilding/residential land,177
-Sexual Assault,Transport,885
-Sexual Assault,Street/footpath,1412
-Sexual Assault,Other community location,4647
-Sexual Assault,Retail,1839
-Sexual Assault,Recreational,1484
-Sexual Assault,Other,544
-
-
+﻿Offence Type,Location,Cases,,,,,,,,
+Assault ,Dwelling(c),"135,681",,,,,,,,
+Assault ,Outbuilding/residential land,"1,580",,,,,,,,
+Assault ,Transport,"7,259",,,,,,,,
+Assault ,Street/footpath,"32,058",,,,,,,,
+Assault ,Other community location(i),"20,691",,,,,,,,
+Assault ,Retail,"18,255",,,,,,,,
+Assault ,Recreational,"7,942",,,,,,,,
+Assault ,Other(k),"3,102",,,,,,,,
+Sexual Assault,Dwelling(c),"27,563",,,,,,,,
+Sexual Assault,Outbuilding/residential land,177,,,,,,,,
+Sexual Assault,Transport,885,,,,,,,,
+Sexual Assault,Street/footpath,"1,412",,,,,,,,
+Sexual Assault,Other community location(i),"4,647",,,,,,,,
+Sexual Assault,Retail,"1,839",,,,,,,,
+Sexual Assault,Recreational,"1,484",,,,,,,,
+Sexual Assault,Other(k),544,,,,,,,,
+Homicide and related offence,Dwelling(c),245,,,,,,,,
+Homicide and related offence,Outbuilding/residential land,13,,,,,,,,
+Homicide and related offence,Street/footpath,91,,,,,,,,
+Homicide and related offence,Other(k),50,,,,,,,,
+Kidnapping/abduction,Residential ,290,,,,,,,,
+Kidnapping/abduction,Community,181,,,,,,,,
+Kidnapping/abduction,Other(k),93,,,,,,,,
+Robbery,Dwelling(c),"1,862",,,,,,,,
+Robbery,Outbuilding/residential land,202,,,,,,,,
+Robbery,Transport,"1,101",,,,,,,,
+Robbery,Street/footpath,"3,458",,,,,,,,
+Robbery,Other community location(i),531,,,,,,,,
+Robbery,Retail,"3,056",,,,,,,,
+Robbery,Recreational,866,,,,,,,,
+Robbery,Other(k),234,,,,,,,,
