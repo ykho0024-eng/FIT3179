@@ -47,7 +47,7 @@
         
         .vis-container {
             width: 100%;
-            height: 800px; /* Increased height */
+            height: 600px; /* Reduced height */
             border: none;
         }
         
@@ -113,7 +113,7 @@
         
         .nps-vis-container {
             width: 100%;
-            height: 800px; /* Increased height to match cards */
+            height: 600px; /* Reduced height to match cards */
             border: none;
         }
         
@@ -145,12 +145,21 @@
             border-top: 1px solid #ddd;
         }
         
-        /* Mixed layout container */
+        /* Wider container */
         .mixed-container {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Make main container wider by reducing margins */
+        .pure-u-3-4 {
+            width: 90% !important; /* Wider main content */
+        }
+        
+        .pure-u-1-8 {
+            width: 5% !important; /* Smaller margins */
         }
         
         /* Ensure proper spacing */
@@ -161,6 +170,11 @@
         /* Make text columns more balanced */
         .text-column {
             padding: 0 20px;
+        }
+        
+        /* Full width card content */
+        .full-width-content {
+            width: 100%;
         }
     </style>
 </head>
@@ -187,7 +201,7 @@
             </div>
             <div class="card-body align-content-center">
                 <div class="row justify-content-center text-justify">
-                    <div class="col-10">
+                    <div class="col-12 full-width-content"> <!-- Wider content -->
                         <p>Personal safety remains a fundamental aspect of wellbeing, reflecting how secure people feel in their daily lives and relationships. This visual narrative explores trends in physical and sexual violence in Australia, using national survey and crime data from the Australian Bureau of Statistics (ABS). Through a series of visualisations, we uncover how experiences of personal violence have evolved over time, vary across states, and differ by gender, relationship, and demographic factors.</p>
                     </div>
                 </div>
@@ -198,7 +212,7 @@
         <div class="card border-0 shadow-lg">
             <div class="card-body pt-4">
                 <div class="row justify-content-center">
-                    <div class="col-10">
+                    <div class="col-12 full-width-content"> <!-- Wider content -->
                         <div class="justify-content-center text-justify">
                             <h4>National Overview — How Has Personal Safety Changed Over Time?</h4>
                             <p class="text-muted small">
@@ -218,7 +232,7 @@
         <div class="card border-0 shadow-lg">
             <div class="card-body pt-4">
                 <div class="row justify-content-center">
-                    <div class="col-10">
+                    <div class="col-12 full-width-content"> <!-- Wider content -->
                         <div class="justify-content-center text-justify">
                             <h4>State Comparison: Geographic Variation</h4>
                             <p class="text-muted small">
@@ -304,25 +318,27 @@
             </div>
         </div>
 
-        <!-- Sankey Graph Section (NPS Style with Box) -->
-        <div class="nps-section">
-            <div class="section-heading">
-                <h3>Linking Weapons to Crimes</h3>
-                <h6>Use of weapon in commission of offence</h6>
-            </div>
-
-            <div class="pure-g">
-                <!-- Text -->
-                <div class="pure-u-1-4">
-                    <div class="left_side_text text-column">
-                        <p>This Sankey diagram illustrates the relationship between weapon types and offence categories.</p>
-                        <p>The visualization reveals patterns in how different weapons are associated with various crimes, showing the flow from weapon type to specific offences.</p>
-                        <p>Understanding these connections can help in developing targeted intervention strategies.</p>
+        <!-- Sankey Graph Section (Same style as first sections - Card Style) -->
+        <div class="card border-0 shadow-lg">
+            <div class="card-body pt-4">
+                <div class="row justify-content-center">
+                    <div class="col-12 full-width-content"> <!-- Wider content -->
+                        <div class="justify-content-center text-justify">
+                            <h4>Linking Weapons to Crimes</h4>
+                            <p class="text-muted small">
+                                <i>Use of weapon in commission of offence</i></p>
+                            <p>This Sankey diagram illustrates the relationship between weapon types and offence categories, revealing patterns in how different weapons are associated with various crimes.</p>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
+                        </div>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-10 description-text text-center">
+                                <p>This Sankey diagram illustrates the relationship between weapon types and offence categories, revealing patterns in how different weapons are associated with various crimes. The visualization shows the flow from weapon type to specific offences, helping understand the connections that can inform targeted intervention strategies.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Chart -->
-                <div class="pure-u-3-4">
-                    <iframe src="sankey graph weapon (6).html" class="nps-vis-container"></iframe>
                 </div>
             </div>
         </div>
