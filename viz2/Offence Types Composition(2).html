@@ -18,32 +18,26 @@
   },
   "transform": [
     {
-      "fold": ["Assault", "Sexual assault"],
+      "fold": [
+        "Sexual assault", 
+        "Homicide and related offences",
+        "Robbery",
+        "Kidnapping/abduction",
+        "Assault(i)"
+      ],
       "as": ["OffenceType", "Count"]
     },
     {
-      "joinaggregate": [
-        {
-          "op": "sum",
-          "field": "Count", 
-          "as": "YearTotal"
-        }
-      ],
+      "joinaggregate": [{"op": "sum", "field": "Count", "as": "YearTotal"}],
       "groupby": ["Year"]
     },
-    {
-      "calculate": "(datum.Count / datum.YearTotal) * 100",
-      "as": "Percentage"
-    },
+    {"calculate": "(datum.Count / datum.YearTotal) * 100", "as": "Percentage"},
     {
       "calculate": "format(datum.Percentage, '.1f') + '%'",
       "as": "PercentageLabel"
     }
   ],
-  "mark": {
-    "type": "bar",
-    "width": {"band": 0.8}  // This makes the bars wider
-  },
+  "mark": {"type": "bar", "width": {"band": 0.8}},
   "encoding": {
     "x": {
       "field": "Year",
@@ -53,7 +47,7 @@
     },
     "y": {
       "field": "Count",
-      "type": "quantitative", 
+      "type": "quantitative",
       "title": "Number of Cases",
       "stack": true
     },
@@ -62,22 +56,28 @@
       "type": "nominal",
       "title": "Offence Type",
       "scale": {
-        "domain": ["Assault", "Sexual assault"],
-        "range": ["#1f77b4", "#ff7f0e"]
+        "domain": [
+          "Sexual assault",
+          "Homicide and related offences", 
+          "Robbery",
+          "Kidnapping/abduction",
+          "Assault(i)"
+        ],
+        "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
       }
     },
     "tooltip": [
       {"field": "Year", "type": "temporal", "title": "Year", "format": "%Y"},
       {"field": "OffenceType", "type": "nominal", "title": "Offence Type"},
       {
-        "field": "Count", 
+        "field": "Count",
         "type": "quantitative",
         "title": "Cases",
         "format": ",.0f"
       },
       {
         "field": "Percentage",
-        "type": "quantitative", 
+        "type": "quantitative",
         "title": "Percentage of Total",
         "format": ".1f"
       },
