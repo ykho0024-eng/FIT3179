@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>  <!-- Fixed: removed the / -->
+  <script>
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",  // Changed to v5
+      "title": "Crime Cases by Offence Type and Location",
+      "width": 800,
+      "height": 500,
+      "data": {
+        "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/viz2/offence%20at%20location(5).csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {"filter": "datum['Offence Type'] != 'Kidnapping/abduction'"},
+        {"filter": "datum.Location != 'Residential'"},
+        {"filter": "datum.Location != 'Community'"}
+      ],
+      "mark": "rect",
+      "encoding": {
+        "y": {
+          "field": "Offence Type", 
+          "type": "nominal",
+          "title": "Offence Type",
+          "sort": ["Assault", "Sexual Assault", "Robbery", "Homicide and related offence"]
+        },
+        "x": {
+          "field": "Location", 
+          "type": "nominal",
+          "title": "Location",
+          "axis": {"labelAngle": -45},
+          "sort": [
+            "Dwelling(c)", "Outbuilding/residential land",
+            "Street/footpath", "Transport", "Retail", "Recreational", "Other community location(i)", "Other(k)"
+          ]
+        },
+        "color": {
+          "field": "Cases",
+          "type": "quantitative",
+          "title": "Number of Cases",
+          "scale": {
+            "type": "log",
+            "scheme": "reds"
+          }
+        },
+        "tooltip": [
+          {"field": "Offence Type", "title": "Offence Type"},
+          {"field": "Location", "title": "Location"},
+          {"field": "Cases", "title": "Cases", "format": ","}
+        ]
+      },
+      "config": {
+        "axis": {"grid": true, "tickBand": "extent"}
+      }
+    };
+    
+    vegaEmbed("#vis", spec).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
