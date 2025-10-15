@@ -44,7 +44,7 @@
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-size: 3rem; /* Big title like original */
         }
         
         h2 {
@@ -110,11 +110,21 @@
         .card-header {
             background-color: var(--primary-color);
             color: white;
-            padding: 1.5rem;
+            padding: 2rem; /* More padding for bigger title */
         }
         
         .card-body {
             padding: 2rem;
+        }
+        
+        .big-title {
+            font-size: 3rem !important;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-top: 0;
         }
     </style>
 </head>
@@ -124,8 +134,8 @@
         <div class="card">
             <div class="card-header">
                 <div class="text-center">
-                    <h1 style="font-size: 3rem; margin: 0">Personal Safety in Australia</h1>
-                    <h4 style="margin: 10px 0 0 0">Understanding Violence Patterns Across States and Demographics</h4>
+                    <h1 class="big-title">Personal Safety in Australia</h1>
+                    <h4 class="subtitle">Understanding Violence Patterns Across States and Demographics</h4>
                 </div>
             </div>
             <div class="card-body">
@@ -146,7 +156,8 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div id="viz1" class="vis-container"></div>
+                <!-- Use iframe instead of Vega-Embed for HTML files -->
+                <iframe src="total graph(1).html" class="vis-container"></iframe>
             </div>
             <div class="pure-u-1-2">
                 <div class="figure">
@@ -176,7 +187,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div id="viz2" class="vis-container"></div>
+                <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
             </div>
             <div class="pure-u-1-2">
                 <div class="figure">
@@ -203,7 +214,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div id="viz3" class="vis-container"></div>
+                <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
             </div>
             <div class="pure-u-1-2">
                 <div class="figure">
@@ -232,7 +243,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div id="viz4" class="vis-container"></div>
+                <iframe src="victims demographic(4).html" class="vis-container"></iframe>
             </div>
             <div class="pure-u-1-2">
                 <div class="figure">
@@ -262,7 +273,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div id="viz5" class="vis-container"></div>
+                <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
             </div>
             <div class="pure-u-1-2">
                 <div class="figure">
@@ -296,7 +307,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div id="viz6" class="vis-container"></div>
+                <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
             </div>
             <div class="pure-u-1-2">
                 <div class="figure">
@@ -333,37 +344,4 @@
         </div>
     </div>
 </body>
-
-<script type="text/javascript">
-    // Update these paths to match your actual visualization files
-    var spec1 = 'total graph(1).html';
-    vegaEmbed('#viz1', spec1, {"actions": false})
-        .then(function(result) {})
-        .catch(console.error);
-    
-    var spec2 = 'personal safety by state(3).html';
-    vegaEmbed('#viz2', spec2, {"actions": false})
-        .then(function(result) {})
-        .catch(console.error);
-    
-    var spec3 = 'Offence Types Composition(2).html';
-    vegaEmbed('#viz3', spec3, {"actions": false})
-        .then(function(result) {})
-        .catch(console.error);
-    
-    var spec4 = 'victims demographic(4).html';
-    vegaEmbed('#viz4', spec4, {"actions": false})
-        .then(function(result) {})
-        .catch(console.error);
-    
-    var spec5 = 'heatmap for location(5).html';
-    vegaEmbed('#viz5', spec5, {"actions": false})
-        .then(function(result) {})
-        .catch(console.error);
-    
-    var spec6 = 'sankey graph weapon (6).html';
-    vegaEmbed('#viz6', spec6, {"actions": false})
-        .then(function(result) {})
-        .catch(console.error);
-</script>
 </html>
