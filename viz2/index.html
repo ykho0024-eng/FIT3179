@@ -41,7 +41,7 @@
         }
         
         h1 {
-            color: white; /* Changed to white */
+            color: white;
             text-align: center;
             margin-bottom: 30px;
             font-size: 3rem;
@@ -57,12 +57,15 @@
         
         .vis-container {
             width: 100%;
-            height: 400px;
+            height: 350px; /* Reduced height */
             border: none;
         }
         
         .figure {
             padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .figure p {
@@ -71,6 +74,7 @@
         
         ul {
             padding-left: 20px;
+            margin: 10px 0;
         }
         
         li {
@@ -95,9 +99,10 @@
         
         .highlight-box {
             background-color: var(--light-gray);
-            padding: 15px;
+            padding: 12px;
             border-radius: 5px;
-            margin: 15px 0;
+            margin: 10px 0;
+            font-size: 0.9em;
         }
         
         /* Original Card Styles for Introduction */
@@ -120,35 +125,49 @@
         .big-title {
             font-size: 3rem !important;
             margin-bottom: 10px;
-            color: white; /* Added white color */
+            color: white;
         }
         
         .subtitle {
             font-size: 1.5rem;
             margin-top: 0;
-            color: white; /* Added white color */
+            color: white;
         }
         
-        /* For alternating layout */
-        .alternate-left .pure-u-1-2:first-child {
-            order: 1;
+        /* Alternating layout with proper flexbox */
+        .section-left .pure-g {
+            flex-direction: row;
         }
         
-        .alternate-left .pure-u-1-2:last-child {
-            order: 2;
-        }
-        
-        .alternate-right .pure-u-1-2:first-child {
-            order: 2;
-        }
-        
-        .alternate-right .pure-u-1-2:last-child {
-            order: 1;
+        .section-right .pure-g {
+            flex-direction: row-reverse;
         }
         
         .pure-g {
             display: flex;
             flex-wrap: wrap;
+            align-items: stretch;
+            gap: 20px;
+        }
+        
+        .pure-u-1-2 {
+            flex: 1;
+            min-width: 45%;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .pure-u-1-2 {
+                flex: 1 0 100%;
+            }
+            
+            .vis-container {
+                height: 300px;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -172,187 +191,199 @@
         </div>
 
         <!-- NATIONAL TRENDS SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="pure-l">
-            <div class="pure-u-1-1">
-                <h2>National Trends Over Time</h2>
+        <div class="section-left">
+            <div class="pure-l">
+                <div class="pure-u-1-1">
+                    <h2>National Trends Over Time</h2>
+                </div>
             </div>
-        </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <iframe src="total graph(1).html" class="vis-container"></iframe>
-            </div>
-            <div class="pure-u-1-2">
-                <div class="figure">
-                    <p>
-                        Three distinct phases emerge in Australia's personal safety landscape:
-                    </p>
-                    <div class="highlight-box">
-                        <strong>2008-2013:</strong> Significant decline in offences, likely due to improved policing and legislation.
-                        <br><br>
-                        <strong>2013-2019:</strong> Relative stability with minor fluctuations.
-                        <br><br>
-                        <strong>Post-2019:</strong> Sharp increase, potentially linked to COVID impacts and reporting changes.
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <iframe src="total graph(1).html" class="vis-container"></iframe>
+                </div>
+                <div class="pure-u-1-2">
+                    <div class="figure">
+                        <p>
+                            Three distinct phases emerge in Australia's personal safety landscape:
+                        </p>
+                        <div class="highlight-box">
+                            <strong>2008-2013:</strong> Significant decline in offences, likely due to improved policing and legislation.
+                            <br>
+                            <strong>2013-2019:</strong> Relative stability with minor fluctuations.
+                            <br>
+                            <strong>Post-2019:</strong> Sharp increase, potentially linked to COVID impacts and reporting changes.
+                        </div>
+                        <p>
+                            Population-adjusted rates mirror total cases, indicating real behavioral shifts rather than demographic changes.
+                        </p>
                     </div>
-                    <p>
-                        Population-adjusted rates mirror total cases, indicating real behavioral shifts rather than demographic changes.
-                    </p>
                 </div>
             </div>
         </div>
 
         <!-- STATE COMPARISON SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="pure-l">
-            <div class="pure-u-1-1">
-                <h2>State Comparison</h2>
-            </div>
-        </div>
-
-        <div class="pure-g alternate-right">
-            <div class="pure-u-1-2">
-                <div class="figure">
-                    <p>
-                        Dramatic variations exist across Australian jurisdictions:
-                    </p>
-                    <ul>
-                        <li><strong>Northern Territory:</strong> Consistently highest rates (>450 per 10,000)</li>
-                        <li><strong>Queensland:</strong> Apparent spike reflects data reporting changes, not actual crime surge</li>
-                        <li><strong>Western Australia:</strong> Steady deterioration with rates nearly doubling over 25 years</li>
-                        <li><strong>Victoria:</strong> Lowest-risk state with stable performance</li>
-                        <li><strong>ACT:</strong> Notable improvement since 2007 peak</li>
-                    </ul>
+        <div class="section-right">
+            <div class="pure-l">
+                <div class="pure-u-1-1">
+                    <h2>State Comparison</h2>
                 </div>
             </div>
-            <div class="pure-u-1-2">
-                <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
+
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <div class="figure">
+                        <p>
+                            Dramatic variations exist across Australian jurisdictions:
+                        </p>
+                        <ul>
+                            <li><strong>Northern Territory:</strong> Consistently highest rates (>450 per 10,000)</li>
+                            <li><strong>Queensland:</strong> Apparent spike reflects data reporting changes, not actual crime surge</li>
+                            <li><strong>Western Australia:</strong> Steady deterioration with rates nearly doubling over 25 years</li>
+                            <li><strong>Victoria:</strong> Lowest-risk state with stable performance</li>
+                            <li><strong>ACT:</strong> Notable improvement since 2007 peak</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pure-u-1-2">
+                    <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
+                </div>
             </div>
         </div>
 
         <!-- OFFENCE TYPE COMPOSITION SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="pure-l">
-            <div class="pure-u-1-1">
-                <h2>Offence Type Composition</h2>
+        <div class="section-left">
+            <div class="pure-l">
+                <div class="pure-u-1-1">
+                    <h2>Offence Type Composition</h2>
+                </div>
             </div>
-        </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
-            </div>
-            <div class="pure-u-1-2">
-                <div class="figure">
-                    <p>
-                        <strong>Assault dominates</strong>, comprising 70-80% of all offences throughout the timeline.
-                    </p>
-                    <p>
-                        Steady growth from mid-1990s to mid-2000s was followed by a dip around 2008-2012, suggesting improved prevention systems.
-                    </p>
-                    <div class="highlight-box">
-                        <strong>Sexual assault</strong> shows clear increase post-2015, likely reflecting greater reporting confidence rather than more incidents.
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
+                </div>
+                <div class="pure-u-1-2">
+                    <div class="figure">
+                        <p>
+                            <strong>Assault dominates</strong>, comprising 70-80% of all offences throughout the timeline.
+                        </p>
+                        <p>
+                            Steady growth from mid-1990s to mid-2000s was followed by a dip around 2008-2012, suggesting improved prevention systems.
+                        </p>
+                        <div class="highlight-box">
+                            <strong>Sexual assault</strong> shows clear increase post-2015, likely reflecting greater reporting confidence rather than more incidents.
+                        </div>
+                        <p>
+                            Homicide and kidnapping remain consistently small proportions of total offences.
+                        </p>
                     </div>
-                    <p>
-                        Homicide and kidnapping remain consistently small proportions of total offences.
-                    </p>
                 </div>
             </div>
         </div>
 
         <!-- GENDER AND AGE PATTERNS SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="pure-l">
-            <div class="pure-u-1-1">
-                <h2>Gender and Age Patterns</h2>
-            </div>
-        </div>
-
-        <div class="pure-g alternate-right">
-            <div class="pure-u-1-2">
-                <div class="figure">
-                    <p>
-                        Clear demographic patterns emerge in victimization:
-                    </p>
-                    <ul>
-                        <li><strong>Teenage girls</strong> face highest sexual assault risk</li>
-                        <li><strong>Adults 25-44</strong> experience greatest assault burden</li>
-                        <li><strong>Males</strong> dominate physical violence offences</li>
-                        <li><strong>Females</strong> disproportionately affected by sexual assault</li>
-                        <li><strong>Robbery</strong> peaks in teenage years for both genders</li>
-                    </ul>
-                    <div class="highlight-box">
-                        Women aged 18-34 record the highest total offence counts across categories.
-                    </div>
+        <div class="section-right">
+            <div class="pure-l">
+                <div class="pure-u-1-1">
+                    <h2>Gender and Age Patterns</h2>
                 </div>
             </div>
-            <div class="pure-u-1-2">
-                <iframe src="victims demographic(4).html" class="vis-container"></iframe>
+
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <div class="figure">
+                        <p>
+                            Clear demographic patterns emerge in victimization:
+                        </p>
+                        <ul>
+                            <li><strong>Teenage girls</strong> face highest sexual assault risk</li>
+                            <li><strong>Adults 25-44</strong> experience greatest assault burden</li>
+                            <li><strong>Males</strong> dominate physical violence offences</li>
+                            <li><strong>Females</strong> disproportionately affected by sexual assault</li>
+                            <li><strong>Robbery</strong> peaks in teenage years for both genders</li>
+                        </ul>
+                        <div class="highlight-box">
+                            Women aged 18-34 record the highest total offence counts across categories.
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-2">
+                    <iframe src="victims demographic(4).html" class="vis-container"></iframe>
+                </div>
             </div>
         </div>
 
         <!-- CRIME LOCATIONS SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="pure-l">
-            <div class="pure-u-1-1">
-                <h2>Crime Locations</h2>
+        <div class="section-left">
+            <div class="pure-l">
+                <div class="pure-u-1-1">
+                    <h2>Crime Locations</h2>
+                </div>
             </div>
-        </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
-            </div>
-            <div class="pure-u-1-2">
-                <div class="figure">
-                    <p>
-                        Clear divide between private and public crime environments:
-                    </p>
-                    <div class="highlight-box">
-                        <strong>Homes dominate</strong> for assault and sexual assault, highlighting domestic violence prevalence.
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
+                </div>
+                <div class="pure-u-1-2">
+                    <div class="figure">
+                        <p>
+                            Clear divide between private and public crime environments:
+                        </p>
+                        <div class="highlight-box">
+                            <strong>Homes dominate</strong> for assault and sexual assault, highlighting domestic violence prevalence.
+                        </div>
+                        <p>
+                            <strong>Public spaces</strong> see different patterns:
+                        </p>
+                        <ul>
+                            <li>Robbery concentrates in streets, transport, and retail areas</li>
+                            <li>Community spaces show moderate assault levels</li>
+                            <li>Transport hubs are robbery hotspots</li>
+                        </ul>
+                        <p>
+                            This suggests need for different prevention strategies: domestic interventions for homes, situational prevention for public spaces.
+                        </p>
                     </div>
-                    <p>
-                        <strong>Public spaces</strong> see different patterns:
-                    </p>
-                    <ul>
-                        <li>Robbery concentrates in streets, transport, and retail areas</li>
-                        <li>Community spaces show moderate assault levels</li>
-                        <li>Transport hubs are robbery hotspots</li>
-                    </ul>
-                    <p>
-                        This suggests need for different prevention strategies: domestic interventions for homes, situational prevention for public spaces.
-                    </p>
                 </div>
             </div>
         </div>
 
         <!-- WEAPON USE SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="pure-l">
-            <div class="pure-u-1-1">
-                <h2>Weapon Use in Crimes</h2>
-            </div>
-        </div>
-
-        <div class="pure-g alternate-right">
-            <div class="pure-u-1-2">
-                <div class="figure">
-                    <p>
-                        Most violent crimes occur without weapons:
-                    </p>
-                    <div class="highlight-box">
-                        <strong>91% of assaults</strong> and <strong>99% of sexual assaults</strong> involve no weapons.
-                    </div>
-                    <p>
-                        When weapons are used:
-                    </p>
-                    <ul>
-                        <li><strong>Robbery</strong> is most weapon-dependent (45% of cases)</li>
-                        <li><strong>Knives</strong> are the most common weapon type</li>
-                        <li><strong>Homicide</strong> shows greatest weapon variety</li>
-                        <li><strong>Firearms</strong> remain relatively rare</li>
-                    </ul>
-                    <p>
-                        Offenders typically rely on physical force or intimidation rather than weapons.
-                    </p>
+        <div class="section-right">
+            <div class="pure-l">
+                <div class="pure-u-1-1">
+                    <h2>Weapon Use in Crimes</h2>
                 </div>
             </div>
-            <div class="pure-u-1-2">
-                <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
+
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <div class="figure">
+                        <p>
+                            Most violent crimes occur without weapons:
+                        </p>
+                        <div class="highlight-box">
+                            <strong>91% of assaults</strong> and <strong>99% of sexual assaults</strong> involve no weapons.
+                        </div>
+                        <p>
+                            When weapons are used:
+                        </p>
+                        <ul>
+                            <li><strong>Robbery</strong> is most weapon-dependent (45% of cases)</li>
+                            <li><strong>Knives</strong> are the most common weapon type</li>
+                            <li><strong>Homicide</strong> shows greatest weapon variety</li>
+                            <li><strong>Firearms</strong> remain relatively rare</li>
+                        </ul>
+                        <p>
+                            Offenders typically rely on physical force or intimidation rather than weapons.
+                        </p>
+                    </div>
+                </div>
+                <div class="pure-u-1-2">
+                    <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
+                </div>
             </div>
         </div>
 
