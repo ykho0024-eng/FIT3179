@@ -511,7 +511,10 @@
   },
   "config": {}
 };
-    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis", spec, {
+  mode: "vega-lite",
+  "actions": false
+}).then(console.log).catch(console.warn);
   </script>
 </body>
 </html>
