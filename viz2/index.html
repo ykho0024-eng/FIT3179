@@ -160,41 +160,47 @@
         }
         
         /* 1:3 RATIO LAYOUT */
-         .section-container {
-        margin-bottom: 25px; /* Reduced from 35px */
+        .section-container {
+        margin-bottom: 25px;
     }
     
     .graph-left .content-wrapper {
         display: flex;
         flex-direction: row;
-        gap: 5px; /* Reduced from 25px */
+        gap: 15px;
         align-items: stretch;
     }
     
     .graph-right .content-wrapper {
         display: flex;
         flex-direction: row-reverse;
-        gap: 10px; /* Reduced from 25px */
+        gap: 15px;
         align-items: stretch;
     }
     
+    /* EQUAL PADDING FOR BOTH COLUMNS REGARDLESS OF POSITION */
     .graph-column {
         flex: 3;
         min-width: 70%;
-        padding: 0 5px; /* Equal small padding on sides */
+        padding: 0 10px; /* Equal padding on both sides */
     }
     
     .text-column {
         flex: 1;
         min-width: 25%;
-        padding: 0 5px; /* Equal small padding on sides */
+        padding: 0 10px; /* Equal padding on both sides */
     }
     
     .figure {
-        padding: 0 10px; /* Reduced from 15px */
+        padding: 0; /* Remove padding here since we have column padding */
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    /* Add container padding to create equal outer spacing */
+    .content-wrapper {
+        padding: 0 10px; /* Equal outer spacing */
     }
 
     /* Responsive design */
@@ -202,17 +208,18 @@
         .graph-left .content-wrapper,
         .graph-right .content-wrapper {
             flex-direction: column;
-            gap: 15px; /* Consistent gap */
+            gap: 15px;
+            padding: 0 5px; /* Smaller padding on mobile */
         }
         
         .graph-column,
         .text-column {
             min-width: 100%;
-            padding: 0; /* Remove side padding on mobile */
+            padding: 0; /* Remove column padding on mobile */
         }
         
         .figure {
-            padding: 0 5px; /* Even smaller on mobile */
+            padding: 0 5px; /* Add small padding back for mobile */
         }
         
         .vis-container {
