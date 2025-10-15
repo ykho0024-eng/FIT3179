@@ -57,7 +57,7 @@
         
         .vis-container {
             width: 100%;
-            height: 350px; /* Reduced height */
+            height: 350px;
             border: none;
         }
         
@@ -134,39 +134,49 @@
             color: white;
         }
         
-        /* Alternating layout with proper flexbox */
-        .section-left .pure-g {
-            flex-direction: row;
+        /* SIMPLE ALTERNATING LAYOUT */
+        .section-container {
+            margin-bottom: 40px;
         }
         
-        .section-right .pure-g {
-            flex-direction: row-reverse;
-        }
-        
-        .pure-g {
+        .graph-left .content-wrapper {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 30px;
             align-items: stretch;
-            gap: 20px;
         }
         
-        .pure-u-1-2 {
+        .graph-right .content-wrapper {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 30px;
+            align-items: stretch;
+        }
+        
+        .graph-column {
+            flex: 1;
+            min-width: 45%;
+        }
+        
+        .text-column {
             flex: 1;
             min-width: 45%;
         }
         
         /* Responsive design */
         @media (max-width: 768px) {
-            .pure-u-1-2 {
-                flex: 1 0 100%;
+            .graph-left .content-wrapper,
+            .graph-right .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .graph-column,
+            .text-column {
+                min-width: 100%;
             }
             
             .vis-container {
                 height: 300px;
-            }
-            
-            h2 {
-                font-size: 1.3rem;
             }
         }
     </style>
@@ -191,18 +201,13 @@
         </div>
 
         <!-- NATIONAL TRENDS SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="section-left">
-            <div class="pure-l">
-                <div class="pure-u-1-1">
-                    <h2>National Trends Over Time</h2>
-                </div>
-            </div>
-
-            <div class="pure-g">
-                <div class="pure-u-1-2">
+        <div class="section-container graph-left">
+            <h2>National Trends Over Time</h2>
+            <div class="content-wrapper">
+                <div class="graph-column">
                     <iframe src="total graph(1).html" class="vis-container"></iframe>
                 </div>
-                <div class="pure-u-1-2">
+                <div class="text-column">
                     <div class="figure">
                         <p>
                             Three distinct phases emerge in Australia's personal safety landscape:
@@ -223,15 +228,13 @@
         </div>
 
         <!-- STATE COMPARISON SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="section-right">
-            <div class="pure-l">
-                <div class="pure-u-1-1">
-                    <h2>State Comparison</h2>
+        <div class="section-container graph-right">
+            <h2>State Comparison</h2>
+            <div class="content-wrapper">
+                <div class="graph-column">
+                    <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
                 </div>
-            </div>
-
-            <div class="pure-g">
-                <div class="pure-u-1-2">
+                <div class="text-column">
                     <div class="figure">
                         <p>
                             Dramatic variations exist across Australian jurisdictions:
@@ -245,25 +248,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="pure-u-1-2">
-                    <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
-                </div>
             </div>
         </div>
 
         <!-- OFFENCE TYPE COMPOSITION SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="section-left">
-            <div class="pure-l">
-                <div class="pure-u-1-1">
-                    <h2>Offence Type Composition</h2>
-                </div>
-            </div>
-
-            <div class="pure-g">
-                <div class="pure-u-1-2">
+        <div class="section-container graph-left">
+            <h2>Offence Type Composition</h2>
+            <div class="content-wrapper">
+                <div class="graph-column">
                     <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
                 </div>
-                <div class="pure-u-1-2">
+                <div class="text-column">
                     <div class="figure">
                         <p>
                             <strong>Assault dominates</strong>, comprising 70-80% of all offences throughout the timeline.
@@ -283,15 +278,13 @@
         </div>
 
         <!-- GENDER AND AGE PATTERNS SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="section-right">
-            <div class="pure-l">
-                <div class="pure-u-1-1">
-                    <h2>Gender and Age Patterns</h2>
+        <div class="section-container graph-right">
+            <h2>Gender and Age Patterns</h2>
+            <div class="content-wrapper">
+                <div class="graph-column">
+                    <iframe src="victims demographic(4).html" class="vis-container"></iframe>
                 </div>
-            </div>
-
-            <div class="pure-g">
-                <div class="pure-u-1-2">
+                <div class="text-column">
                     <div class="figure">
                         <p>
                             Clear demographic patterns emerge in victimization:
@@ -308,25 +301,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="pure-u-1-2">
-                    <iframe src="victims demographic(4).html" class="vis-container"></iframe>
-                </div>
             </div>
         </div>
 
         <!-- CRIME LOCATIONS SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="section-left">
-            <div class="pure-l">
-                <div class="pure-u-1-1">
-                    <h2>Crime Locations</h2>
-                </div>
-            </div>
-
-            <div class="pure-g">
-                <div class="pure-u-1-2">
+        <div class="section-container graph-left">
+            <h2>Crime Locations</h2>
+            <div class="content-wrapper">
+                <div class="graph-column">
                     <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
                 </div>
-                <div class="pure-u-1-2">
+                <div class="text-column">
                     <div class="figure">
                         <p>
                             Clear divide between private and public crime environments:
@@ -351,15 +336,13 @@
         </div>
 
         <!-- WEAPON USE SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="section-right">
-            <div class="pure-l">
-                <div class="pure-u-1-1">
-                    <h2>Weapon Use in Crimes</h2>
+        <div class="section-container graph-right">
+            <h2>Weapon Use in Crimes</h2>
+            <div class="content-wrapper">
+                <div class="graph-column">
+                    <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
                 </div>
-            </div>
-
-            <div class="pure-g">
-                <div class="pure-u-1-2">
+                <div class="text-column">
                     <div class="figure">
                         <p>
                             Most violent crimes occur without weapons:
@@ -381,21 +364,14 @@
                         </p>
                     </div>
                 </div>
-                <div class="pure-u-1-2">
-                    <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
-                </div>
             </div>
         </div>
 
-        <div class="pure-l">
-            <div style='margin-left: 20px' class="pure-u-1-1">
-                <footer>
-                    <small style='font-weight: bold;'>Visualisations created by Yan Xuan Khoo</small>
-                    <br>
-                    <small>Data source: <a href='https://www.abs.gov.au/'>Australian Bureau of Statistics</a></small>
-                </footer>
-            </div>
-        </div>
+        <footer>
+            <small style='font-weight: bold;'>Visualisations created by Yan Xuan Khoo</small>
+            <br>
+            <small>Data source: <a href='https://www.abs.gov.au/'>Australian Bureau of Statistics</a></small>
+        </footer>
     </div>
 </body>
 </html>
