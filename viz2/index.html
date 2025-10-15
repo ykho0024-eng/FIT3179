@@ -31,54 +31,63 @@
             margin: 0;
             padding: 0;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.4; /* Tighter line spacing */
         }
         
         .page {
-            max-width: 1400px; /* Wider container */
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px; /* Reduced padding */
         }
         
         h1 {
             color: white;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 15px; /* Reduced margin */
             font-size: 3rem;
+            line-height: 1.1; /* Tighter line height */
         }
         
         h2 {
             color: var(--secondary-color);
             border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            padding-bottom: 8px; /* Reduced padding */
+            margin-top: 30px; /* Reduced margin */
+            margin-bottom: 15px; /* Reduced margin */
+            line-height: 1.2;
+        }
+        
+        h4 {
+            line-height: 1.2; /* Tighter line height for subtitle */
+            margin: 0; /* Remove default margins */
         }
         
         .vis-container {
             width: 100%;
-            height: 500px; /* Much taller */
+            height: 500px;
             border: none;
         }
         
         .figure {
-            padding: 0 20px;
+            padding: 0 15px; /* Reduced padding */
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         
         .figure p {
-            margin-bottom: 15px;
+            margin-bottom: 12px; /* Reduced margin */
+            line-height: 1.4; /* Consistent line height */
         }
         
         ul {
-            padding-left: 20px;
-            margin: 10px 0;
+            padding-left: 18px; /* Reduced padding */
+            margin: 8px 0; /* Reduced margin */
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 6px; /* Reduced margin */
+            line-height: 1.4;
         }
         
         strong {
@@ -86,8 +95,8 @@
         }
         
         footer {
-            margin-top: 40px;
-            padding: 20px;
+            margin-top: 30px; /* Reduced margin */
+            padding: 15px; /* Reduced padding */
             border-top: 1px solid #ddd;
             font-size: 14px;
             color: var(--dark-gray);
@@ -99,14 +108,16 @@
         
         .highlight-box {
             background-color: var(--light-gray);
-            padding: 15px;
+            padding: 12px; /* Reduced padding */
             border-radius: 5px;
-            margin: 15px 0;
+            margin: 12px 0; /* Reduced margin */
+            line-height: 1.4;
+            font-size: 0.9em;
         }
         
         /* Original Card Styles for Introduction */
         .card {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem; /* Reduced margin */
             border: none;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -114,51 +125,66 @@
         .card-header {
             background-color: var(--primary-color);
             color: white;
-            padding: 2rem;
+            padding: 1.5rem; /* Reduced padding */
+            text-align: center; /* Ensure center alignment */
         }
         
         .card-body {
-            padding: 2rem;
+            padding: 1.5rem; /* Reduced padding */
+        }
+        
+        .card-body p {
+            line-height: 1.4; /* Consistent line height */
+            margin-bottom: 0; /* Remove bottom margin */
         }
         
         .big-title {
             font-size: 3rem !important;
-            margin-bottom: 10px;
+            margin-bottom: 8px !important; /* Reduced margin */
             color: white;
+            line-height: 1.1;
         }
         
         .subtitle {
             font-size: 1.5rem;
             margin-top: 0;
+            margin-bottom: 0;
             color: white;
+            line-height: 1.2;
+        }
+        
+        /* Center alignment for header content */
+        .header-center {
+            text-align: center;
+            width: 100%;
         }
         
         /* 1:3 RATIO LAYOUT */
         .section-container {
-            margin-bottom: 50px;
+            margin-bottom: 35px; /* Reduced margin */
         }
         
         .graph-left .content-wrapper {
             display: flex;
             flex-direction: row;
-            gap: 30px;
+            gap: 25px; /* Reduced gap */
             align-items: stretch;
         }
         
         .graph-right .content-wrapper {
             display: flex;
             flex-direction: row-reverse;
-            gap: 30px;
+            gap: 25px; /* Reduced gap */
             align-items: stretch;
         }
         
         .graph-column {
-            flex: 3; /* 3 parts for graph */
+            flex: 3;
             min-width: 70%;
         }
         
         .text-column {
-            flex: 1; /* 1 part for text */
+            flex: 1;
             min-width: 25%;
         }
         
@@ -167,6 +193,7 @@
             .graph-left .content-wrapper,
             .graph-right .content-wrapper {
                 flex-direction: column;
+                gap: 20px;
             }
             
             .graph-column,
@@ -179,17 +206,28 @@
             }
             
             .page {
-                padding: 15px;
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+                margin-top: 25px;
+                margin-bottom: 12px;
             }
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <!-- HEADER CARD (Original Style) -->
+        <!-- HEADER CARD (Centered and tighter spacing) -->
         <div class="card">
             <div class="card-header">
-                <div class="text-center">
+                <div class="header-center">
                     <h1 class="big-title">Personal Safety in Australia</h1>
                     <h4 class="subtitle">Understanding Violence Patterns Across States and Demographics</h4>
                 </div>
@@ -203,7 +241,7 @@
             </div>
         </div>
 
-        <!-- NATIONAL TRENDS SECTION (Graph LEFT, Text RIGHT) -->
+        <!-- NATIONAL TRENDS SECTION -->
         <div class="section-container graph-left">
             <h2>National Trends Over Time</h2>
             <div class="content-wrapper">
@@ -212,25 +250,19 @@
                 </div>
                 <div class="text-column">
                     <div class="figure">
-                        <p>
-                            Three distinct phases emerge in Australia's personal safety landscape:
-                        </p>
+                        <p>Three distinct phases emerge in Australia's personal safety landscape:</p>
                         <div class="highlight-box">
-                            <strong>2008-2013:</strong> Significant decline in offences, likely due to improved policing and legislation.
-                            <br>
-                            <strong>2013-2019:</strong> Relative stability with minor fluctuations.
-                            <br>
+                            <strong>2008-2013:</strong> Significant decline in offences, likely due to improved policing and legislation.<br>
+                            <strong>2013-2019:</strong> Relative stability with minor fluctuations.<br>
                             <strong>Post-2019:</strong> Sharp increase, potentially linked to COVID impacts and reporting changes.
                         </div>
-                        <p>
-                            Population-adjusted rates mirror total cases, indicating real behavioral shifts rather than demographic changes.
-                        </p>
+                        <p>Population-adjusted rates mirror total cases, indicating real behavioral shifts rather than demographic changes.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- STATE COMPARISON SECTION (Graph RIGHT, Text LEFT) -->
+        <!-- STATE COMPARISON SECTION -->
         <div class="section-container graph-right">
             <h2>State Comparison</h2>
             <div class="content-wrapper">
@@ -239,9 +271,7 @@
                 </div>
                 <div class="text-column">
                     <div class="figure">
-                        <p>
-                            Dramatic variations exist across Australian jurisdictions:
-                        </p>
+                        <p>Dramatic variations exist across Australian jurisdictions:</p>
                         <ul>
                             <li><strong>Northern Territory:</strong> Consistently highest rates (>450 per 10,000)</li>
                             <li><strong>Queensland:</strong> Apparent spike reflects data reporting changes, not actual crime surge</li>
@@ -254,7 +284,7 @@
             </div>
         </div>
 
-        <!-- OFFENCE TYPE COMPOSITION SECTION (Graph LEFT, Text RIGHT) -->
+        <!-- OFFENCE TYPE COMPOSITION SECTION -->
         <div class="section-container graph-left">
             <h2>Offence Type Composition</h2>
             <div class="content-wrapper">
@@ -263,24 +293,18 @@
                 </div>
                 <div class="text-column">
                     <div class="figure">
-                        <p>
-                            <strong>Assault dominates</strong>, comprising 70-80% of all offences throughout the timeline.
-                        </p>
-                        <p>
-                            Steady growth from mid-1990s to mid-2000s was followed by a dip around 2008-2012, suggesting improved prevention systems.
-                        </p>
+                        <p><strong>Assault dominates</strong>, comprising 70-80% of all offences throughout the timeline.</p>
+                        <p>Steady growth from mid-1990s to mid-2000s was followed by a dip around 2008-2012, suggesting improved prevention systems.</p>
                         <div class="highlight-box">
                             <strong>Sexual assault</strong> shows clear increase post-2015, likely reflecting greater reporting confidence rather than more incidents.
                         </div>
-                        <p>
-                            Homicide and kidnapping remain consistently small proportions of total offences.
-                        </p>
+                        <p>Homicide and kidnapping remain consistently small proportions of total offences.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- GENDER AND AGE PATTERNS SECTION (Graph RIGHT, Text LEFT) -->
+        <!-- GENDER AND AGE PATTERNS SECTION -->
         <div class="section-container graph-right">
             <h2>Gender and Age Patterns</h2>
             <div class="content-wrapper">
@@ -289,9 +313,7 @@
                 </div>
                 <div class="text-column">
                     <div class="figure">
-                        <p>
-                            Clear demographic patterns emerge in victimization:
-                        </p>
+                        <p>Clear demographic patterns emerge in victimization:</p>
                         <ul>
                             <li><strong>Teenage girls</strong> face highest sexual assault risk</li>
                             <li><strong>Adults 25-44</strong> experience greatest assault burden</li>
@@ -307,7 +329,7 @@
             </div>
         </div>
 
-        <!-- CRIME LOCATIONS SECTION (Graph LEFT, Text RIGHT) -->
+        <!-- CRIME LOCATIONS SECTION -->
         <div class="section-container graph-left">
             <h2>Crime Locations</h2>
             <div class="content-wrapper">
@@ -316,15 +338,11 @@
                 </div>
                 <div class="text-column">
                     <div class="figure">
-                        <p>
-                            Clear divide between private and public crime environments:
-                        </p>
+                        <p>Clear divide between private and public crime environments:</p>
                         <div class="highlight-box">
                             <strong>Homes dominate</strong> for assault and sexual assault, highlighting domestic violence prevalence.
                         </div>
-                        <p>
-                            <strong>Public spaces</strong> see different patterns:
-                        </p>
+                        <p><strong>Public spaces</strong> see different patterns:</p>
                         <ul>
                             <li>Robbery concentrates in streets, transport, and retail areas</li>
                             <li>Community spaces show moderate assault levels</li>
@@ -335,7 +353,7 @@
             </div>
         </div>
 
-        <!-- WEAPON USE SECTION (Graph RIGHT, Text LEFT) -->
+        <!-- WEAPON USE SECTION -->
         <div class="section-container graph-right">
             <h2>Weapon Use in Crimes</h2>
             <div class="content-wrapper">
@@ -344,15 +362,11 @@
                 </div>
                 <div class="text-column">
                     <div class="figure">
-                        <p>
-                            Most violent crimes occur without weapons:
-                        </p>
+                        <p>Most violent crimes occur without weapons:</p>
                         <div class="highlight-box">
                             <strong>91% of assaults</strong> and <strong>99% of sexual assaults</strong> involve no weapons.
                         </div>
-                        <p>
-                            When weapons are used:
-                        </p>
+                        <p>When weapons are used:</p>
                         <ul>
                             <li><strong>Robbery</strong> is most weapon-dependent (45% of cases)</li>
                             <li><strong>Knives</strong> are the most common weapon type</li>
