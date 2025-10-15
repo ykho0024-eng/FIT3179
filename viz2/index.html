@@ -41,10 +41,10 @@
         }
         
         h1 {
-            color: var(--primary-color);
+            color: white; /* Changed to white */
             text-align: center;
             margin-bottom: 30px;
-            font-size: 3rem; /* Big title like original */
+            font-size: 3rem;
         }
         
         h2 {
@@ -110,7 +110,7 @@
         .card-header {
             background-color: var(--primary-color);
             color: white;
-            padding: 2rem; /* More padding for bigger title */
+            padding: 2rem;
         }
         
         .card-body {
@@ -120,11 +120,35 @@
         .big-title {
             font-size: 3rem !important;
             margin-bottom: 10px;
+            color: white; /* Added white color */
         }
         
         .subtitle {
             font-size: 1.5rem;
             margin-top: 0;
+            color: white; /* Added white color */
+        }
+        
+        /* For alternating layout */
+        .alternate-left .pure-u-1-2:first-child {
+            order: 1;
+        }
+        
+        .alternate-left .pure-u-1-2:last-child {
+            order: 2;
+        }
+        
+        .alternate-right .pure-u-1-2:first-child {
+            order: 2;
+        }
+        
+        .alternate-right .pure-u-1-2:last-child {
+            order: 1;
+        }
+        
+        .pure-g {
+            display: flex;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -147,7 +171,7 @@
             </div>
         </div>
 
-        <!-- NATIONAL TRENDS SECTION (New Layout) -->
+        <!-- NATIONAL TRENDS SECTION (Graph LEFT, Text RIGHT) -->
         <div class="pure-l">
             <div class="pure-u-1-1">
                 <h2>National Trends Over Time</h2>
@@ -156,7 +180,6 @@
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <!-- Use iframe instead of Vega-Embed for HTML files -->
                 <iframe src="total graph(1).html" class="vis-container"></iframe>
             </div>
             <div class="pure-u-1-2">
@@ -178,17 +201,14 @@
             </div>
         </div>
 
-        <!-- STATE COMPARISON SECTION (New Layout) -->
+        <!-- STATE COMPARISON SECTION (Graph RIGHT, Text LEFT) -->
         <div class="pure-l">
             <div class="pure-u-1-1">
                 <h2>State Comparison</h2>
             </div>
         </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
-            </div>
+        <div class="pure-g alternate-right">
             <div class="pure-u-1-2">
                 <div class="figure">
                     <p>
@@ -203,9 +223,12 @@
                     </ul>
                 </div>
             </div>
+            <div class="pure-u-1-2">
+                <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
+            </div>
         </div>
 
-        <!-- OFFENCE TYPE COMPOSITION SECTION (New Layout) -->
+        <!-- OFFENCE TYPE COMPOSITION SECTION (Graph LEFT, Text RIGHT) -->
         <div class="pure-l">
             <div class="pure-u-1-1">
                 <h2>Offence Type Composition</h2>
@@ -234,17 +257,14 @@
             </div>
         </div>
 
-        <!-- GENDER AND AGE PATTERNS SECTION (New Layout) -->
+        <!-- GENDER AND AGE PATTERNS SECTION (Graph RIGHT, Text LEFT) -->
         <div class="pure-l">
             <div class="pure-u-1-1">
                 <h2>Gender and Age Patterns</h2>
             </div>
         </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <iframe src="victims demographic(4).html" class="vis-container"></iframe>
-            </div>
+        <div class="pure-g alternate-right">
             <div class="pure-u-1-2">
                 <div class="figure">
                     <p>
@@ -262,9 +282,12 @@
                     </div>
                 </div>
             </div>
+            <div class="pure-u-1-2">
+                <iframe src="victims demographic(4).html" class="vis-container"></iframe>
+            </div>
         </div>
 
-        <!-- CRIME LOCATIONS SECTION (New Layout) -->
+        <!-- CRIME LOCATIONS SECTION (Graph LEFT, Text RIGHT) -->
         <div class="pure-l">
             <div class="pure-u-1-1">
                 <h2>Crime Locations</h2>
@@ -298,17 +321,14 @@
             </div>
         </div>
 
-        <!-- WEAPON USE SECTION (New Layout) -->
+        <!-- WEAPON USE SECTION (Graph RIGHT, Text LEFT) -->
         <div class="pure-l">
             <div class="pure-u-1-1">
                 <h2>Weapon Use in Crimes</h2>
             </div>
         </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
-            </div>
+        <div class="pure-g alternate-right">
             <div class="pure-u-1-2">
                 <div class="figure">
                     <p>
@@ -330,6 +350,9 @@
                         Offenders typically rely on physical force or intimidation rather than weapons.
                     </p>
                 </div>
+            </div>
+            <div class="pure-u-1-2">
+                <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
             </div>
         </div>
 
