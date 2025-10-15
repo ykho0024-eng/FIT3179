@@ -158,19 +158,25 @@
             width: 100%;
         }
         
-        /* 1:3 RATIO LAYOUT */
+        /* 1:3 RATIO LAYOUT - SIMPLE ALTERNATING */
         .section-container {
             margin-bottom: 25px;
         }
         
-        .graph-left .content-wrapper,
-        .graph-right .content-wrapper {
+        .content-wrapper {
             display: flex;
             gap: 15px;
             align-items: stretch;
         }
         
-        .graph-right .content-wrapper {
+        /* ALTERNATING LAYOUT - Use order property */
+        .section-container:nth-child(odd) .content-wrapper {
+            /* Left sections: Graph LEFT, Text RIGHT */
+            flex-direction: row;
+        }
+        
+        .section-container:nth-child(even) .content-wrapper {
+            /* Right sections: Graph RIGHT, Text LEFT */
             flex-direction: row-reverse;
         }
         
@@ -186,9 +192,8 @@
         
         /* Responsive design */
         @media (max-width: 768px) {
-            .graph-left .content-wrapper,
-            .graph-right .content-wrapper {
-                flex-direction: column;
+            .content-wrapper {
+                flex-direction: column !important;
                 gap: 15px;
             }
             
@@ -238,7 +243,7 @@
         </div>
 
         <!-- NATIONAL TRENDS SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="section-container graph-left">
+        <div class="section-container">
             <h2>National Trends Over Time</h2>
             <div class="content-wrapper">
                 <div class="graph-column">
@@ -259,9 +264,12 @@
         </div>
 
         <!-- STATE COMPARISON SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="section-container graph-right">
+        <div class="section-container">
             <h2>State Comparison</h2>
             <div class="content-wrapper">
+                <div class="graph-column">
+                    <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
+                </div>
                 <div class="text-column">
                     <div class="figure">
                         <p>Dramatic variations exist across Australian jurisdictions:</p>
@@ -274,14 +282,11 @@
                         </ul>
                     </div>
                 </div>
-                <div class="graph-column">
-                    <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
-                </div>
             </div>
         </div>
 
         <!-- OFFENCE TYPE COMPOSITION SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="section-container graph-left">
+        <div class="section-container">
             <h2>Offence Type Composition</h2>
             <div class="content-wrapper">
                 <div class="graph-column">
@@ -301,9 +306,12 @@
         </div>
 
         <!-- GENDER AND AGE PATTERNS SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="section-container graph-right">
+        <div class="section-container">
             <h2>Gender and Age Patterns</h2>
             <div class="content-wrapper">
+                <div class="graph-column">
+                    <iframe src="victims demographic(4).html" class="vis-container"></iframe>
+                </div>
                 <div class="text-column">
                     <div class="figure">
                         <p>Clear demographic patterns emerge in victimization:</p>
@@ -319,14 +327,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="graph-column">
-                    <iframe src="victims demographic(4).html" class="vis-container"></iframe>
-                </div>
             </div>
         </div>
 
         <!-- CRIME LOCATIONS SECTION (Graph LEFT, Text RIGHT) -->
-        <div class="section-container graph-left">
+        <div class="section-container">
             <h2>Crime Locations</h2>
             <div class="content-wrapper">
                 <div class="graph-column">
@@ -350,9 +355,12 @@
         </div>
 
         <!-- WEAPON USE SECTION (Graph RIGHT, Text LEFT) -->
-        <div class="section-container graph-right">
+        <div class="section-container">
             <h2>Weapon Use in Crimes</h2>
             <div class="content-wrapper">
+                <div class="graph-column">
+                    <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
+                </div>
                 <div class="text-column">
                     <div class="figure">
                         <p>Most violent crimes occur without weapons:</p>
@@ -367,9 +375,6 @@
                             <li><strong>Firearms</strong> remain relatively rare</li>
                         </ul>
                     </div>
-                </div>
-                <div class="graph-column">
-                    <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
                 </div>
             </div>
         </div>
