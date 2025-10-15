@@ -16,210 +16,186 @@
 
     <title>Personal Safety in Australia</title>
     
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #e74c3c;
-            --light-gray: #ecf0f1;
-            --dark-gray: #7f8c8d;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.4; /* Tighter line spacing */
-        }
-        
-        .page {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 15px; /* Reduced padding */
-        }
-        
-        h1 {
-            color: white;
-            text-align: center;
-            margin-bottom: 15px; /* Reduced margin */
-            font-size: 3rem;
-            line-height: 1.1; /* Tighter line height */
-        }
-        
-        h2 {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px; /* Reduced padding */
-            margin-top: 30px; /* Reduced margin */
-            margin-bottom: 15px; /* Reduced margin */
-            line-height: 1.2;
-        }
-        
-        h4 {
-            line-height: 1.2; /* Tighter line height for subtitle */
-            margin: 0; /* Remove default margins */
-        }
-        
-        .vis-container {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-        
-        .figure {
-            padding: 0 15px; /* Reduced padding */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .figure p {
-            margin-bottom: 12px; /* Reduced margin */
-            line-height: 1.4; /* Consistent line height */
-        }
-        
-        ul {
-            padding-left: 18px; /* Reduced padding */
-            margin: 8px 0; /* Reduced margin */
-        }
-        
-        li {
-            margin-bottom: 6px; /* Reduced margin */
-            line-height: 1.4;
-        }
-        
-        strong {
-            color: var(--accent-color);
-        }
-        
-        footer {
-            margin-top: 30px; /* Reduced margin */
-            padding: 15px; /* Reduced padding */
-            border-top: 1px solid #ddd;
-            font-size: 14px;
-            color: var(--dark-gray);
-        }
-        
-        a {
-            color: var(--accent-color);
-        }
-        
-        .highlight-box {
-            background-color: var(--light-gray);
-            padding: 12px; /* Reduced padding */
-            border-radius: 5px;
-            margin: 12px 0; /* Reduced margin */
-            line-height: 1.4;
-            font-size: 0.9em;
-        }
-        
-        /* Original Card Styles for Introduction */
-        .card {
-            margin-bottom: 1.5rem; /* Reduced margin */
-            border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .card-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1.5rem; /* Reduced padding */
-            text-align: center; /* Ensure center alignment */
-        }
-        
-        .card-body {
-            padding: 1.5rem; /* Reduced padding */
-        }
-        
-        .card-body p {
-            line-height: 1.4; /* Consistent line height */
-            margin-bottom: 0; /* Remove bottom margin */
-        }
-        
-        .big-title {
-            font-size: 3rem !important;
-            margin-bottom: 8px !important; /* Reduced margin */
-            color: white;
-            line-height: 1.1;
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 0;
-            color: white;
-            line-height: 1.2;
-        }
-        
-        /* Center alignment for header content */
-        .header-center {
-            text-align: center;
-            width: 100%;
-        }
-        
-        /* 1:3 RATIO LAYOUT */
-        .section-container {
+<style>
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #34495e;
+        --accent-color: #e74c3c;
+        --light-gray: #ecf0f1;
+        --dark-gray: #7f8c8d;
+    }
+    
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        line-height: 1.4;
+    }
+    
+    .page {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    
+    h1 {
+        color: white;
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+    
+    h2 {
+        color: var(--secondary-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 8px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    h4 {
+        line-height: 1.2;
+        margin: 0;
+    }
+    
+    .vis-container {
+        width: 100%;
+        height: 500px;
+        border: none;
+    }
+    
+    .figure {
+        padding: 0; /* Changed from 0 10px */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .figure p {
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+    
+    ul {
+        padding-left: 18px;
+        margin: 8px 0;
+    }
+    
+    li {
+        margin-bottom: 6px;
+        line-height: 1.4;
+    }
+    
+    strong {
+        color: var(--accent-color);
+    }
+    
+    footer {
+        margin-top: 30px;
+        padding: 15px;
+        border-top: 1px solid #ddd;
+        font-size: 14px;
+        color: var(--dark-gray);
+    }
+    
+    a {
+        color: var(--accent-color);
+    }
+    
+    .highlight-box {
+        background-color: var(--light-gray);
+        padding: 12px;
+        border-radius: 5px;
+        margin: 12px 0;
+        line-height: 1.4;
+        font-size: 0.9em;
+    }
+    
+    /* Original Card Styles for Introduction */
+    .card {
+        margin-bottom: 1.5rem;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .card-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .card-body p {
+        line-height: 1.4;
+        margin-bottom: 0;
+    }
+    
+    .big-title {
+        font-size: 3rem !important;
+        margin-bottom: 8px !important;
+        color: white;
+        line-height: 1.1;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        color: white;
+        line-height: 1.2;
+    }
+    
+    .header-center {
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* === REPLACE JUST THIS 1:3 RATIO LAYOUT SECTION === */
+    .section-container {
         margin-bottom: 25px;
     }
     
-    .graph-left .content-wrapper {
+    .graph-left .content-wrapper,
+    .graph-right .content-wrapper {
         display: flex;
-        flex-direction: row;
         gap: 15px;
         align-items: stretch;
     }
     
     .graph-right .content-wrapper {
-        display: flex;
         flex-direction: row-reverse;
-        gap: 15px;
-        align-items: stretch;
     }
     
-    /* EQUAL PADDING FOR BOTH COLUMNS REGARDLESS OF POSITION */
     .graph-column {
         flex: 3;
         min-width: 70%;
-        padding: 0 10px; /* Equal padding on both sides */
     }
     
     .text-column {
         flex: 1;
         min-width: 25%;
-        padding: 0 10px; /* Equal padding on both sides */
     }
+    /* === END OF REPLACED SECTION === */
     
-    .figure {
-        padding: 0; /* Remove padding here since we have column padding */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    /* Add container padding to create equal outer spacing */
-    .content-wrapper {
-        padding: 0 10px; /* Equal outer spacing */
-    }
-
     /* Responsive design */
     @media (max-width: 768px) {
         .graph-left .content-wrapper,
         .graph-right .content-wrapper {
             flex-direction: column;
             gap: 15px;
-            padding: 0 5px; /* Smaller padding on mobile */
         }
         
         .graph-column,
         .text-column {
             min-width: 100%;
-            padding: 0; /* Remove column padding on mobile */
-        }
-        
-        .figure {
-            padding: 0 5px; /* Add small padding back for mobile */
         }
         
         .vis-container {
@@ -228,6 +204,17 @@
         
         .page {
             padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
         }
     }
 </style>
