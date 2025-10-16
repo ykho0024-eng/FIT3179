@@ -37,10 +37,10 @@
             min-height: 100vh;
         }
         
-        /* Container and wrapper similar to your example */
+        /* Container with smaller width */
         .container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1100px; /* Reduced from 1400px to 1100px */
             margin: 0 auto;
             padding: 20px;
         }
@@ -55,7 +55,7 @@
             overflow: hidden;
         }
         
-        /* Title styling similar to your example */
+        /* Title styling */
         .title {
             text-align: center;
             margin-bottom: 20px;
@@ -66,14 +66,14 @@
         }
         
         .title h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem; /* Slightly smaller to fit better in narrower container */
             margin: 0;
             font-weight: bold;
             line-height: 1.2;
         }
         
         .title h4 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin: 10px 0 0;
             font-weight: normal;
             opacity: 0.9;
@@ -172,7 +172,7 @@
             }
             
             .title h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .title h4 {
@@ -183,6 +183,13 @@
                 font-size: 1.4rem;
                 margin-top: 25px;
                 margin-bottom: 12px;
+            }
+        }
+        
+        /* For very small screens */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 95%;
             }
         }
     </style>
