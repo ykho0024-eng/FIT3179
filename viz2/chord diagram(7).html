@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <title>Victim-Perpetrator Chord Diagram</title>
+  <style>
+    body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f5f5f5; }
+    #vis { margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { text-align: center; color: #333; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Victim to Perpetrator Relationship Flows</h1>
+    <div id="vis"></div>
+  </div>
+
+  <script>
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega/v5.json",
+      "width": 700,
+      "height": 700,
+      "padding": 50,
+      "title": "Assault Cases by Victim Gender and Perpetrator Relationship",
+      "signals": [
+        {"name": "originX", "value": 350},
+        {"name": "originY", "value": 350},
+        {"name": "inner_radius", "value": 250},
+        {"name": "outer_radius", "value": 280}
+      ],
+      "data": [
+        {
+          "name": "chordGroups",
+          "values": [
+            {"index":0,"startAngle":0,"endAngle":1.466,"value":446.9,"name":"Male Victims"},
+            {"index":1,"startAngle":1.516,"endAngle":2.443,"value":369.7,"name":"Female Victims"},
+            {"index":2,"startAngle":2.493,"endAngle":3.142,"value":368.0,"name":"Stranger Perpetrators"},
+            {"index":3,"startAngle":3.192,"endAngle":3.490,"value":141.2,"name":"Family/Intimate Perpetrators"},
+            {"index":4,"startAngle":3.540,"endAngle":3.838,"value":54.0,"name":"Friend Perpetrators"},
+            {"index":5,"startAngle":3.888,"endAngle":4.712,"value":144.5,"name":"Professional/Educational Perpetrators"},
+            {"index":6,"startAngle":4.762,"endAngle":5.236,"value":108.9,"name":"Other Perpetrators"}
+          ],
+          "transform": [
+            {
+              "type": "formula",
+              "expr": "(((datum.startAngle + datum.endAngle) / 2) * 180 / PI) - 90",
+              "as": "angle_degrees"
+            },
+            {
+              "type": "formula",
+              "expr": "PI * datum.angle_degrees / 180",
+              "as": "radians"
+            },
+            {
+              "type": "formula",
+              "expr": "inrange(datum.angle_degrees, [90, 270])",
+              "as": "leftside"
+            },
+            {
+              "type": "formula",
+              "expr": "originX + outer_radius * cos(datum.radians)",
+              "as": "x"
+            },
+            {
+              "type": "formula",
+              "expr": "originY + outer_radius * sin(datum.radians)",
+              "as": "y"
+            },
+            {
+              "type": "formula",
+              "expr": "datum.name.includes('Victim') ? 'bold' : 'normal'",
+              "as": "fontWeight"
+            },
+            {
+              "type": "formula",
+              "expr": "datum.name.includes('Victim') ? 13 : 10",
+              "as": "fontSize"
+            },
+            {
+              "type": "formula",
+              "expr": "datum.name.includes('Victim') ? 'MALE VICTIMS' : (datum.name.includes('Female') ? 'FEMALE VICTIMS' : datum.name.replace(' Perpetrators', '').toUpperCase())",
+              "as": "displayName"
+            }
+          ]
+        },
+        {
+          "name": "ribbons",
+          "values": [
+            {"path":"M0,-250A250,250,0,0,1,176.777,-176.777Q0,0,216.506,-125A250,250,0,0,1,176.777,-176.777Q0,0,0,-250Z","source":"Male Victims","target":"Stranger Perpetrators","value":236.2},
+            {"path":"M176.777,-176.777A250,250,0,0,1,250,0Q0,0,216.506,125A250,250,0,0,1,176.777,-176.777Q0,0,176.777,-176.777Z","source":"Male Victims","target":"Family/Intimate Perpetrators","value":42.4},
+            {"path":"M250,0A250,250,0,0,1,176.777,176.777Q0,0,125,216.506A250,250,0,0,1,250,0Q0,0,250,0Z","source":"Male Victims","target":"Friend Perpetrators","value":32.7},
+            {"path":"M176.777,176.777A250,250,0,0,1,0,250Q0,0,-125,216.506A250,250,0,0,1,176.777,176.777Q0,0,176.777,176.777Z","source":"Male Victims","target":"Professional/Educational Perpetrators","value":80.5},
+            {"path":"M0,250A250,250,0,0,1,-176.777,176.777Q0,0,-216.506,125A250,250,0,0,1,0,250Q0,0,0,250Z","source":"Male Victims","target":"Other Perpetrators","value":55.1},
+            {"path":"M-176.777,176.777A250,250,0,0,1,-250,0Q0,0,-216.506,-125A250,250,0,0,1,-176.777,176.777Q0,0,-176.777,176.777Z","source":"Female Victims","target":"Stranger Perpetrators","value":131.8},
+            {"path":"M-250,0A250,250,0,0,1,-176.777,-176.777Q0,0,-125,-216.506A250,250,0,0,1,-250,0Q0,0,-250,0Z","source":"Female Victims","target":"Family/Intimate Perpetrators","value":98.8},
+            {"path":"M-176.777,-176.777A250,250,0,0,1,0,-250Q0,0,125,-216.506A250,250,0,0,1,-176.777,-176.777Q0,0,-176.777,-176.777Z","source":"Female Victims","target":"Friend Perpetrators","value":21.3},
+            {"path":"M0,-250A250,250,0,0,1,176.777,-176.777Q0,0,216.506,-125A250,250,0,0,1,0,-250Q0,0,0,-250Z","source":"Female Victims","target":"Professional/Educational Perpetrators","value":64.0},
+            {"path":"M176.777,-176.777A250,250,0,0,1,250,0Q0,0,216.506,125A250,250,0,0,1,176.777,-176.777Q0,0,176.777,-176.777Z","source":"Female Victims","target":"Other Perpetrators","value":53.8}
+          ],
+          "transform": [
+            {
+              "type": "formula",
+              "expr": "datum.source.includes('Male') ? 'Male' : 'Female'",
+              "as": "gender"
+            },
+            {
+              "type": "formula", 
+              "expr": "datum.target.replace(' Perpetrators', '')",
+              "as": "relationship"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "arcColor",
+          "type": "ordinal",
+          "domain": ["Male Victims", "Female Victims", "Stranger Perpetrators", "Family/Intimate Perpetrators", "Friend Perpetrators", "Professional/Educational Perpetrators", "Other Perpetrators"],
+          "range": ["#1f77b4", "#d62728", "#2ca02c", "#ff7f0e", "#9467bd", "#8c564b", "#e377c2"]
+        },
+        {
+          "name": "ribbonColor",
+          "type": "ordinal", 
+          "domain": ["Stranger", "Family/Intimate", "Friend", "Professional/Educational", "Other"],
+          "range": ["#2ca02c", "#ff7f0e", "#9467bd", "#8c564b", "#e377c2"]
+        }
+      ],
+      "marks": [
+        {
+          "type": "arc",
+          "from": {"data": "chordGroups"},
+          "encode": {
+            "enter": {
+              "fill": {"scale": "arcColor", "field": "name"},
+              "stroke": {"value": "white"},
+              "strokeWidth": {"value": 2},
+              "tooltip": {
+                "signal": "datum.name + ': ' + format(datum.value, '.1f') + 'k total assaults'"
+              }
+            },
+            "update": {
+              "x": {"signal": "originX"},
+              "y": {"signal": "originY"},
+              "startAngle": {"field": "startAngle"},
+              "endAngle": {"field": "endAngle"},
+              "padAngle": {"value": 0.02},
+              "innerRadius": {"signal": "inner_radius"},
+              "outerRadius": {"signal": "outer_radius"}
+            }
+          }
+        },
+        {
+          "type": "text", 
+          "from": {"data": "chordGroups"},
+          "encode": {
+            "enter": {
+              "text": {"field": "displayName"},
+              "fill": {"value": "white"}
+            },
+            "update": {
+              "x": {"field": "x"},
+              "y": {"field": "y"},
+              "dx": {"signal": "(datum.leftside ? -1 : 1) * 12"},
+              "angle": {"signal": "datum.leftside ? datum.angle_degrees - 180 : datum.angle_degrees"},
+              "align": {"signal": "datum.leftside ? 'right' : 'left'"},
+              "baseline": {"value": "middle"},
+              "fontSize": {"field": "fontSize"},
+              "fontWeight": {"field": "fontWeight"}
+            }
+          }
+        },
+        {
+          "type": "path",
+          "from": {"data": "ribbons"},
+          "encode": {
+            "enter": {
+              "fill": {"scale": "ribbonColor", "field": "relationship"},
+              "fillOpacity": {"value": 0.7},
+              "stroke": {"scale": "ribbonColor", "field": "relationship"},
+              "strokeWidth": {"value": 1.5},
+              "strokeOpacity": {"value": 0.8},
+              "tooltip": {
+                "signal": "datum.source + ' → ' + datum.target + ': ' + format(datum.value, '.1f') + 'k assaults'"
+              }
+            },
+            "update": {
+              "x": {"signal": "originX"},
+              "y": {"signal": "originY"},
+              "path": {"field": "path"}
+            }
+          }
+        }
+      ],
+      "legends": [
+        {
+          "fill": "arcColor",
+          "title": "Categories", 
+          "orient": "right",
+          "offset": 20,
+          "labelFontSize": 9,
+          "titleFontSize": 10
+        },
+        {
+          "fill": "ribbonColor",
+          "title": "Relationship Type",
+          "orient": "right",
+          "offset": 200, 
+          "labelFontSize": 9,
+          "titleFontSize": 10
+        }
+      ],
+      "config": {
+        "view": {"stroke": "transparent"}
+      }
+    };
+
+    vegaEmbed('#vis', spec);
+  </script>
+</body>
+</html>
