@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -187,13 +186,13 @@
             box-sizing: border-box;
         }
         
-        /* Introduction section styling - now normal text */
+        /* Introduction section styling */
         .section-intro {
-            margin-bottom: 15px;
-            padding: 0;
-            background-color: transparent;
-            border-radius: 0;
-            border-left: none;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
             text-align: left;
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
@@ -201,19 +200,19 @@
         
         .section-intro p {
             margin: 0;
-            color: #333;
+            color: #2c3e50;
             text-align: left;
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
         }
         
-        /* Conclusion section styling - now normal text */
+        /* Conclusion section styling - blue box below graph */
         .section-conclusion {
-            margin-top: 15px;
-            padding: 0;
-            background-color: transparent;
-            border-radius: 0;
-            border-left: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
             text-align: left;
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
@@ -221,7 +220,7 @@
         
         .section-conclusion p {
             margin: 0;
-            color: #333;
+            color: #2c3e50;
             text-align: left;
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
@@ -361,12 +360,12 @@
                             <p>The national trend shows a complex picture of personal safety in Australia. 
                             After a period of increase, rates have stabilized in recent years, 
                             suggesting potential impacts of policy interventions and societal changes.</p>
-                            
-                            <div class="section-conclusion">
-                                <p>National data shows overarching trends that form the foundation for understanding Australia's safety landscape. To understand where these offences are most frequent, we next compare offence cases by type and state.</p>
-                            </div>
                         </div>
                     </div>
+                </div>
+                <!-- Updated Conclusion with transition -->
+                <div class="section-conclusion">
+                    <p>National data shows overarching trends that form the foundation for understanding Australia's safety landscape. To understand where these offences are most frequent, we next compare offence cases by type and state.</p>
                 </div>
             </div>
 
@@ -387,15 +386,15 @@
                                 <li><strong>Victoria:</strong> Lowest-risk state with stable performance</li>
                                 <li><strong>ACT:</strong> Notable improvement since 2007 peak</li>
                             </ul>
-                            
-                            <div class="section-conclusion">
-                                <p>These geographical differences reveal important insights about regional factors affecting safety, from population density and socioeconomic conditions to local law enforcement approaches and community support systems. Understanding state-level variations helps target resources where they are most needed.To see what drives these numbers, the next section explores how different offence types contribute to overall personal safety.</p>
-                            </div>
                         </div>
                     </div>
                     <div class="pure-u-2-3">
                         <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
                     </div>
+                </div>
+                <!-- Updated Conclusion with transition -->
+                <div class="section-conclusion">
+                    <p>These geographical differences reveal important insights about regional factors affecting safety, from population density and socioeconomic conditions to local law enforcement approaches and community support systems. Understanding state-level variations helps target resources where they are most needed.To see what drives these numbers, the next section explores how different offence types contribute to overall personal safety.</p>
                 </div>
             </div>
 
@@ -413,6 +412,8 @@
                     </div>
                 </div>
                 
+            
+                <!-- Updated Conclusion with transition -->
                 <div class="section-conclusion">
                     <p>Some offence categories stand out as major contributors to personal safety challenges, revealing the kinds of harm most commonly experienced by Australians. Beyond this, personal characteristics also influence vulnerability, so next, we look at gender and age patterns among victims and offenders.</p>
                 </div>
@@ -439,28 +440,25 @@
                             <div class="highlight-box">
                                 Women aged 18-34 record the highest total offence counts across categories.
                             </div>
-                            
-                            <div class="section-conclusion">
-                                <p>The findings highlight that personal safety experiences vary widely across demographics, underscoring the need for targeted prevention and support. Since not all offences involve the same level of threat, we next explore the role of weapons used in personal crimes.</p>
-                            </div>
                         </div>
                     </div>
                     <div class="pure-u-2-3">
                         <iframe src="victims demographic(4).html" class="vis-container"></iframe>
                     </div>
                 </div>
+                <!-- Updated Conclusion with transition -->
+                <div class="section-conclusion">
+                    <p>The findings highlight that personal safety experiences vary widely across demographics, underscoring the need for targeted prevention and support. Since not all offences involve the same level of threat, we next explore the role of weapons used in personal crimes.</p>
+                </div>
             </div>
 
-            <!-- SECTION 5: Weapons Used -->
+            <!-- SECTION 5: Weapons Used (MOVED BEFORE CRIME LOCATION) -->
             <div class="section-container">
                 <h2>Weapons Used</h2>
                 <div class="section-intro">
                     <p>This section investigates the types of weapons involved in personal offences—ranging from physical force to knives or firearms—to understand the intensity and danger associated with different crimes.</p>
                 </div>
                 <div class="pure-g">
-                    <div class="pure-u-2-3">
-                        <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
-                    </div>
                     <div class="pure-u-1-3">
                         <div class="figure">
                             <p>Most violent crimes occur without weapons:</p>
@@ -477,22 +475,28 @@
                                 <li><strong>Homicide</strong> shows greatest weapon variety</li>
                                 <li><strong>Firearms</strong> remain relatively rare</li>
                             </ul>
-                            
-                            <div class="section-conclusion">
-                                <p>Weapon use adds another dimension to understanding personal safety, indicating not only the presence of violence but its potential severity. To further contextualize these incidents, we now look at where crimes most commonly occur.</p>
-                            </div>
                         </div>
                     </div>
+                    <div class="pure-u-2-3">
+                        <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
+                    </div>
+                </div>
+                <!-- Updated Conclusion with transition -->
+                <div class="section-conclusion">
+                    <p>Weapon use adds another dimension to understanding personal safety, indicating not only the presence of violence but its potential severity. To further contextualize these incidents, we now look at where crimes most commonly occur.</p>
                 </div>
             </div>
 
-            <!-- SECTION 6: Crime Location -->
+            <!-- SECTION 6: Crime Location (MOVED AFTER WEAPONS USED) -->
             <div class="section-container">
                 <h2>Crime Location</h2>
                 <div class="section-intro">
                     <p>Personal safety risks often depend on where offences take place. This section explores the most common settings for crimes—such as homes, public areas, or workplaces—to reveal where people are most vulnerable.</p>
                 </div>
                 <div class="pure-g">
+                    <div class="pure-u-2-3">
+                        <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
+                    </div>
                     <div class="pure-u-1-3">
                         <div class="figure">
                             <p>Clear divide between private and public crime environments:</p>
@@ -508,15 +512,12 @@
                                 <li>Community spaces show moderate assault levels</li>
                                 <li>Transport hubs are robbery hotspots</li>
                             </ul>
-                            
-                            <div class="section-conclusion">
-                                <p>Patterns in crime locations highlight how personal safety is influenced by environment and routine activities. Finally, we turn to one of the most telling aspects of personal safety: the relationship between victims and perpetrators.</p>
-                            </div>
                         </div>
                     </div>
-                    <div class="pure-u-2-3">
-                        <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
-                    </div>
+                </div>
+                <!-- Updated Conclusion with transition -->
+                <div class="section-conclusion">
+                    <p>Patterns in crime locations highlight how personal safety is influenced by environment and routine activities. Finally, we turn to one of the most telling aspects of personal safety: the relationship between victims and perpetrators.</p>
                 </div>
             </div>
 
@@ -551,12 +552,12 @@
                                 <li>Age groups involved</li>
                                 <li>Location of incidents</li>
                             </ul>
-                            
-                            <div class="section-conclusion">
-                                <p>Understanding these relationships completes the picture of personal safety in Australia—showing that threats often arise not just from strangers, but from within familiar and trusted circles.</p>
-                            </div>
                         </div>
                     </div>
+                </div>
+                <!-- Updated Conclusion with transition -->
+                <div class="section-conclusion">
+                    <p>Understanding these relationships completes the picture of personal safety in Australia—showing that threats often arise not just from strangers, but from within familiar and trusted circles.</p>
                 </div>
             </div>
             
