@@ -27,32 +27,50 @@
         
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
             color: #333;
             line-height: 1.4;
-            /* Background pattern */
-            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* Background image properties */
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             min-height: 100vh;
+        }
+        
+        /* Overlay to improve text readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
         }
         
         /* Container with smaller width */
         .container {
             width: 100%;
-            max-width: 1100px; /* Reduced from 1400px to 1100px */
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .wrapper {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             padding: 30px;
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(5px);
         }
         
         /* Title styling */
@@ -66,7 +84,7 @@
         }
         
         .title h1 {
-            font-size: 2.5rem; /* Slightly smaller to fit better in narrower container */
+            font-size: 2.5rem;
             margin: 0;
             font-weight: bold;
             line-height: 1.2;
@@ -127,6 +145,8 @@
             font-size: 14px;
             color: var(--dark-gray);
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
         }
         
         a {
@@ -183,6 +203,10 @@
                 font-size: 1.4rem;
                 margin-top: 25px;
                 margin-bottom: 12px;
+            }
+            
+            body {
+                background-attachment: scroll;
             }
         }
         
