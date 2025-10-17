@@ -160,6 +160,7 @@
             margin: 12px 0;
             line-height: 1.4;
             font-size: 0.9em;
+            border-left: 4px solid var(--accent-color);
         }
         
         /* Section styling */
@@ -171,6 +172,36 @@
         .pure-u-2-3, .pure-u-1-3 {
             padding: 0 10px;
             box-sizing: border-box;
+        }
+        
+        /* Introduction section styling */
+        .section-intro {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .section-intro p {
+            margin: 0;
+            font-style: italic;
+            color: #2c3e50;
+        }
+        
+        /* Transition text between sections */
+        .section-transition {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .section-transition p {
+            margin: 0;
+            font-style: italic;
+            color: #2c3e50;
         }
         
         /* Responsive design */
@@ -232,34 +263,37 @@
                 </div>
             </div>
 
-          <!-- SECTION 1: Graph LEFT (2/3), Text RIGHT (1/3) -->
-<div class="section-container">
-    <h2>National Trends Over Time</h2>
-    <div class="pure-g">
-        <div class="pure-u-2-3">
-            <iframe src="total graph(1).html" class="vis-container"></iframe>
-        </div>
-        <div class="pure-u-1-3">
-            <div class="figure">
-                <div class="highlight-box">
-                    Population-adjusted rates mirror total cases, indicating real behavioral shifts rather than demographic changes.
+            <!-- SECTION 1: Graph LEFT (2/3), Text RIGHT (1/3) -->
+            <div class="section-container">
+                <h2>National Trends Over Time</h2>
+                <div class="section-intro">
+                    <p>This section examines the overall trends in personal safety incidents across Australia over the past decades. Understanding these long-term patterns helps identify whether safety is improving or deteriorating nationwide.</p>
                 </div>
-                
-                <!-- Add this transition text -->
-                <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; border-left: 4px solid #3498db;">
-                    <p style="margin: 0; font-style: italic; color: #2c3e50;">
-                        While national averages provide a broad picture, safety experiences differ widely across regions.<br><br>
-                        Let's see how personal safety varies across Australian states and territories.
-                    </p>
+                <div class="pure-g">
+                    <div class="pure-u-2-3">
+                        <iframe src="total graph(1).html" class="vis-container"></iframe>
+                    </div>
+                    <div class="pure-u-1-3">
+                        <div class="figure">
+                            <div class="highlight-box">
+                                <strong>Population-adjusted rates mirror total cases</strong>, indicating real behavioral shifts rather than demographic changes.
+                            </div>
+                            <p>The national trend shows a complex picture of personal safety in Australia. After a period of increase, rates have stabilized in recent years, suggesting potential impacts of policy interventions and societal changes.</p>
+                            
+                            <div class="section-transition">
+                                <p>While national averages provide a broad picture, safety experiences differ widely across regions. Let's see how personal safety varies across Australian states and territories.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
             <!-- SECTION 2: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>State Comparison</h2>
+                <div class="section-intro">
+                    <p>Australia's states and territories show significant variation in personal safety outcomes. This section explores these geographical differences and what they might reveal about regional factors affecting safety.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-1-3">
                         <div class="figure">
@@ -271,6 +305,9 @@
                                 <li><strong>Victoria:</strong> Lowest-risk state with stable performance</li>
                                 <li><strong>ACT:</strong> Notable improvement since 2007 peak</li>
                             </ul>
+                            <div class="section-transition">
+                                <p>Beyond geographical differences, the types of offences committed also tell an important story about personal safety in Australia.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="pure-u-2-3">
@@ -282,6 +319,9 @@
             <!-- SECTION 3: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Offence Type Composition</h2>
+                <div class="section-intro">
+                    <p>Not all personal safety incidents are the same. This section breaks down the different types of offences to understand which forms of violence are most prevalent and how their proportions have changed over time.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-2-3">
                         <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
@@ -294,6 +334,9 @@
                                 <strong>Sexual assault</strong> shows clear increase post-2015, likely reflecting greater reporting confidence rather than more incidents.
                             </div>
                             <p>Homicide and kidnapping remain consistently small proportions of total offences.</p>
+                            <div class="section-transition">
+                                <p>Different demographic groups experience personal safety risks differently. Let's examine how age and gender affect victimization patterns.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -302,6 +345,9 @@
             <!-- SECTION 4: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>Gender and Age Patterns</h2>
+                <div class="section-intro">
+                    <p>Personal safety risks are not distributed evenly across the population. This section examines how age and gender intersect with victimization rates to identify which groups face the highest risks.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-1-3">
                         <div class="figure">
@@ -314,7 +360,10 @@
                                 <li><strong>Robbery</strong> peaks in teenage years for both genders</li>
                             </ul>
                             <div class="highlight-box">
-                                Women aged 18-34 record the highest total offence counts across categories.
+                                <strong>Women aged 18-34</strong> record the highest total offence counts across categories.
+                            </div>
+                            <div class="section-transition">
+                                <p>Where these incidents occur also matters for understanding personal safety risks and prevention strategies.</p>
                             </div>
                         </div>
                     </div>
@@ -327,6 +376,9 @@
             <!-- SECTION 5: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Crime Locations</h2>
+                <div class="section-intro">
+                    <p>The location where incidents occur provides important context for understanding personal safety risks. This section examines where different types of offences typically happen, from private homes to public spaces.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-2-3">
                         <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
@@ -343,6 +395,9 @@
                                 <li>Community spaces show moderate assault levels</li>
                                 <li>Transport hubs are robbery hotspots</li>
                             </ul>
+                            <div class="section-transition">
+                                <p>The presence or absence of weapons during incidents also reveals important patterns about the nature of personal safety threats.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -351,6 +406,9 @@
             <!-- SECTION 6: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>Weapon Use in Crimes</h2>
+                <div class="section-intro">
+                    <p>The use of weapons during violent incidents significantly impacts their severity and outcomes. This section examines how frequently different weapons are used in various types of offences.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-1-3">
                         <div class="figure">
@@ -365,6 +423,9 @@
                                 <li><strong>Homicide</strong> shows greatest weapon variety</li>
                                 <li><strong>Firearms</strong> remain relatively rare</li>
                             </ul>
+                            <div class="section-transition">
+                                <p>Understanding the relationship between victims and perpetrators provides crucial context for developing effective prevention strategies.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="pure-u-2-3">
@@ -376,26 +437,31 @@
             <!-- SECTION 7: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Relationship with Perpetrators</h2>
+                <div class="section-intro">
+                    <p>The relationship between victims and perpetrators significantly influences the nature, context, and potential prevention of personal safety incidents. This final section explores these crucial connections.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-2-3">
                         <iframe src="chord diagram(7).html" class="vis-container"></iframe>
                     </div>
                     <div class="pure-u-1-3">
                         <div class="figure">
-                            <p>Understanding the relationship between victims and perpetrators is crucial for developing effective personal safety strategies and support services. The data reveals important patterns about where personal safety risks originate—whether from intimate partners, family members, acquaintances, or strangers—and how these relationships vary by gender</p>
+                            <p>Understanding the relationship between victims and perpetrators is crucial for developing effective personal safety strategies and support services. The data reveals important patterns about where personal safety risks originate.</p>
                             <div class="highlight-box">
-                                <strong>Homes dominate</strong> for assault and sexual assault, highlighting domestic violence prevalence.
+                                <strong>A significant portion of violence</strong> occurs within known relationships rather than from strangers.
                             </div>
-                            <p><strong>Public spaces</strong> see different patterns:</p>
+                            <p>Patterns vary significantly by:</p>
                             <ul>
-                                <li>Robbery concentrates in streets, transport, and retail areas</li>
-                                <li>Community spaces show moderate assault levels</li>
-                                <li>Transport hubs are robbery hotspots</li>
+                                <li>Gender of both victim and perpetrator</li>
+                                <li>Type of offence committed</li>
+                                <li>Age groups involved</li>
+                                <li>Location of incidents</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <footer>
                 <small style='font-weight: bold;'>Visualisations created by Yan Xuan Khoo</small>
                 <br>
