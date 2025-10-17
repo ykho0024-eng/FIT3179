@@ -187,14 +187,14 @@
             box-sizing: border-box;
         }
         
-        /* Introduction section styling with 2 columns */
+        /* Introduction section styling with centered text */
         .section-intro {
             margin-bottom: 20px;
             padding: 15px;
             background-color: #f8f9fa;
             border-radius: 5px;
             border-left: 4px solid var(--accent-color);
-            text-align: left;
+            text-align: center;
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
         }
@@ -202,7 +202,7 @@
         .section-intro p {
             margin: 0;
             color: #2c3e50;
-            text-align: left;
+            text-align: center;
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
             margin-bottom: 10px;
@@ -228,18 +228,20 @@
             font-size: 1rem;
         }
         
-        /* Introduction image styling */
+        /* Introduction image styling - full height */
         .intro-image {
             width: 100%;
-            max-width: 300px;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
         .intro-image-container {
-            text-align: center;
-            padding: 10px;
+            height: 100%;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
         }
         
         .image-caption {
@@ -247,12 +249,42 @@
             color: var(--dark-gray);
             margin-top: 8px;
             font-style: italic;
+            text-align: center;
         }
         
         /* Ensure all text uses the same font and size */
         p, li, .highlight-box, .section-intro, .section-conclusion, footer {
             font-family: 'Open Sans', sans-serif !important;
             font-size: 1rem !important;
+        }
+        
+        /* Main introduction section with full-height image */
+        .main-intro-container {
+            display: flex;
+            align-items: stretch;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .main-intro-text {
+            flex: 3;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .main-intro-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .main-intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         /* Responsive design */
@@ -291,9 +323,12 @@
                 background-attachment: scroll;
             }
             
-            .intro-image {
-                max-width: 200px;
-                margin-bottom: 15px;
+            .main-intro-container {
+                flex-direction: column;
+            }
+            
+            .main-intro-image {
+                height: 200px;
             }
         }
         
@@ -313,9 +348,9 @@
                 <h4>Understanding Violence Patterns Across States and Demographics</h4>
             </div>
             
-            <!-- UPDATED: Introduction with image -->
-            <div class="pure-g">
-                <div class="pure-u-3-4">
+            <!-- UPDATED: Main introduction with full-height image -->
+            <div class="main-intro-container">
+                <div class="main-intro-text">
                     <p>Personal safety remains a fundamental aspect<br>
                     of wellbeing, reflecting how secure people<br>
                     feel in their daily lives and relationships.<br>
@@ -329,20 +364,17 @@
                     differ by gender, relationship, and demographic<br>
                     factors.</p>
                 </div>
-                <div class="pure-u-1-4">
-                    <div class="intro-image-container">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                             alt="Australian community safety" 
-                             class="intro-image">
-                        <div class="image-caption">Community safety in urban Australia</div>
-                    </div>
+                <div class="main-intro-image">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Australian community safety" 
+                         class="intro-image">
                 </div>
             </div>
 
             <!-- SECTION 1: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>National Trends Over Time</h2>
-                <!-- UPDATED: 2-column introduction -->
+                <!-- UPDATED: Centered 2-column introduction -->
                 <div class="section-intro">
                     <div class="pure-g">
                         <div class="pure-u-1-2">
@@ -394,7 +426,7 @@
             <!-- SECTION 2: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>State Comparison</h2>
-                <!-- UPDATED: 2-column introduction -->
+                <!-- UPDATED: Centered 2-column introduction -->
                 <div class="section-intro">
                     <div class="pure-g">
                         <div class="pure-u-1-2">
@@ -446,7 +478,7 @@
             <!-- SECTION 3: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Offence Type Composition</h2>
-                <!-- UPDATED: 2-column introduction -->
+                <!-- UPDATED: Centered 2-column introduction -->
                 <div class="section-intro">
                     <div class="pure-g">
                         <div class="pure-u-1-2">
@@ -503,7 +535,7 @@
             <!-- SECTION 4: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>Gender and Age Patterns</h2>
-                <!-- UPDATED: 2-column introduction -->
+                <!-- UPDATED: Centered 2-column introduction -->
                 <div class="section-intro">
                     <div class="pure-g">
                         <div class="pure-u-1-2">
@@ -558,7 +590,7 @@
             <!-- SECTION 5: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Crime Locations</h2>
-                <!-- UPDATED: 2-column introduction -->
+                <!-- UPDATED: Centered 2-column introduction -->
                 <div class="section-intro">
                     <div class="pure-g">
                         <div class="pure-u-1-2">
@@ -614,7 +646,7 @@
             <!-- SECTION 6: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>Weapon Use in Crimes</h2>
-                <!-- UPDATED: 2-column introduction -->
+                <!-- UPDATED: Centered 2-column introduction -->
                 <div class="section-intro">
                     <div class="pure-g">
                         <div class="pure-u-1-2">
@@ -671,7 +703,7 @@
             <!-- SECTION 7: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Relationship with Perpetrators</h2>
-                <!-- UPDATED: 2-column introduction -->
+                <!-- UPDATED: Centered 2-column introduction -->
                 <div class="section-intro">
                     <div class="pure-g">
                         <div class="pure-u-1-2">
