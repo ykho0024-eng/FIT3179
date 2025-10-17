@@ -11,10 +11,10 @@
       background: #f5f5f5; 
     }
     .container { 
-      max-width: 1000px; 
+      max-width: 600px; 
       margin: 0 auto; 
       background: white; 
-      padding: 40px;
+      padding: 20px;
       border-radius: 8px; 
       box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
     }
@@ -47,7 +47,7 @@
       stroke-width: 2px;
     }
     .group-label {
-      font-size: 11px;
+      font-size: 9px;
       font-weight: bold;
       fill: #333;
     }
@@ -138,11 +138,11 @@
       "Other": "#ec4899"
     };
 
-    // Dimensions - increased to prevent cutoff
-    const width = 1000;
-    const height = 1000;
-    const outerRadius = Math.min(width, height) * 0.35; // Reduced to leave more space for labels
-    const innerRadius = outerRadius - 30;
+    // Dimensions - optimized for 500px container height
+    const width = 500;
+    const height = 500;
+    const outerRadius = Math.min(width, height) * 0.35; // Keeps proportions good
+    const innerRadius = outerRadius - 20;
 
     // Create SVG
     const svg = d3.select("#vis")
@@ -229,7 +229,7 @@
       .attr("class", "group-label")
       .attr("transform", d => `
         rotate(${(d.angle * 180 / Math.PI - 90)})
-        translate(${outerRadius + 40})
+        translate(${outerRadius + 20})
         ${d.angle > Math.PI ? "rotate(180)" : ""}
       `)
       .style("text-anchor", d => d.angle > Math.PI ? "end" : null)
