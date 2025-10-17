@@ -1,222 +1,269 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <title>Victim-Perpetrator Chord Diagram</title>
   <style>
-    body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f5f5f5; }
-    #vis { margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .container { max-width: 800px; margin: 0 auto; }
-    h1 { text-align: center; color: #333; }
+    body { 
+      margin: 0; 
+      padding: 20px; 
+      font-family: Arial, sans-serif; 
+      background: #f5f5f5; 
+    }
+    .container { 
+      max-width: 900px; 
+      margin: 0 auto; 
+      background: white; 
+      padding: 30px;
+      border-radius: 8px; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    }
+    h1 { 
+      text-align: center; 
+      color: #333; 
+      margin-bottom: 10px; 
+    }
+    .subtitle { 
+      text-align: center; 
+      color: #666; 
+      margin-bottom: 30px; 
+      font-size: 14px; 
+    }
+    #vis { 
+      display: flex; 
+      justify-content: center; 
+    }
+    .ribbon {
+      fill-opacity: 0.6;
+      stroke-width: 1px;
+      transition: fill-opacity 0.2s;
+    }
+    .ribbon:hover {
+      fill-opacity: 0.9;
+    }
+    .group-arc {
+      stroke: white;
+      stroke-width: 2px;
+    }
+    .group-label {
+      font-size: 11px;
+      font-weight: bold;
+      fill: #333;
+    }
+    .tooltip {
+      position: absolute;
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      border-radius: 4px;
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Victim to Perpetrator Relationship Flows</h1>
+    <p class="subtitle">Assault Cases by Victim Gender and Perpetrator Relationship in Australia</p>
     <div id="vis"></div>
+    <div class="tooltip"></div>
   </div>
 
   <script>
-    const spec = {
-      "$schema": "https://vega.github.io/schema/vega/v5.json",
-      "width": 700,
-      "height": 700,
-      "padding": 50,
-      "title": "Assault Cases by Victim Gender and Perpetrator Relationship",
-      "signals": [
-        {"name": "originX", "value": 350},
-        {"name": "originY", "value": 350},
-        {"name": "inner_radius", "value": 250},
-        {"name": "outer_radius", "value": 280}
-      ],
-      "data": [
-        {
-          "name": "chordGroups",
-          "values": [
-            {"index":0,"startAngle":0,"endAngle":1.466,"value":446.9,"name":"Male Victims"},
-            {"index":1,"startAngle":1.516,"endAngle":2.443,"value":369.7,"name":"Female Victims"},
-            {"index":2,"startAngle":2.493,"endAngle":3.142,"value":368.0,"name":"Stranger Perpetrators"},
-            {"index":3,"startAngle":3.192,"endAngle":3.490,"value":141.2,"name":"Family/Intimate Perpetrators"},
-            {"index":4,"startAngle":3.540,"endAngle":3.838,"value":54.0,"name":"Friend Perpetrators"},
-            {"index":5,"startAngle":3.888,"endAngle":4.712,"value":144.5,"name":"Professional/Educational Perpetrators"},
-            {"index":6,"startAngle":4.762,"endAngle":5.236,"value":108.9,"name":"Other Perpetrators"}
-          ],
-          "transform": [
-            {
-              "type": "formula",
-              "expr": "(((datum.startAngle + datum.endAngle) / 2) * 180 / PI) - 90",
-              "as": "angle_degrees"
-            },
-            {
-              "type": "formula",
-              "expr": "PI * datum.angle_degrees / 180",
-              "as": "radians"
-            },
-            {
-              "type": "formula",
-              "expr": "inrange(datum.angle_degrees, [90, 270])",
-              "as": "leftside"
-            },
-            {
-              "type": "formula",
-              "expr": "originX + outer_radius * cos(datum.radians)",
-              "as": "x"
-            },
-            {
-              "type": "formula",
-              "expr": "originY + outer_radius * sin(datum.radians)",
-              "as": "y"
-            },
-            {
-              "type": "formula",
-              "expr": "datum.name.includes('Victim') ? 'bold' : 'normal'",
-              "as": "fontWeight"
-            },
-            {
-              "type": "formula",
-              "expr": "datum.name.includes('Victim') ? 13 : 10",
-              "as": "fontSize"
-            },
-            {
-              "type": "formula",
-              "expr": "datum.name.includes('Victim') ? 'MALE VICTIMS' : (datum.name.includes('Female') ? 'FEMALE VICTIMS' : datum.name.replace(' Perpetrators', '').toUpperCase())",
-              "as": "displayName"
-            }
-          ]
-        },
-        {
-          "name": "ribbons",
-          "values": [
-            {"path":"M0,-250A250,250,0,0,1,176.777,-176.777Q0,0,216.506,-125A250,250,0,0,1,176.777,-176.777Q0,0,0,-250Z","source":"Male Victims","target":"Stranger Perpetrators","value":236.2},
-            {"path":"M176.777,-176.777A250,250,0,0,1,250,0Q0,0,216.506,125A250,250,0,0,1,176.777,-176.777Q0,0,176.777,-176.777Z","source":"Male Victims","target":"Family/Intimate Perpetrators","value":42.4},
-            {"path":"M250,0A250,250,0,0,1,176.777,176.777Q0,0,125,216.506A250,250,0,0,1,250,0Q0,0,250,0Z","source":"Male Victims","target":"Friend Perpetrators","value":32.7},
-            {"path":"M176.777,176.777A250,250,0,0,1,0,250Q0,0,-125,216.506A250,250,0,0,1,176.777,176.777Q0,0,176.777,176.777Z","source":"Male Victims","target":"Professional/Educational Perpetrators","value":80.5},
-            {"path":"M0,250A250,250,0,0,1,-176.777,176.777Q0,0,-216.506,125A250,250,0,0,1,0,250Q0,0,0,250Z","source":"Male Victims","target":"Other Perpetrators","value":55.1},
-            {"path":"M-176.777,176.777A250,250,0,0,1,-250,0Q0,0,-216.506,-125A250,250,0,0,1,-176.777,176.777Q0,0,-176.777,176.777Z","source":"Female Victims","target":"Stranger Perpetrators","value":131.8},
-            {"path":"M-250,0A250,250,0,0,1,-176.777,-176.777Q0,0,-125,-216.506A250,250,0,0,1,-250,0Q0,0,-250,0Z","source":"Female Victims","target":"Family/Intimate Perpetrators","value":98.8},
-            {"path":"M-176.777,-176.777A250,250,0,0,1,0,-250Q0,0,125,-216.506A250,250,0,0,1,-176.777,-176.777Q0,0,-176.777,-176.777Z","source":"Female Victims","target":"Friend Perpetrators","value":21.3},
-            {"path":"M0,-250A250,250,0,0,1,176.777,-176.777Q0,0,216.506,-125A250,250,0,0,1,0,-250Q0,0,0,-250Z","source":"Female Victims","target":"Professional/Educational Perpetrators","value":64.0},
-            {"path":"M176.777,-176.777A250,250,0,0,1,250,0Q0,0,216.506,125A250,250,0,0,1,176.777,-176.777Q0,0,176.777,-176.777Z","source":"Female Victims","target":"Other Perpetrators","value":53.8}
-          ],
-          "transform": [
-            {
-              "type": "formula",
-              "expr": "datum.source.includes('Male') ? 'Male' : 'Female'",
-              "as": "gender"
-            },
-            {
-              "type": "formula", 
-              "expr": "datum.target.replace(' Perpetrators', '')",
-              "as": "relationship"
-            }
-          ]
-        }
-      ],
-      "scales": [
-        {
-          "name": "arcColor",
-          "type": "ordinal",
-          "domain": ["Male Victims", "Female Victims", "Stranger Perpetrators", "Family/Intimate Perpetrators", "Friend Perpetrators", "Professional/Educational Perpetrators", "Other Perpetrators"],
-          "range": ["#1f77b4", "#d62728", "#2ca02c", "#ff7f0e", "#9467bd", "#8c564b", "#e377c2"]
-        },
-        {
-          "name": "ribbonColor",
-          "type": "ordinal", 
-          "domain": ["Stranger", "Family/Intimate", "Friend", "Professional/Educational", "Other"],
-          "range": ["#2ca02c", "#ff7f0e", "#9467bd", "#8c564b", "#e377c2"]
-        }
-      ],
-      "marks": [
-        {
-          "type": "arc",
-          "from": {"data": "chordGroups"},
-          "encode": {
-            "enter": {
-              "fill": {"scale": "arcColor", "field": "name"},
-              "stroke": {"value": "white"},
-              "strokeWidth": {"value": 2},
-              "tooltip": {
-                "signal": "datum.name + ': ' + format(datum.value, '.1f') + 'k total assaults'"
-              }
-            },
-            "update": {
-              "x": {"signal": "originX"},
-              "y": {"signal": "originY"},
-              "startAngle": {"field": "startAngle"},
-              "endAngle": {"field": "endAngle"},
-              "padAngle": {"value": 0.02},
-              "innerRadius": {"signal": "inner_radius"},
-              "outerRadius": {"signal": "outer_radius"}
-            }
-          }
-        },
-        {
-          "type": "text", 
-          "from": {"data": "chordGroups"},
-          "encode": {
-            "enter": {
-              "text": {"field": "displayName"},
-              "fill": {"value": "white"}
-            },
-            "update": {
-              "x": {"field": "x"},
-              "y": {"field": "y"},
-              "dx": {"signal": "(datum.leftside ? -1 : 1) * 12"},
-              "angle": {"signal": "datum.leftside ? datum.angle_degrees - 180 : datum.angle_degrees"},
-              "align": {"signal": "datum.leftside ? 'right' : 'left'"},
-              "baseline": {"value": "middle"},
-              "fontSize": {"field": "fontSize"},
-              "fontWeight": {"field": "fontWeight"}
-            }
-          }
-        },
-        {
-          "type": "path",
-          "from": {"data": "ribbons"},
-          "encode": {
-            "enter": {
-              "fill": {"scale": "ribbonColor", "field": "relationship"},
-              "fillOpacity": {"value": 0.7},
-              "stroke": {"scale": "ribbonColor", "field": "relationship"},
-              "strokeWidth": {"value": 1.5},
-              "strokeOpacity": {"value": 0.8},
-              "tooltip": {
-                "signal": "datum.source + ' → ' + datum.target + ': ' + format(datum.value, '.1f') + 'k assaults'"
-              }
-            },
-            "update": {
-              "x": {"signal": "originX"},
-              "y": {"signal": "originY"},
-              "path": {"field": "path"}
-            }
-          }
-        }
-      ],
-      "legends": [
-        {
-          "fill": "arcColor",
-          "title": "Categories", 
-          "orient": "right",
-          "offset": 20,
-          "labelFontSize": 9,
-          "titleFontSize": 10
-        },
-        {
-          "fill": "ribbonColor",
-          "title": "Relationship Type",
-          "orient": "right",
-          "offset": 200, 
-          "labelFontSize": 9,
-          "titleFontSize": 10
-        }
-      ],
-      "config": {
-        "view": {"stroke": "transparent"}
+    // Data setup
+    const categories = [
+      "Male Victims",
+      "Female Victims", 
+      "Stranger",
+      "Family/Intimate",
+      "Friend",
+      "Professional/Educational",
+      "Other"
+    ];
+
+    // Flow data: [source_index, target_index, value]
+    const flows = [
+      [0, 2, 236.2],  // Male -> Stranger
+      [0, 3, 42.4],   // Male -> Family/Intimate
+      [0, 4, 32.7],   // Male -> Friend
+      [0, 5, 80.5],   // Male -> Professional
+      [0, 6, 55.1],   // Male -> Other
+      [1, 2, 131.8],  // Female -> Stranger
+      [1, 3, 98.8],   // Female -> Family/Intimate
+      [1, 4, 21.3],   // Female -> Friend
+      [1, 5, 64.0],   // Female -> Professional
+      [1, 6, 53.8]    // Female -> Other
+    ];
+
+    // Create matrix with scaling to make perpetrator categories more visible
+    const matrix = Array(categories.length).fill(0).map(() => Array(categories.length).fill(0));
+    
+    // Calculate total for scaling
+    let victimTotal = 0;
+    let perpTotal = 0;
+    
+    flows.forEach(([source, target, value]) => {
+      matrix[source][target] = value;
+      victimTotal += value;
+    });
+    
+    // Calculate perpetrator totals
+    for (let i = 2; i < categories.length; i++) {
+      for (let j = 0; j < 2; j++) {
+        perpTotal += matrix[j][i];
       }
+    }
+    
+    // Apply scaling factor to make perpetrator arcs more visible
+    // Scale up perpetrator side by adding proportional values
+    const scaleFactor = 2.5; // Increase this to make perpetrator arcs even larger
+    
+    flows.forEach(([source, target, value]) => {
+      // Add scaled value to reverse direction to make target arcs larger
+      matrix[target][source] = value * scaleFactor;
+    });
+
+    // Color scheme
+    const colors = {
+      "Male Victims": "#3b82f6",
+      "Female Victims": "#ef4444",
+      "Stranger": "#10b981",
+      "Family/Intimate": "#f59e0b",
+      "Friend": "#8b5cf6",
+      "Professional/Educational": "#06b6d4",
+      "Other": "#ec4899"
     };
 
-    vegaEmbed('#vis', spec);
+    // Dimensions
+    const width = 700;
+    const height = 700;
+    const outerRadius = Math.min(width, height) * 0.5 - 100;
+    const innerRadius = outerRadius - 30;
+
+    // Create SVG
+    const svg = d3.select("#vis")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .append("g")
+      .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+    // Create chord layout with custom sorting to group victims and perpetrators
+    const chord = d3.chord()
+      .padAngle(0.05)
+      .sortSubgroups(d3.descending)
+      .sortGroups((a, b) => {
+        // Keep victims (0,1) on one side and perpetrators (2-6) on the other
+        return a - b;
+      });
+
+    const arc = d3.arc()
+      .innerRadius(innerRadius)
+      .outerRadius(outerRadius);
+
+    const ribbon = d3.ribbon()
+      .radius(innerRadius);
+
+    const chords = chord(matrix);
+
+    // Tooltip
+    const tooltip = d3.select(".tooltip");
+
+    // Draw ribbons
+    svg.append("g")
+      .selectAll("path")
+      .data(chords)
+      .join("path")
+      .attr("class", "ribbon")
+      .attr("d", ribbon)
+      .style("fill", d => colors[categories[d.target.index]])
+      .style("stroke", d => d3.rgb(colors[categories[d.target.index]]).darker())
+      .on("mouseover", function(event, d) {
+        tooltip
+          .style("opacity", 1)
+          .html(`${categories[d.source.index]} → ${categories[d.target.index]}<br/><strong>${d.source.value.toFixed(1)}k</strong> assaults`);
+      })
+      .on("mousemove", function(event) {
+        tooltip
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 10) + "px");
+      })
+      .on("mouseout", function() {
+        tooltip.style("opacity", 0);
+      });
+
+    // Draw groups (arcs)
+    const group = svg.append("g")
+      .selectAll("g")
+      .data(chords.groups)
+      .join("g");
+
+    group.append("path")
+      .attr("class", "group-arc")
+      .attr("d", arc)
+      .style("fill", d => colors[categories[d.index]])
+      .on("mouseover", function(event, d) {
+        tooltip
+          .style("opacity", 1)
+          .html(`${categories[d.index]}<br/><strong>${d.value.toFixed(1)}k</strong> total`);
+      })
+      .on("mousemove", function(event) {
+        tooltip
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 10) + "px");
+      })
+      .on("mouseout", function() {
+        tooltip.style("opacity", 0);
+      });
+
+    // Add labels
+    group.append("text")
+      .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
+      .attr("dy", ".35em")
+      .attr("class", "group-label")
+      .attr("transform", d => `
+        rotate(${(d.angle * 180 / Math.PI - 90)})
+        translate(${outerRadius + 20})
+        ${d.angle > Math.PI ? "rotate(180)" : ""}
+      `)
+      .style("text-anchor", d => d.angle > Math.PI ? "end" : null)
+      .text(d => categories[d.index].toUpperCase());
+
+    // Legend
+    const legend = d3.select(".container")
+      .append("div")
+      .style("text-align", "center")
+      .style("margin-top", "20px");
+
+    legend.append("div")
+      .style("font-weight", "bold")
+      .style("margin-bottom", "10px")
+      .text("Categories");
+
+    const legendItems = legend.append("div")
+      .style("display", "flex")
+      .style("flex-wrap", "wrap")
+      .style("justify-content", "center")
+      .style("gap", "15px");
+
+    categories.forEach(cat => {
+      const item = legendItems.append("div")
+        .style("display", "flex")
+        .style("align-items", "center")
+        .style("gap", "5px");
+      
+      item.append("div")
+        .style("width", "15px")
+        .style("height", "15px")
+        .style("background-color", colors[cat])
+        .style("border-radius", "2px");
+      
+      item.append("span")
+        .style("font-size", "12px")
+        .text(cat);
+    });
   </script>
 </body>
 </html>
