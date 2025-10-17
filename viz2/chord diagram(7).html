@@ -253,38 +253,25 @@
       });
 
     // Improved label positioning
-    group.append("text")
-      .each(d => { 
-        d.angle = (d.startAngle + d.endAngle) / 2;
-        // Determine label position and rotation
-        const degrees = d.angle * 180 / Math.PI;
-        const isTop = degrees > 45 && degrees < 135;
-        const isBottom = degrees > 225 && degrees < 315;
-        const isLeft = degrees >= 135 && degrees <= 225;
-        const isRight = (degrees >= 315 || degrees <= 45);
-        
-        d.labelRotation = 0;
-        d.labelX = outerRadius + 25;
-        
-        if (isTop) {
-          d.labelRotation = 0; // Horizontal at top
-        } else if (isBottom) {
-          d.labelRotation = 0; // Horizontal at bottom
-        } else if (isLeft) {
-          d.labelRotation = -90; // Vertical on left
-          d.labelX = outerRadius + 20;
-        } else if (isRight) {
-          d.labelRotation = 90; // Vertical on right
-          d.labelX = outerRadius + 20;
-        }
-      })
-      .attr("class", "group-label")
-      .attr("transform", d => `
-        rotate(${(d.angle * 180 / Math.PI - 90)})
-        translate(${d.labelX}, 0)
-        rotate(${d.labelRotation})
-      `)
-      .text(d => categories[d.index].toUpperCase());
+   group.append("text")
+  .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
+  .attr("dy", ".35em")
+  .attr("class", "group-label")
+  .attr("transform", d => {
+    const angle = d.angle * 180 / Math.PI - 90;
+    const radius = outerRadius + 8;
+    const flip = angle > 90 && angle < 270;
+    return `
+      rotate(${angle})
+      translate(${radius})
+      rotate(${flip ? 180 : 0})
+    `;
+  })
+  .style("text-anchor", d => {
+    const angle = d.angle * 180 / Math.PI - 90;
+    return (angle > 90 && angle < 270) ? "end" : "start";
+  })
+  .text(d => categories[d.index].toUpperCase());
 
     // Legend
     const legend = d3.select(".container")
