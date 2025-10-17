@@ -187,6 +187,26 @@
             box-sizing: border-box;
         }
         
+        /* Introduction section styling */
+        .section-intro {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+            text-align: left;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .section-intro p {
+            margin: 0;
+            color: #2c3e50;
+            text-align: left;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+        }
+        
         /* Conclusion section styling - blue box below graph */
         .section-conclusion {
             margin-top: 20px;
@@ -228,7 +248,7 @@
         }
         
         /* Ensure all text uses the same font and size */
-        p, li, .highlight-box, .section-conclusion, .section-transition, footer {
+        p, li, .highlight-box, .section-intro, .section-conclusion, .section-transition, footer {
             font-family: 'Open Sans', sans-serif !important;
             font-size: 1rem !important;
         }
@@ -301,6 +321,11 @@
             <!-- SECTION 1: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>National Trends Over Time</h2>
+                <div class="section-intro">
+                    <p>This section examines the overall trends in personal safety incidents 
+                    across Australia over the past decades. Understanding these long-term patterns 
+                    helps identify whether safety is improving or deteriorating nationwide.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-2-3">
                         <iframe src="total graph(1).html" class="vis-container"></iframe>
@@ -329,6 +354,11 @@
             <!-- SECTION 2: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>State Comparison</h2>
+                <div class="section-intro">
+                    <p>Australia's states and territories show significant variation in personal safety outcomes. 
+                    This section explores these geographical differences and what they might reveal 
+                    about regional factors affecting safety.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-1-3">
                         <div class="figure">
@@ -348,16 +378,22 @@
                 </div>
                 <!-- Conclusion section below the graph -->
                 <div class="section-conclusion">
-                    <p>Australia's states and territories show significant variation in personal safety outcomes. 
-                    These geographical differences reveal important insights about regional factors affecting safety, 
+                    <p>These geographical differences reveal important insights about regional factors affecting safety, 
                     from population density and socioeconomic conditions to local law enforcement approaches 
-                    and community support systems.</p>
+                    and community support systems. Understanding state-level variations helps target resources 
+                    where they are most needed.</p>
                 </div>
             </div>
 
             <!-- SECTION 3: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Offence Type Composition</h2>
+                <div class="section-intro">
+                    <p>Not all personal safety incidents are the same. 
+                    This section breaks down the different types of offences 
+                    to understand which forms of violence are most prevalent 
+                    and how their proportions have changed over time.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-2-3">
                         <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
@@ -382,16 +418,20 @@
                 </div>
                 <!-- Conclusion section below the graph -->
                 <div class="section-conclusion">
-                    <p>Breaking down offence types reveals which forms of violence are most prevalent 
-                    and how their proportions have changed over time. Understanding this composition 
-                    helps target prevention efforts and allocate resources effectively to address 
-                    the most common personal safety threats facing Australians.</p>
+                    <p>Understanding offence composition helps target prevention efforts and allocate resources 
+                    effectively to address the most common personal safety threats facing Australians. 
+                    The dominance of assault highlights the need for continued focus on physical violence prevention.</p>
                 </div>
             </div>
 
             <!-- SECTION 4: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>Gender and Age Patterns</h2>
+                <div class="section-intro">
+                    <p>Personal safety risks are not distributed evenly across the population. 
+                    This section examines how age and gender intersect with victimization rates 
+                    to identify which groups face the highest risks.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-1-3">
                         <div class="figure">
@@ -415,16 +455,22 @@
                 </div>
                 <!-- Conclusion section below the graph -->
                 <div class="section-conclusion">
-                    <p>Personal safety risks are not distributed evenly across the population. 
-                    The intersection of age and gender with victimization rates clearly identifies 
+                    <p>The intersection of age and gender with victimization rates clearly identifies 
                     which demographic groups face the highest risks, enabling targeted prevention 
-                    strategies and support services for the most vulnerable populations.</p>
+                    strategies and support services for the most vulnerable populations. 
+                    These patterns inform age and gender-specific safety initiatives.</p>
                 </div>
             </div>
 
             <!-- SECTION 5: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Crime Locations</h2>
+                <div class="section-intro">
+                    <p>The location where incidents occur provides important context 
+                    for understanding personal safety risks. This section examines 
+                    where different types of offences typically happen, 
+                    from private homes to public spaces.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-2-3">
                         <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
@@ -449,16 +495,21 @@
                 </div>
                 <!-- Conclusion section below the graph -->
                 <div class="section-conclusion">
-                    <p>The location where incidents occur provides crucial context for understanding 
-                    personal safety risks. The clear distinction between private and public crime environments 
+                    <p>The clear distinction between private and public crime environments 
                     informs different prevention approaches - from domestic violence interventions 
-                    to public space safety measures and transportation security.</p>
+                    to public space safety measures and transportation security. 
+                    Location-based analysis helps develop context-appropriate safety strategies.</p>
                 </div>
             </div>
 
             <!-- SECTION 6: Graph RIGHT (2/3), Text LEFT (1/3) -->
             <div class="section-container">
                 <h2>Weapon Use in Crimes</h2>
+                <div class="section-intro">
+                    <p>The use of weapons during violent incidents significantly impacts 
+                    their severity and outcomes. This section examines how frequently 
+                    different weapons are used in various types of offences.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-1-3">
                         <div class="figure">
@@ -484,15 +535,21 @@
                 </div>
                 <!-- Conclusion section below the graph -->
                 <div class="section-conclusion">
-                    <p>The use of weapons during violent incidents significantly impacts their severity and outcomes. 
-                    Understanding weapon prevalence patterns helps assess threat levels, inform law enforcement responses, 
-                    and develop appropriate safety protocols for different types of violent encounters.</p>
+                    <p>Understanding weapon prevalence patterns helps assess threat levels, 
+                    inform law enforcement responses, and develop appropriate safety protocols 
+                    for different types of violent encounters. The low weapon usage in most assaults 
+                    suggests many incidents involve personal confrontations rather than armed attacks.</p>
                 </div>
             </div>
 
             <!-- SECTION 7: Graph LEFT (2/3), Text RIGHT (1/3) -->
             <div class="section-container">
                 <h2>Relationship with Perpetrators</h2>
+                <div class="section-intro">
+                    <p>The relationship between victims and perpetrators significantly influences 
+                    the nature, context, and potential prevention of personal safety incidents. 
+                    This final section explores these crucial connections.</p>
+                </div>
                 <div class="pure-g">
                     <div class="pure-u-2-3">
                         <iframe src="chord diagram(7).html" class="vis-container"></iframe>
@@ -523,11 +580,11 @@
                 </div>
                 <!-- Conclusion section below the graph -->
                 <div class="section-conclusion">
-                    <p>The relationship between victims and perpetrators significantly influences 
-                    the nature, context, and potential prevention of personal safety incidents. 
-                    These crucial connections reveal that personal safety risks often originate 
+                    <p>These crucial connections reveal that personal safety risks often originate 
                     within existing relationships rather than from strangers, highlighting the need 
-                    for relationship-based prevention strategies and support systems.</p>
+                    for relationship-based prevention strategies and support systems. 
+                    Understanding perpetrator relationships helps develop targeted interventions 
+                    for different types of violence.</p>
                 </div>
             </div>
             
