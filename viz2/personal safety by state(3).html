@@ -1,572 +1,335 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-    <title>Personal Safety in Australia</title>
-    
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #e74c3c;
-            --light-gray: #ecf0f1;
-            --dark-gray: #7f8c8d;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.4;
-            /* Background image properties */
-            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-        }
-        
-        /* Overlay to improve text readability */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            z-index: -1;
-        }
-        
-        /* Container with smaller width */
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .wrapper {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 30px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-        
-        /* Title styling */
-        .title {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: var(--primary-color);
-            border-radius: 8px;
-            color: white;
-        }
-        
-        .title h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-        
-        .title h4 {
-            font-size: 1.3rem;
-            margin: 10px 0 0;
-            font-weight: normal;
-            opacity: 0.9;
-        }
-        
-        h2 {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            line-height: 1.2;
-            font-size: 1.5rem;
-        }
-        
-        .vis-container {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-        
-        .figure {
-            padding: 0 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        /* Consistent text size for all body text */
-        .figure p {
-            margin-bottom: 12px;
-            line-height: 1.4;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        ul {
-            padding-left: 18px;
-            margin: 8px 0;
-            text-align: left;
-        }
-        
-        li {
-            margin-bottom: 6px;
-            line-height: 1.4;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        strong {
-            color: var(--accent-color);
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        footer {
-            margin-top: 30px;
-            padding: 15px;
-            border-top: 1px solid #ddd;
-            font-size: 1rem;
-            color: var(--dark-gray);
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-        }
-        
-        a {
-            color: var(--accent-color);
-            font-size: 1rem;
-        }
-        
-        .highlight-box {
-            background-color: var(--light-gray);
-            padding: 12px;
-            border-radius: 5px;
-            margin: 12px 0;
-            line-height: 1.4;
-            font-size: 1rem;
-            border-left: 4px solid var(--accent-color);
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-        }
-        
-        /* Section styling */
-        .section-container {
-            margin-bottom: 25px;
-        }
-        
-        /* Equal padding for all columns */
-        .pure-u-2-3, .pure-u-1-3, .pure-u-1-2 {
-            padding: 0 10px;
-            box-sizing: border-box;
-        }
-        
-        /* Introduction section styling */
-        .section-intro {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            border-left: 4px solid var(--accent-color);
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        .section-intro p {
-            margin: 0;
-            color: #2c3e50;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        /* Conclusion section styling - blue box below graph */
-        .section-conclusion {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            border-left: 4px solid #3498db;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        .section-conclusion p {
-            margin: 0;
-            color: #2c3e50;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        /* Main introduction with half text and half image */
-        .main-intro-container {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            align-items: stretch;
-        }
-        
-        .main-intro-text {
-            flex: 1;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-        }
-        
-        .main-intro-image {
-            flex: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .main-intro-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* Ensure all text uses the same font and size */
-        p, li, .highlight-box, .section-intro, .section-conclusion, footer {
-            font-family: 'Open Sans', sans-serif !important;
-            font-size: 1rem !important;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .pure-u-2-3, .pure-u-1-3, .pure-u-1-2 {
-                width: 100% !important;
-            }
-            
-            .vis-container {
-                height: 400px;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .wrapper {
-                padding: 15px;
-            }
-            
-            .title h1 {
-                font-size: 1.8rem;
-            }
-            
-            .title h4 {
-                font-size: 1.1rem;
-            }
-            
-            h2 {
-                font-size: 1.4rem;
-                margin-top: 25px;
-                margin-bottom: 12px;
-            }
-            
-            body {
-                background-attachment: scroll;
-            }
-            
-            .main-intro-container {
-                flex-direction: column;
-            }
-            
-            .main-intro-image {
-                height: 250px;
-            }
-        }
-        
-        /* For very small screens */
-        @media (max-width: 480px) {
-            .container {
-                max-width: 95%;
-            }
-        }
-    </style>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="wrapper">
-            <div class="title">
-                <h1>Personal Safety in Australia</h1>
-                <h4>Understanding Violence Patterns Across States and Demographics</h4>
-            </div>
-            
-            <!-- UPDATED: Half text and half image introduction -->
-            <div class="main-intro-container">
-                <div class="main-intro-text">
-                    <p>Personal safety remains a fundamental aspect of wellbeing, 
-                    reflecting how secure people feel in their daily lives and relationships. 
-                    This visual narrative explores trends in physical and sexual violence in Australia, 
-                    using national survey and crime data from the Australian Bureau of Statistics (ABS). 
-                    Through a series of visualisations, we uncover how experiences of personal violence 
-                    have evolved over time, vary across states, and differ by gender, relationship, 
-                    and demographic factors.</p>
-                </div>
-                <div class="main-intro-image">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                         alt="Australian community safety" 
-                         class="intro-image">
-                </div>
-            </div>
-
-            <!-- SECTION 1: National Overview -->
-            <div class="section-container">
-                <h2>National Overview</h2>
-                <div class="section-intro">
-                    <p>This section provides a broad picture of personal safety across Australia. It highlights total reported offences, victimization rates, and national trends over time, helping establish the scale and direction of personal safety concerns.</p>
-                </div>
-                <div class="pure-g">
-                    <div class="pure-u-2-3">
-                        <iframe src="total graph(1).html" class="vis-container"></iframe>
-                    </div>
-                    <div class="pure-u-1-3">
-                        <div class="figure">
-                            <div class="highlight-box">
-                                Population-adjusted rates mirror total cases, 
-                                indicating real behavioral shifts rather than demographic changes.
-                            </div>
-                            
-                            <p>The national trend shows a complex picture of personal safety in Australia. 
-                            After a period of increase, rates have stabilized in recent years, 
-                            suggesting potential impacts of policy interventions and societal changes.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
-                    <p>National data shows overarching trends that form the foundation for understanding Australia's safety landscape. To understand where these offences are most frequent, we next compare offence cases by type and state.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 2: State Comparison -->
-            <div class="section-container">
-                <h2>State Comparison</h2>
-                <div class="section-intro">
-                    <p>Australia's states and territories show significant variation in personal safety outcomes. This section explores these geographical differences and what they might reveal about regional factors affecting safety.</p>
-                </div>
-                <div class="pure-g">
-                    <div class="pure-u-1-3">
-                        <div class="figure">
-                            <p>Dramatic variations exist across Australian jurisdictions:</p>
-                            <ul>
-                                <li><strong>Northern Territory:</strong> Consistently highest rates (>450 per 10,000)</li>
-                                <li><strong>Queensland:</strong> Apparent spike reflects data reporting changes, not actual crime surge</li>
-                                <li><strong>Western Australia:</strong> Steady deterioration with rates nearly doubling over 25 years</li>
-                                <li><strong>Victoria:</strong> Lowest-risk state with stable performance</li>
-                                <li><strong>ACT:</strong> Notable improvement since 2007 peak</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="pure-u-2-3">
-                        <iframe src="personal safety by state(3).html" class="vis-container"></iframe>
-                    </div>
-                </div>
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
-                    <p>These geographical differences reveal important insights about regional factors affecting safety, from population density and socioeconomic conditions to local law enforcement approaches and community support systems. Understanding state-level variations helps target resources where they are most needed.To see what drives these numbers, the next section explores how different offence types contribute to overall personal safety.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 3: Offence Type Composition -->
-            <div class="section-container">
-                <h2>Offence Type Composition</h2>
-                <div class="section-intro">
-                    <p>Here we break down offences by type to identify which forms of personal violence are most prevalent—such as assault, sexual offences, and robbery. This view clarifies where the greatest safety risks lie.</p>
-                </div>
-                
-                <!-- Full width graph -->
-                <div class="pure-g">
-                    <div class="pure-u-1-1">
-                        <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
-                    </div>
-                </div>
-                
-            
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
-                    <p>Some offence categories stand out as major contributors to personal safety challenges, revealing the kinds of harm most commonly experienced by Australians. Beyond this, personal characteristics also influence vulnerability, so next, we look at gender and age patterns among victims and offenders.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 4: Gender and Age Patterns -->
-            <div class="section-container">
-                <h2>Gender and Age Patterns</h2>
-                <div class="section-intro">
-                    <p>Understanding who is most affected by crime is key to prevention. This section explores how gender and age influence victimization rates and offence patterns, revealing which groups are most at risk.</p>
-                </div>
-                <div class="pure-g">
-                    <div class="pure-u-1-3">
-                        <div class="figure">
-                            <p>Clear demographic patterns emerge in victimization:</p>
-                            <ul>
-                                <li><strong>Teenage girls</strong> face highest sexual assault risk</li>
-                                <li><strong>Adults 25-44</strong> experience greatest assault burden</li>
-                                <li><strong>Males</strong> dominate physical violence offences</li>
-                                <li><strong>Females</strong> disproportionately affected by sexual assault</li>
-                                <li><strong>Robbery</strong> peaks in teenage years for both genders</li>
-                            </ul>
-                            
-                            <div class="highlight-box">
-                                Women aged 18-34 record the highest total offence counts across categories.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pure-u-2-3">
-                        <iframe src="victims demographic(4).html" class="vis-container"></iframe>
-                    </div>
-                </div>
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
-                    <p>The findings highlight that personal safety experiences vary widely across demographics, underscoring the need for targeted prevention and support. Since not all offences involve the same level of threat, we next explore the role of weapons used in personal crimes.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 5: Weapons Used (MOVED BEFORE CRIME LOCATION) -->
-            <div class="section-container">
-                <h2>Weapons Used</h2>
-                <div class="section-intro">
-                    <p>This section investigates the types of weapons involved in personal offences—ranging from physical force to knives or firearms—to understand the intensity and danger associated with different crimes.</p>
-                </div>
-                <div class="pure-g">
-                    <div class="pure-u-1-3">
-                        <div class="figure">
-                            <p>Most violent crimes occur without weapons:</p>
-                            
-                            <div class="highlight-box">
-                                <strong>91% of assaults</strong> and <strong>99% of sexual assaults</strong> 
-                                involve no weapons.
-                            </div>
-                            
-                            <p>When weapons are used:</p>
-                            <ul>
-                                <li><strong>Robbery</strong> is most weapon-dependent (45% of cases)</li>
-                                <li><strong>Knives</strong> are the most common weapon type</li>
-                                <li><strong>Homicide</strong> shows greatest weapon variety</li>
-                                <li><strong>Firearms</strong> remain relatively rare</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="pure-u-2-3">
-                        <iframe src="sankey graph weapon (6).html" class="vis-container"></iframe>
-                    </div>
-                </div>
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
-                    <p>Weapon use adds another dimension to understanding personal safety, indicating not only the presence of violence but its potential severity. To further contextualize these incidents, we now look at where crimes most commonly occur.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 6: Crime Location (MOVED AFTER WEAPONS USED) -->
-            <div class="section-container">
-                <h2>Crime Location</h2>
-                <div class="section-intro">
-                    <p>Personal safety risks often depend on where offences take place. This section explores the most common settings for crimes—such as homes, public areas, or workplaces—to reveal where people are most vulnerable.</p>
-                </div>
-                <div class="pure-g">
-                    <div class="pure-u-2-3">
-                        <iframe src="heatmap for location(5).html" class="vis-container"></iframe>
-                    </div>
-                    <div class="pure-u-1-3">
-                        <div class="figure">
-                            <p>Clear divide between private and public crime environments:</p>
-                            
-                            <div class="highlight-box">
-                                <strong>Homes dominate</strong> for assault and sexual assault, 
-                                highlighting domestic violence prevalence.
-                            </div>
-                            
-                            <p><strong>Public spaces</strong> see different patterns:</p>
-                            <ul>
-                                <li>Robbery concentrates in streets, transport, and retail areas</li>
-                                <li>Community spaces show moderate assault levels</li>
-                                <li>Transport hubs are robbery hotspots</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
-                    <p>Patterns in crime locations highlight how personal safety is influenced by environment and routine activities. Finally, we turn to one of the most telling aspects of personal safety: the relationship between victims and perpetrators.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 7: Relationship Between Victims and Perpetrators -->
-            <div class="section-container">
-                <h2>Relationship Between Victims and Perpetrators</h2>
-                <div class="section-intro">
-                    <p>This final section examines the connection between victims and offenders, identifying whether offences occur between strangers, acquaintances, or intimate partners. This perspective reveals the social context behind personal violence.</p>
-                </div>
-                <div class="pure-g">
-                    <div class="pure-u-2-3">
-                        <iframe src="chord diagram(7).html" class="vis-container"></iframe>
-                    </div>
-                    <div class="pure-u-1-3">
-                        <div class="figure">
-                            <p>Understanding the relationship between victims and perpetrators 
-                            is crucial for developing effective personal safety strategies 
-                            and support services. The data reveals important patterns about 
-                            where personal safety risks originate—whether from intimate partners, 
-                            family members, acquaintances, or strangers—and how these relationships 
-                            vary by gender.</p>
-                            
-                            <div class="highlight-box">
-                                <strong>A significant portion of violence</strong> occurs within known relationships 
-                                rather than from strangers.
-                            </div>
-                            
-                            <p>Patterns vary significantly by:</p>
-                            <ul>
-                                <li>Gender of both victim and perpetrator</li>
-                                <li>Type of offence committed</li>
-                                <li>Age groups involved</li>
-                                <li>Location of incidents</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
-                    <p>Understanding these relationships completes the picture of personal safety in Australia—showing that threats often arise not just from strangers, but from within familiar and trusted circles.</p>
-                </div>
-            </div>
-            
-            <footer>
-                <small style='font-weight: bold;'>Visualisations created by Yan Xuan Khoo</small>
-                <br>
-                <small>Data source: <a href='https://www.abs.gov.au/'>Australian Bureau of Statistics</a></small>
-            </footer>
-        </div>
-    </div>
+  <div id="vis"></div>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width":630,
+  "height": 410,
+  "title": {
+    "text": "Personal Safety in Australia by State & Type of Offence (1995–2024)",
+    "fontSize": 14.5
+  },
+  "projection": {
+    "type": "mercator",
+    "center": [134, -28],
+    "scale": 610
+  },
+  "params": [
+    {
+      "name": "year_selection",
+      "value": 2024,
+      "bind": {
+        "input": "select",
+        "options": [
+          1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+          2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
+          2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
+        ],
+        "name": "Select Year: "
+      }
+    },
+    {
+      "name": "offence_type",
+      "value": "Total Offence",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Total Offence",
+          "Assault",
+          "Sexual assault",
+          "Homicide and related offences",
+          "Robbery",
+          "Kidnapping/abduction"
+        ],
+        "name": "Offence Type:"
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/week10hw/final_ne_1.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "lightgrey",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "graticule": {
+          "step": [5, 5]
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "lightgrey",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/viz2/australian_crime_long_format.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "filter": "toNumber(datum.Year) == year_selection"
+        },
+        {
+          "calculate": "if(offence_type == 'Total Offence', true, datum.Offence == offence_type)",
+          "as": "include_record"
+        },
+        {
+          "filter": "datum.include_record"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "Case",
+              "as": "Display_Cases"
+            },
+            {
+              "op": "max",
+              "field": "Population",
+              "as": "State_Population"
+            }
+          ],
+          "groupby": ["State", "Year", "Offence"]
+        },
+        {
+          "calculate": "toNumber(datum.Display_Cases) / toNumber(datum.State_Population) * 10000",
+          "as": "Rate_per_10000"
+        },
+        {
+          "lookup": "State",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/week10hw/final_ne_1.json",
+              "format": {
+                "type": "topojson",
+                "feature": "ne_10m_admin_1_states_provinces"
+              }
+            },
+            "key": "properties.name",
+            "fields": ["properties", "geometry"]
+          },
+          "as": ["geo_properties", "geo_geometry"]
+        },
+        {
+          "calculate": "if(offence_type == 'Homicide and related offences', datum.Rate_per_10000 / 1, if(offence_type == 'Robbery', (datum.Rate_per_10000 - 1) / 9, if(offence_type == 'Kidnapping/abduction', datum.Rate_per_10000 / 1, if(offence_type == 'Sexual assault', datum.Rate_per_10000 / 20, if(offence_type == 'Assault', (datum.Rate_per_10000 - 50) / 150, datum.Rate_per_10000 / 500)))))",
+          "as": "Normalized_Rate"
+        },
+        {
+          "calculate": "min(max(datum.Normalized_Rate, 0), 1)",
+          "as": "Normalized_Rate_Clamped"
+        },
+        {
+          "calculate": "datum.Normalized_Rate_Clamped * 10",
+          "as": "Normalized_Rate_Scaled"
+        },
+        {
+          "calculate": "offence_type",
+          "as": "Selected_Offence"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "tooltip": true  // Ensure tooltip is enabled
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo_geometry",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "Normalized_Rate_Scaled",
+          "type": "quantitative",
+          "title": "Crime Rate (Normalized)",
+          "scale": {
+            "domain": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "range": [
+              "#f7fbff", "#e2efff", "#c8e1ff", "#a5d2ff", "#7db7ff","#5e9cff", "#3d7ee8", "#2c5fc4", "#1e3f9e", "#0d1f5c"
+            ]
+          },
+          "legend": {
+            "title": "Scale",
+            "direction": "vertical",
+            "orient": "right",
+            "values": [0, 2, 4, 6, 8, 10],
+            "labelExpr": "if(datum.value == 0, '0', if(datum.value == 10, '10', ''))"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "title": "State/Territory"
+          },
+          {
+            "field": "Selected_Offence",
+            "title": "Offence Type"
+          },
+          {
+            "field": "Year",
+            "title": "Year"
+          },
+          {
+            "field": "Display_Cases",
+            "title": "Case Count",
+            "format": ","
+          },
+          {
+            "field": "State_Population",
+            "title": "Population",
+            "format": ","
+          },
+          {
+            "field": "Rate_per_10000",
+            "title": "Rate per 10,000",
+            "format": ".2f"
+          },
+          {
+            "field": "Normalized_Rate_Clamped",
+            "title": "Normalized Score",
+            "format": ".3f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Western Australia",
+            "lon": 122,
+            "lat": -25
+          },
+          {
+            "name": "Northern Territory",
+            "lon": 134,
+            "lat": -19
+          },
+          {
+            "name": "South Australia",
+            "lon": 135,
+            "lat": -30
+          },
+          {
+            "name": "Queensland",
+            "lon": 142.5,
+            "lat": -21
+          },
+          {
+            "name": "New South Wales",
+            "lon": 147,
+            "lat": -31
+          },
+          {
+            "name": "Victoria",
+            "lon": 145,
+            "lat": -37
+          },
+          {
+            "name": "Tasmania",
+            "lon": 147,
+            "lat": -42.2
+          },
+          {
+            "name": "ACT",
+            "lon": 149.1,
+            "lat": -34.7,
+            "dx": 8,
+            "dy": -6
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 500,
+        "fill": "lightcoral",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "text": {
+          "field": "name"
+        },
+        "longitude": {
+          "field": "lon"
+        },
+        "latitude": {
+          "field": "lat"
+        },
+        "dx": {
+          "field": "dx"
+        },
+        "dy": {
+          "field": "dy"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "note": "Northern Territory consistently shows highest \ncrime rates across most offence categories."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "fontSize": 12,
+        "color": "black",
+        "lineBreak": "\n"
+      },
+      "encoding": {
+        "text": {
+          "field": "note"
+        },
+        "x": {
+          "value": 40
+        },
+        "y": {
+          "value": 345
+        }
+      }
+    }
+  ],
+  "config": {
+    "axis": {
+      "domain": false,
+      "grid": false
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+};
+    
+    vegaEmbed("#vis", spec, {
+  mode: "vega-lite",
+  "actions": false
+}).then(console.log).catch(console.warn);
+  </script>
 </body>
 </html>
