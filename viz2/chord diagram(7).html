@@ -253,24 +253,37 @@
       });
 
     // Improved label positioning
-   group.append("text")
+   // Add labels inside the colored arcs
+group.append("text")
   .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
   .attr("dy", ".35em")
   .attr("class", "group-label")
   .attr("transform", d => {
     const angle = d.angle * 180 / Math.PI - 90;
-    const radius = outerRadius + 8;
-    const flip = angle > 90 && angle < 270;
+    const radius = (innerRadius + outerRadius) / 2; // Place in middle of arc
+    
+    // Determine if label should be horizontal or vertical
+    const isTop = angle >= -45 && angle <= 45;
+    const isBottom = angle >= 135 && angle <= 225;
+    const isLeft = angle > 45 && angle < 135;
+    const isRight = angle > 225 || angle < -45;
+    
+    let rotation = 0;
+    if (isLeft) {
+      rotation = -90; // Vertical, reading upward
+    } else if (isRight) {
+      rotation = 90; // Vertical, reading downward
+    }
+    
     return `
       rotate(${angle})
       translate(${radius})
-      rotate(${flip ? 180 : 0})
+      rotate(${rotation})
     `;
   })
-  .style("text-anchor", d => {
-    const angle = d.angle * 180 / Math.PI - 90;
-    return (angle > 90 && angle < 270) ? "end" : "start";
-  })
+  .style("text-anchor", "middle")
+  .style("fill", "white")
+  .style("font-weight", "bold")
   .text(d => categories[d.index].toUpperCase());
 
     // Legend
