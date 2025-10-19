@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <title>Personal Safety in Australia</title>
     
@@ -31,7 +30,6 @@
             padding: 0;
             color: #333;
             line-height: 1.4;
-            /* Background image properties */
             background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
@@ -40,7 +38,6 @@
             min-height: 100vh;
         }
         
-        /* Overlay to improve text readability */
         body::before {
             content: '';
             position: fixed;
@@ -52,7 +49,6 @@
             z-index: -1;
         }
         
-        /* Container with smaller width */
         .container {
             width: 100%;
             max-width: 1100px;
@@ -73,7 +69,6 @@
             backdrop-filter: blur(5px);
         }
         
-        /* Title styling */
         .title {
             text-align: center;
             margin-bottom: 20px;
@@ -120,13 +115,10 @@
             justify-content: center;
         }
         
-        /* Consistent text size for all body text */
         .figure p {
             margin-bottom: 11px;
             line-height: 1.4;
             text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
         }
         
         ul {
@@ -138,21 +130,16 @@
         li {
             margin-bottom: 6px;
             line-height: 1.4;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
         }
         
         strong {
             color: var(--accent-color);
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
         }
         
         footer {
             margin-top: 30px;
             padding: 15px;
             border-top: 1px solid #ddd;
-            font-size: 1rem;
             color: var(--dark-gray);
             text-align: center;
             background-color: rgba(255, 255, 255, 0.8);
@@ -161,7 +148,6 @@
         
         a {
             color: var(--accent-color);
-            font-size: 1rem;
         }
         
         .highlight-box {
@@ -170,64 +156,19 @@
             border-radius: 5px;
             margin: 12px 0;
             line-height: 1.4;
-            font-size: 1rem;
             border-left: 4px solid var(--accent-color);
             text-align: left;
-            font-family: 'Open Sans', sans-serif;
         }
         
-        /* Section styling */
         .section-container {
             margin-bottom: 25px;
         }
         
-        /* Equal padding for all columns */
         .pure-u-2-3, .pure-u-1-3, .pure-u-1-2 {
             padding: 0 10px;
             box-sizing: border-box;
         }
         
-        /* Introduction section styling - now normal text */
-        .section-intro {
-            margin-bottom: 15px;
-            padding: 0;
-            background-color: transparent;
-            border-radius: 0;
-            border-left: none;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        .section-intro p {
-            margin: 0;
-            color: #333;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        /* Conclusion section styling - now normal text */
-        .section-conclusion {
-            margin-top: 15px;
-            padding: 0;
-            background-color: transparent;
-            border-radius: 0;
-            border-left: none;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        .section-conclusion p {
-            margin: 0;
-            color: #333;
-            text-align: left;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-        }
-        
-        /* Main introduction with half text and half image */
         .main-intro-container {
             display: flex;
             gap: 20px;
@@ -256,13 +197,11 @@
             object-fit: cover;
         }
         
-        /* Ensure all text uses the same font and size */
-        p, li, .highlight-box, .section-intro, .section-conclusion, footer {
+        p, li, .highlight-box, footer {
             font-family: 'Open Sans', sans-serif !important;
             font-size: 1rem !important;
         }
         
-        /* Responsive design */
         @media (max-width: 768px) {
             .pure-u-2-3, .pure-u-1-3, .pure-u-1-2 {
                 width: 100% !important;
@@ -307,7 +246,6 @@
             }
         }
         
-        /* For very small screens */
         @media (max-width: 480px) {
             .container {
                 max-width: 95%;
@@ -323,7 +261,6 @@
                 <h4>Understanding Violence Patterns Across States and Demographics</h4>
             </div>
             
-            <!-- UPDATED: Half text and half image introduction -->
             <div class="main-intro-container">
                 <div class="main-intro-text">
                     <p>Personal safety remains a fundamental aspect of wellbeing, 
@@ -341,7 +278,6 @@
                 </div>
             </div>
 
-            <!-- SECTION 1: National Overview -->
             <div class="section-container">
                 <h2>National Overview</h2>
                 <div class="pure-g">
@@ -362,7 +298,6 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: State Comparison -->
             <div class="section-container">
                 <h2>State Comparison</h2>
                 <div class="pure-g">
@@ -386,52 +321,47 @@
                 </div>
             </div>
 
-            <!-- SECTION 3: Offence Type Composition (OLD STRUCTURE) -->
             <div class="section-container">
                 <h2>Offence Type Composition</h2>
-                <div class="section-intro">
+                <div style="margin-bottom: 15px; padding: 0; text-align: left;">
                     <p>Here we break down offences by type to identify which forms of personal violence are most prevalent—such as assault, sexual offences, and robbery. This view clarifies where the greatest safety risks lie.</p>
                 </div>
                 
-                <!-- Full width graph -->
                 <div class="pure-g">
                     <div class="pure-u-1-1">
                         <iframe src="Offence Types Composition(2).html" class="vis-container"></iframe>
                     </div>
                 </div>
                 
-                <!-- Updated Conclusion with transition -->
-                <div class="section-conclusion">
+                <div style="margin-top: 15px; padding: 0; text-align: left;">
                     <p>Some offence categories stand out as major contributors to personal safety challenges, revealing the kinds of harm most commonly experienced by Australians. Beyond this, personal characteristics also influence vulnerability, so next, we look at gender and age patterns among victims and offenders.</p>
                 </div>
             </div>
 
-            <!-- SECTION 4: Gender and Age Patterns -->
-<div class="section-container">
-    <h2>Gender and Age Patterns</h2>
-    <div class="pure-g">
-        <div class="pure-u-1-3">
-            <div class="figure">
-                <p>Understanding who is most affected by crime is key to prevention. This section explores how gender and age influence victimization rates and offence patterns, revealing which groups are most at risk.</p>
-                <p>Clear demographic patterns emerge in victimization:</p>
-                <div class="highlight-box">
-                    <ul>
-                        <li><strong>Teenage girls</strong> face highest sexual assault risk</li>
-                        <li><strong>Robbery</strong> peaks in teenage years for both genders</li>
-                        <li><strong>Females</strong> disproportionately affected by sexual assault across all age groups.</li>
-                    </ul>
+            <div class="section-container">
+                <h2>Gender and Age Patterns</h2>
+                <div class="pure-g">
+                    <div class="pure-u-1-3">
+                        <div class="figure">
+                            <p>Understanding who is most affected by crime is key to prevention. This section explores how gender and age influence victimization rates and offence patterns, revealing which groups are most at risk.</p>
+                            <p>Clear demographic patterns emerge in victimization:</p>
+                            <div class="highlight-box">
+                                <ul>
+                                    <li><strong>Teenage girls</strong> face highest sexual assault risk</li>
+                                    <li><strong>Robbery</strong> peaks in teenage years for both genders</li>
+                                    <li><strong>Females</strong> disproportionately affected by sexual assault across all age groups.</li>
+                                </ul>
+                            </div>
+                            
+                            <p>The findings highlight that personal safety experiences vary widely across demographics, underscoring the need for targeted prevention and support. Since not all offences involve the same level of threat, we next explore the role of weapons used in personal crimes.</p>
+                        </div>
+                    </div>
+                    <div class="pure-u-2-3">
+                        <iframe src="victims demographic(4).html" class="vis-container"></iframe>
+                    </div>
                 </div>
-                
-                <p>The findings highlight that personal safety experiences vary widely across demographics, underscoring the need for targeted prevention and support. Since not all offences involve the same level of threat, we next explore the role of weapons used in personal crimes.</p>
             </div>
-        </div>
-        <div class="pure-u-2-3">
-            <iframe src="victims demographic(4).html" class="vis-container"></iframe>
-        </div>
-    </div>
-</div>
 
-            <!-- SECTION 5: Weapons Used -->
             <div class="section-container">
                 <h2>Weapons Used</h2>
                 <div class="pure-g">
@@ -460,23 +390,22 @@
                 </div>
             </div>
 
-            <!-- SECTION 6: Crime Location -->
-         <div class="section-container">
-    <h2>Crime Location</h2>
-    <div class="pure-g">
-        <div class="pure-u-1-3">
-            <div class="figure">
-                <p>Personal safety risks often depend on where offences take place. This section explores the most common settings for crimes. From the heatmap,
-                we can see that there's a clear divide between private and public crime environments:</p>
-                <div class="highlight-box">
-                    <ul>
-                        <li><strong>Homes dominate</strong> for assault and sexual assault, 
-                        highlighting domestic violence prevalence.</li>
-                        <li><strong>Robbery</strong> concentrates in streets, transport, and retail areas.</li>
-                        <li><strong>Transport hubs</strong> are robbery hotspots.</li>
-                        <li><strong>Community spaces</strong> show moderate assault levels.</li>
-                    </ul>
-                </div>
+            <div class="section-container">
+                <h2>Crime Location</h2>
+                <div class="pure-g">
+                    <div class="pure-u-1-3">
+                        <div class="figure">
+                            <p>Personal safety risks often depend on where offences take place. This section explores the most common settings for crimes. From the heatmap,
+                            we can see that there's a clear divide between private and public crime environments:</p>
+                            <div class="highlight-box">
+                                <ul>
+                                    <li><strong>Homes dominate</strong> for assault and sexual assault, 
+                                    highlighting domestic violence prevalence.</li>
+                                    <li><strong>Robbery</strong> concentrates in streets, transport, and retail areas.</li>
+                                    <li><strong>Transport hubs</strong> are robbery hotspots.</li>
+                                    <li><strong>Community spaces</strong> show moderate assault levels.</li>
+                                </ul>
+                            </div>
                             
                             <p>Patterns in crime locations highlight how personal safety is influenced by environment and routine activities. Finally, we turn to one of the most telling aspects of personal safety: the relationship between victims and perpetrators.</p>
                         </div>
@@ -487,7 +416,6 @@
                 </div>
             </div>
 
-            <!-- SECTION 7: Relationship Between Victims and Perpetrators -->
             <div class="section-container">
                 <h2>Relationship Between Victims and Perpetrators</h2>
                 <div class="pure-g">
