@@ -13,6 +13,42 @@
   "height": 350,
   "width": 650,
   "padding": 40,
+  "signals": [
+    {
+      "name": "highlightOffence",
+      "value": null,
+      "on": [
+        {
+          "events": "@groupMark:click",
+          "update": "datum.stack == 'stk2' ? (highlightOffence == datum.grpId ? null : datum.grpId) : highlightOffence"
+        }
+      ]
+    },
+    {
+      "name": "highlightWeapon",
+      "value": null,
+      "on": [
+        {
+          "events": "@groupMark:click",
+          "update": "datum.stack == 'stk1' ? (highlightWeapon == datum.grpId ? null : datum.grpId) : highlightWeapon"
+        }
+      ]
+    },
+    {
+      "name": "clearHighlights",
+      "value": false,
+      "on": [
+        {
+          "events": "click[!event.item]",
+          "update": "true"
+        },
+        {
+          "events": "click[event.item]",
+          "update": "false"
+        }
+      ]
+    }
+  ],
   "data": [
     {
       "name": "rawData",
@@ -335,6 +371,25 @@
       ]
     },
     {
+      "name": "weaponGroups",
+      "source": "rawData",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["stk1"],
+          "fields": ["log_size"],
+          "ops": ["sum"],
+          "as": ["total"]
+        },
+        {
+          "type": "stack",
+          "groupby": [],
+          "sort": {"field": "stk1", "order": "ascending"},
+          "field": "total"
+        }
+      ]
+    },
+    {
       "name": "destinationNodes",
       "source": "nodes",
       "transform": [{"type": "filter", "expr": "datum.stack == 'stk2'"}]
@@ -418,26 +473,6 @@
   ],
   "marks": [
     {
-      "type": "rect",
-      "name": "offenceContainers",
-      "from": {"data": "offenceGroups"},
-      "encode": {
-        "enter": {
-          "fill": {"value": "transparent"},
-          "stroke": {"scale": "offenceColor", "field": "stk2"},
-          "strokeWidth": {"value": 0},
-          "cornerRadius": {"value": 6}
-        },
-        "update": {
-          "x": {"signal": "scale('x', 'stk2') - 8"},
-          "x2": {"signal": "scale('x', 'stk2') + bandwidth('x') + 8"},
-          "y": {"scale": "y", "field": "y0", "offset": -4},
-          "y2": {"scale": "y", "field": "y1", "offset": 4},
-          "tooltip": {"signal": "datum.stk2 + ' Container'"}
-        }
-      }
-    },
-    {
       "type": "path",
       "name": "edgeMark",
       "from": {"data": "edges"},
@@ -447,7 +482,9 @@
           "stroke": {"scale": "color", "field": "stk1"},
           "strokeWidth": {"field": "strokeWidth"},
           "path": {"field": "path"},
-          "strokeOpacity": {"value": 0.6},
+          "strokeOpacity": {
+            "signal": "(!highlightOffence && !highlightWeapon) || (highlightOffence && highlightOffence == datum.stk2) || (highlightWeapon && highlightWeapon == datum.stk1) ? 0.6 : 0.1"
+          },
           "zindex": {"value": 0},
           "tooltip": {
             "signal": "datum.stk1 + ' → ' + datum.stk2 + '    Cases: ' + format(datum.size, ',.0f')"
@@ -472,13 +509,16 @@
           ],
           "stroke": {"value": "#fff"},
           "strokeWidth": {"value": 2},
-          "width": {"scale": "x", "band": 1}
+          "width": {"scale": "x", "band": 1},
+          "cursor": {"value": "pointer"}
         },
         "update": {
           "x": {"scale": "x", "field": "stack"},
           "y": {"field": "scaledY0"},
           "y2": {"field": "scaledY1"},
-          "fillOpacity": {"value": 0.8}
+          "fillOpacity": {
+            "signal": "(!highlightOffence && !highlightWeapon) || (datum.stack == 'stk2' && highlightOffence == datum.grpId) || (datum.stack == 'stk1' && highlightWeapon == datum.grpId) || (datum.stack == 'stk1' && !highlightWeapon) || (datum.stack == 'stk2' && !highlightOffence) ? 0.8 : 0.2"
+          }
         },
         "hover": {"fillOpacity": {"value": 1}}
       }
@@ -499,13 +539,35 @@
           "fontSize": {"value": 11},
           "text": {
             "signal": "abs(datum.scaledY0-datum.scaledY1) > 13 ? datum.grpId : ''"
+          },
+          "fillOpacity": {
+            "signal": "(!highlightOffence && !highlightWeapon) || (datum.stack == 'stk2' && highlightOffence == datum.grpId) || (datum.stack == 'stk1' && highlightWeapon == datum.grpId) || (datum.stack == 'stk1' && !highlightWeapon) || (datum.stack == 'stk2' && !highlightOffence) ? 1 : 0.3"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "x": {"value": 30},
+          "y": {"value": 370},
+          "align": {"value": "left"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 12},
+          "fill": {"value": "#666"}
+        },
+        "update": {
+          "text": {
+            "signal": "highlightOffence ? 'Showing offence: ' + highlightOffence : highlightWeapon ? 'Showing weapon: ' + highlightWeapon : 'Click on Weapons or Offences to highlight their flows'"
           }
         }
       }
     }
   ],
   "title": {
-    "text": "Weapon Usage Across Offence Types (Logarithmic Scale)",
+    "text": "Weapon Usage Across Offence Types in 2024 (Logarithmic Scale)",
     "fontSize": 16,
     "anchor": "start"
   },
