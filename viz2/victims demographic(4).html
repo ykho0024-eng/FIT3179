@@ -9,119 +9,147 @@
   <div id="vis"></div>  <!-- Fixed: removed the / -->
   <script>
     const spec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "title": "Victim Demographics by Age, Gender and Offence Type in 2024",
-      "width": 530,
-      "height": 350,
-      "params": [
-        {
-          "name": "offence_select",
-          "value": "Total Offences",
-          "bind": {
-            "input": "select",
-            "options": [
-              "Total Offences",
-              "Assault",
-              "Sexual Assault",  
-              "Homicide and related offences",
-              "Robbery",
-              "Kidnapping/abduction"
-            ],
-            "name": "Select Offence Type:"
-          }
-        }
-      ],
-      "data": {
-        "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/viz2/Personal%20Safety%20by%20age%20group.csv",
-        "format": {"type": "csv"}
-      },
-      "transform": [
-        {"filter": "datum['Types of Offence'] == offence_select"},
-        {
-          "calculate": "if(datum.Gender == 'Males', -1 * datum.Counts, datum.Counts)",
-          "as": "Counts_Signed"
-        },
-        {
-          "calculate": "if(datum.Gender == 'Males', 'Male', 'Female')",
-          "as": "Gender_Short"
-        }
-      ],
-      "layer": [
-        {
-          "mark": {"type": "bar", "cursor": "pointer", "size": 25},
-          "encoding": {
-            "x": {
-              "field": "Counts_Signed",
-              "type": "quantitative",
-              "title": "Number of Victims",
-              "axis": {
-                "format": "~s",
-                "labelExpr": "format(abs(datum.value), ',')"
-              },
-              "scale": {
-                "domain": [
-                  {
-                    "signal": "if(offence_select == 'Sexual Assault', -12200, if(offence_select == 'Assault', -40000, if(offence_select == 'Homicide and related offences', -200, if(offence_select == 'Robbery', -2500, if(offence_select == 'Kidnapping/abduction', -150, -70000)))))"
-                  },
-                  {
-                    "signal": "if(offence_select == 'Sexual Assault', 12200, if(offence_select == 'Assault', 40000, if(offence_select == 'Homicide and related offences', 200, if(offence_select == 'Robbery', 2500, if(offence_select == 'Kidnapping/abduction', 150, 70000)))))"
-                  }
-                ]
-              }
-            },
-            "y": {
-              "field": "Age Group",
-              "type": "ordinal",
-              "title": "Age Group",
-              "sort": [
-                "0–9 years",
-                "10–17 years",
-                "18–24 years",
-                "25–34 years",
-                "35–44 years",
-                "45–54 years",
-                "55–64 years",
-                "65 years and over"
-              ],
-              "axis": {"labelLimit": 300}
-            },
-            "color": {
-              "field": "Gender_Short",
-              "type": "nominal",
-              "title": "Gender",
-              "scale": {
-                "domain": ["Male", "Female"],
-                "range": ["#1f77b4", "#e377c2"]
-              },
-              "legend": {"orient": "top", "direction": "horizontal"}
-            },
-            "tooltip": [
-              {"field": "Age Group", "type": "ordinal", "title": "Age Group"},
-              {"field": "Gender_Short", "type": "nominal", "title": "Gender"},
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Victim Demographics by Age, Gender and Offence Type in 2024",
+  "width": 530,
+  "height": 350,
+  "params": [
+    {
+      "name": "offence_select",
+      "value": "Total Offences",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Total Offences",
+          "Assault",
+          "Sexual Assault",  
+          "Homicide and related offences",
+          "Robbery",
+          "Kidnapping/abduction"
+        ],
+        "name": "Select Offence Type:"
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/ykho0024-eng/FIT3179/refs/heads/main/viz2/Personal%20Safety%20by%20age%20group.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": "datum['Types of Offence'] == offence_select"},
+    {
+      "calculate": "if(datum.Gender == 'Males', -1 * datum.Counts, datum.Counts)",
+      "as": "Counts_Signed"
+    },
+    {
+      "calculate": "if(datum.Gender == 'Males', 'Male', 'Female')",
+      "as": "Gender_Short"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "cursor": "pointer", "size": 25},
+      "encoding": {
+        "x": {
+          "field": "Counts_Signed",
+          "type": "quantitative",
+          "title": "Number of Victims",
+          "axis": {
+            "format": "~s",
+            "labelExpr": "format(abs(datum.value), ',')"
+          },
+          "scale": {
+            "domain": [
               {
-                "field": "Counts",
-                "type": "quantitative",
-                "title": "Number of Victims",
-                "format": ","
+                "signal": "if(offence_select == 'Sexual Assault', -12200, if(offence_select == 'Assault', -40000, if(offence_select == 'Homicide and related offences', -200, if(offence_select == 'Robbery', -2500, if(offence_select == 'Kidnapping/abduction', -150, -70000)))))"
               },
               {
-                "field": "Types of Offence",
-                "type": "nominal",
-                "title": "Offence Type"
+                "signal": "if(offence_select == 'Sexual Assault', 12200, if(offence_select == 'Assault', 40000, if(offence_select == 'Homicide and related offences', 200, if(offence_select == 'Robbery', 2500, if(offence_select == 'Kidnapping/abduction', 150, 70000)))))"
               }
             ]
           }
         },
-        {
-          "mark": {"type": "rule", "color": "black", "strokeWidth": 1},
-          "encoding": {"x": {"value": 0}}
-        }
-      ],
-      "config": {
-        "axis": {"grid": false, "labelFontSize": 11, "titleFontSize": 12},
-        "view": {"stroke": "transparent"}
+        "y": {
+          "field": "Age Group",
+          "type": "ordinal",
+          "title": "Age Group",
+          "sort": [
+            "0–9 years",
+            "10–17 years",
+            "18–24 years",
+            "25–34 years",
+            "35–44 years",
+            "45–54 years",
+            "55–64 years",
+            "65 years and over"
+          ],
+          "axis": {"labelLimit": 300}
+        },
+        "color": {
+          "field": "Gender_Short",
+          "type": "nominal",
+          "title": "Gender",
+          "scale": {
+            "domain": ["Male", "Female"],
+            "range": ["#1f77b4", "#e377c2"]
+          },
+          "legend": {"orient": "top", "direction": "horizontal"}
+        },
+        "tooltip": [
+          {"field": "Age Group", "type": "ordinal", "title": "Age Group"},
+          {"field": "Gender_Short", "type": "nominal", "title": "Gender"},
+          {
+            "field": "Counts",
+            "type": "quantitative",
+            "title": "Number of Victims",
+            "format": ","
+          },
+          {
+            "field": "Types of Offence",
+            "type": "nominal",
+            "title": "Offence Type"
+          }
+        ]
       }
-    };
+    },
+    {
+      "mark": {"type": "rule", "color": "black", "strokeWidth": 1},
+      "encoding": {"x": {"value": 0}}
+    },
+    {
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "text",
+        "x": 370,
+        "y": 270,
+        "text": "Females disproportionately\naffected by sexual assault\nacross all age groups.",
+        "fontSize": 11,
+        "fontWeight": "500",
+        "fill": "black",
+        "align": "left",
+        "lineBreak": "\n"
+      }
+    },
+    {
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "text",
+        "x": 30,
+        "y": 75,
+        "text": "Women aged 18-34 record\nthe highest total offence\ncounts across categories.",
+        "fontSize": 11,
+        "fontWeight": "500",
+        "fill": "black",
+        "align": "left",
+        "lineBreak": "\n"
+      }
+    }
+  ],
+  "config": {
+    "axis": {"grid": false, "labelFontSize": 11, "titleFontSize": 12},
+    "view": {"stroke": "transparent"}
+  }
+};
     
     vegaEmbed("#vis", spec, {
   mode: "vega-lite",
