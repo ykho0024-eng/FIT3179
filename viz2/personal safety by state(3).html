@@ -10,7 +10,7 @@
   <script>
     const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width":600,
+  "width": 600,
   "height": 400,
   "title": {
     "text": "Personal Safety in Australia by State & Type of Offence (1995–2024)",
@@ -18,8 +18,8 @@
   },
   "projection": {
     "type": "mercator",
-    "center": [134, -28],
-    "scale": 610
+    "center": [132, -28],
+    "scale": 600
   },
   "params": [
     {
@@ -309,6 +309,35 @@
         },
         "y": {
           "value": 345
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "annotation": "Data Availability Notes:\n• ACT 1995: no assault data\n• Tasmania 2010-2013: no assault data\n• Victoria: did not publish assault data\n• Queensland 1995-2021: no assault data"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 10,
+        "color": "darkred",
+        "fontStyle": "italic",
+        "lineBreak": "\n"
+      },
+      "encoding": {
+        "text": {
+          "field": "annotation"
+        },
+        "x": {
+          "value": 10
+        },
+        "y": {
+          "value": 10
         }
       }
     }
