@@ -11,7 +11,7 @@
       background: white; 
     }
     .container { 
-      max-width: 500px; 
+      max-width: 420px; 
       margin: 0 auto; 
       background: white; 
       padding: 10px;
@@ -40,7 +40,7 @@
       border-radius: 4px;
     }
     .legend {
-      margin-top: 15px;
+      margin-bottom: 15px;
     }
     .legend-title {
       font-weight: bold;
@@ -133,12 +133,12 @@
   <div class="container">
     <h1>Victim-Perpetrator Relationships</h1>
     <p class="subtitle">Assault Cases by Gender and Relationship</p>
-    <p class="annotation">💡 Click on any category to highlight their flows</p>
-    <div id="vis"></div>
     <div class="legend">
       <div class="legend-title">Categories</div>
       <div class="legend-items" id="legend-items"></div>
     </div>
+    <p class="annotation">💡 Click on any category to highlight their flows</p>
+    <div id="vis"></div>
     <div class="tooltip"></div>
   </div>
 
@@ -208,8 +208,8 @@
     };
 
     // Dimensions - larger chord diagram, less white space
-    const width = 450;
-    const height = 450;
+    const width = 400;
+    const height = 400;
     const outerRadius = Math.min(width, height) * 0.47;
     const innerRadius = outerRadius - 20;
 
