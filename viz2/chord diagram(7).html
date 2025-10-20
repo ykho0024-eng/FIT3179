@@ -2,7 +2,7 @@
 <html>
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-  <title>Victim-Perpetrator Chord Diagram</title>
+  <title>Victim-Perpetrator Chord Diagram in 2024</title>
   <style>
     body { 
       margin: 0; 
@@ -38,46 +38,6 @@
       padding: 6px;
       background: #f9fafb;
       border-radius: 4px;
-    }
-    .legend {
-      margin-bottom: 15px;
-    }
-    .legend-title {
-      font-weight: bold;
-      margin-bottom: 8px;
-      font-size: 11px;
-      text-align: center;
-    }
-    .legend-items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      padding: 4px;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
-    .legend-item:hover {
-      background-color: #f0f0f0;
-    }
-    .legend-item.active {
-      background-color: #e0e7ff;
-    }
-    .legend-color {
-      width: 12px;
-      height: 12px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-    .legend-text {
-      font-size: 10px;
-      line-height: 1.2;
     }
     #vis { 
       display: flex; 
@@ -133,10 +93,6 @@
   <div class="container">
     <h1>Victim-Perpetrator Relationships</h1>
     <p class="subtitle">Assault Cases by Gender and Relationship</p>
-    <div class="legend">
-      <div class="legend-title">Categories</div>
-      <div class="legend-items" id="legend-items"></div>
-    </div>
     <p class="annotation">💡 Click on any category to highlight their flows</p>
     <div id="vis"></div>
     <div class="tooltip"></div>
@@ -282,7 +238,6 @@
           .classed("active", (d, i) => i === categoryIndex);
       }
     }
-
     // Draw ribbons
     svg.append("g")
       .selectAll("path")
@@ -377,33 +332,9 @@
         return label;
       });
 
-    // Create legend items
-    const legendItems = d3.select("#legend-items");
-    
-    categories.forEach((cat, idx) => {
-      const item = legendItems.append("div")
-        .attr("class", "legend-item")
-        .on("click", function() {
-          if (selectedCategory === idx) {
-            highlightCategory(null);
-          } else {
-            highlightCategory(idx);
-          }
-        });
-      
-      item.append("div")
-        .attr("class", "legend-color")
-        .style("background-color", colors[cat]);
-      
-      item.append("span")
-        .attr("class", "legend-text")
-        .text(cat);
-    });
-
     // Click outside to reset
     d3.select("body").on("click", function(event) {
-      if (!event.target.closest(".legend-item") && 
-          !event.target.closest(".group-arc") && 
+      if (!event.target.closest(".group-arc") && 
           !event.target.closest(".ribbon")) {
         highlightCategory(null);
       }
