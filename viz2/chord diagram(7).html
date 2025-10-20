@@ -11,29 +11,75 @@
       background: white; 
     }
     .container { 
-      max-width: 400px; 
+      max-width: 600px; 
       margin: 0 auto; 
       background: white; 
       padding: 10px;
     }
+    .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .header-spacer {
+      width: 170px;
+      flex-shrink: 0;
+    }
+    .header-content {
+      flex: 1;
+      text-align: center;
+    }
     h1 { 
-      text-align: center; 
       color: #333; 
       margin-bottom: 5px; 
       font-size: 16px;
       font-weight: bold;
     }
     .subtitle { 
-      text-align: center; 
       color: #666; 
       margin-bottom: 10px; 
       font-size: 11px; 
+    }
+    .main-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .legend {
+      flex-shrink: 0;
+      width: 150px;
+    }
+    .legend-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 11px;
+      text-align: center;
+    }
+    .legend-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .legend-text {
+      font-size: 10px;
+      line-height: 1.2;
     }
     #vis { 
       display: flex; 
       justify-content: center;
       overflow: visible;
-      margin-bottom: 10px;
+      flex: 1;
     }
     .ribbon {
       fill-opacity: 0.6;
@@ -65,41 +111,24 @@
       transition: opacity 0.2s;
       z-index: 1000;
     }
-    .legend {
-      text-align: center;
-      margin-top: 8px;
-    }
-    .legend-title {
-      font-weight: bold;
-      margin-bottom: 4px;
-      font-size: 11px;
-    }
-    .legend-items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .legend-color {
-      width: 10px;
-      height: 10px;
-      border-radius: 1px;
-    }
-    .legend-text {
-      font-size: 9px;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Victim-Perpetrator Relationships</h1>
-    <p class="subtitle">Assault Cases by Gender and Relationship</p>
-    <div id="vis"></div>
+    <div class="header-container">
+      <div class="header-spacer"></div>
+      <div class="header-content">
+        <h1>Victim-Perpetrator Relationships</h1>
+        <p class="subtitle">Assault Cases by Gender and Relationship</p>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="legend">
+        <div class="legend-title">Categories</div>
+        <div class="legend-items" id="legend-items"></div>
+      </div>
+      <div id="vis"></div>
+    </div>
     <div class="tooltip"></div>
   </div>
 
@@ -169,10 +198,10 @@
     };
 
     // Dimensions - larger chord diagram, less white space
-    const width = 380;
-    const height = 380;
-    const outerRadius = Math.min(width, height) * 0.45;
-    const innerRadius = outerRadius - 18;
+    const width = 450;
+    const height = 450;
+    const outerRadius = Math.min(width, height) * 0.47;
+    const innerRadius = outerRadius - 20;
 
     // Create SVG
     const svg = d3.select("#vis")
@@ -251,55 +280,47 @@
       .on("mouseout", function() {
         tooltip.style("opacity", 0);
       });
-// Add labels that follow arc direction but remain straight
-group.append("text")
-  .each(d => { 
-    d.angle = (d.startAngle + d.endAngle) / 2;
-    d.midRadius = (innerRadius + outerRadius) / 2;
-  })
-  .attr("class", "group-label")
-  .attr("transform", d => {
-    const angleDegrees = d.angle * 180 / Math.PI;
-    const radius = d.midRadius;
+
+    // Add labels that follow arc direction but remain straight
+    group.append("text")
+      .each(d => { 
+        d.angle = (d.startAngle + d.endAngle) / 2;
+        d.midRadius = (innerRadius + outerRadius) / 2;
+      })
+      .attr("class", "group-label")
+      .attr("transform", d => {
+        const angleDegrees = d.angle * 180 / Math.PI;
+        const radius = d.midRadius;
+        
+        // Position along arc
+        const x = radius * Math.cos(d.angle - Math.PI / 2);
+        const y = radius * Math.sin(d.angle - Math.PI / 2);
+        
+        // Rotate to follow arc tangent
+        let rotation = angleDegrees;
+        if (angleDegrees > 90 && angleDegrees < 270) {
+          rotation += 180; // Keep text upright on left side
+        }
+        
+        return `translate(${x}, ${y}) rotate(${rotation})`;
+      })
+      .style("text-anchor", "middle")
+      .style("dominant-baseline", "middle")
+      .style("fill", "white")
+      .style("font-weight", "bold")
+      .style("font-size", "8px")
+      .text(d => {
+        // Shorten long labels
+        const label = categories[d.index].toUpperCase();
+        if (label === "PROFESSIONAL/EDUCATIONAL") {
+          return "PROF/EDUC";
+        }
+        return label;
+      });
+
+    // Create legend items
+    const legendItems = d3.select("#legend-items");
     
-    // Position along arc
-    const x = radius * Math.cos(d.angle - Math.PI / 2);
-    const y = radius * Math.sin(d.angle - Math.PI / 2);
-    
-    // Rotate to follow arc tangent
-    let rotation = angleDegrees;
-    if (angleDegrees > 90 && angleDegrees < 270) {
-      rotation += 180; // Keep text upright on left side
-    }
-    
-    return `translate(${x}, ${y}) rotate(${rotation})`;
-  })
-  .style("text-anchor", "middle")
-  .style("dominant-baseline", "middle")
-  .style("fill", "white")
-  .style("font-weight", "bold")
-  .style("font-size", "8px")
-  .text(d => {
-    // Shorten long labels
-    const label = categories[d.index].toUpperCase();
-    if (label === "PROFESSIONAL/EDUCATIONAL") {
-      return "PROF/EDUC";
-    }
-    return label;
-  });
-
-    // Legend
-    const legend = d3.select(".container")
-      .append("div")
-      .attr("class", "legend");
-
-    legend.append("div")
-      .attr("class", "legend-title")
-      .text("Categories");
-
-    const legendItems = legend.append("div")
-      .attr("class", "legend-items");
-
     categories.forEach(cat => {
       const item = legendItems.append("div")
         .attr("class", "legend-item");
