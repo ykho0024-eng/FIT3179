@@ -11,43 +11,36 @@
       background: white; 
     }
     .container { 
-      max-width: 600px; 
+      max-width: 500px; 
       margin: 0 auto; 
       background: white; 
       padding: 10px;
     }
-    .header-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .header-spacer {
-      width: 170px;
-      flex-shrink: 0;
-    }
-    .header-content {
-      flex: 1;
-      text-align: center;
-    }
     h1 { 
+      text-align: center;
       color: #333; 
       margin-bottom: 5px; 
       font-size: 16px;
       font-weight: bold;
     }
     .subtitle { 
+      text-align: center;
       color: #666; 
       margin-bottom: 10px; 
       font-size: 11px; 
     }
-    .main-content {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    .annotation {
+      text-align: center;
+      color: #888;
+      font-size: 10px;
+      font-style: italic;
+      margin-bottom: 15px;
+      padding: 6px;
+      background: #f9fafb;
+      border-radius: 4px;
     }
     .legend {
-      flex-shrink: 0;
-      width: 150px;
+      margin-top: 15px;
     }
     .legend-title {
       font-weight: bold;
@@ -57,13 +50,24 @@
     }
     .legend-items {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
     .legend-item {
       display: flex;
       align-items: center;
       gap: 6px;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    .legend-item:hover {
+      background-color: #f0f0f0;
+    }
+    .legend-item.active {
+      background-color: #e0e7ff;
     }
     .legend-color {
       width: 12px;
@@ -79,19 +83,31 @@
       display: flex; 
       justify-content: center;
       overflow: visible;
-      flex: 1;
+      margin-bottom: 10px;
     }
     .ribbon {
       fill-opacity: 0.6;
       stroke-width: 1px;
       transition: fill-opacity 0.2s;
+      cursor: pointer;
     }
     .ribbon:hover {
       fill-opacity: 0.9;
     }
+    .ribbon.dimmed {
+      fill-opacity: 0.1;
+    }
+    .ribbon.highlighted {
+      fill-opacity: 1;
+    }
     .group-arc {
       stroke: white;
       stroke-width: 1px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .group-arc.dimmed {
+      opacity: 0.3;
     }
     .group-label {
       font-size: 8px;
@@ -115,19 +131,13 @@
 </head>
 <body>
   <div class="container">
-    <div class="header-container">
-      <div class="header-spacer"></div>
-      <div class="header-content">
-        <h1>Victim-Perpetrator Relationships</h1>
-        <p class="subtitle">Assault Cases by Gender and Relationship</p>
-      </div>
-    </div>
-    <div class="main-content">
-      <div class="legend">
-        <div class="legend-title">Categories</div>
-        <div class="legend-items" id="legend-items"></div>
-      </div>
-      <div id="vis"></div>
+    <h1>Victim-Perpetrator Relationships</h1>
+    <p class="subtitle">Assault Cases by Gender and Relationship</p>
+    <p class="annotation">💡 Click on any category to highlight their flows</p>
+    <div id="vis"></div>
+    <div class="legend">
+      <div class="legend-title">Categories</div>
+      <div class="legend-items" id="legend-items"></div>
     </div>
     <div class="tooltip"></div>
   </div>
@@ -234,6 +244,45 @@
     // Tooltip
     const tooltip = d3.select(".tooltip");
 
+    // State for selected category
+    let selectedCategory = null;
+
+    // Function to highlight ribbons based on selected category
+    function highlightCategory(categoryIndex) {
+      if (categoryIndex === null) {
+        // Reset all
+        svg.selectAll(".ribbon")
+          .classed("dimmed", false)
+          .classed("highlighted", false);
+        svg.selectAll(".group-arc")
+          .classed("dimmed", false);
+        d3.selectAll(".legend-item")
+          .classed("active", false);
+        selectedCategory = null;
+      } else {
+        selectedCategory = categoryIndex;
+        
+        // Dim all ribbons first
+        svg.selectAll(".ribbon")
+          .classed("dimmed", true)
+          .classed("highlighted", false);
+        
+        // Highlight ribbons connected to selected category
+        svg.selectAll(".ribbon")
+          .filter(d => d.source.index === categoryIndex || d.target.index === categoryIndex)
+          .classed("dimmed", false)
+          .classed("highlighted", true);
+        
+        // Dim non-connected arcs
+        svg.selectAll(".group-arc")
+          .classed("dimmed", d => d.index !== categoryIndex);
+        
+        // Highlight selected legend item
+        d3.selectAll(".legend-item")
+          .classed("active", (d, i) => i === categoryIndex);
+      }
+    }
+
     // Draw ribbons
     svg.append("g")
       .selectAll("path")
@@ -267,10 +316,20 @@
       .attr("class", "group-arc")
       .attr("d", arc)
       .style("fill", d => colors[categories[d.index]])
+      .on("click", function(event, d) {
+        event.stopPropagation();
+        if (selectedCategory === d.index) {
+          highlightCategory(null);
+        } else {
+          highlightCategory(d.index);
+        }
+      })
       .on("mouseover", function(event, d) {
-        tooltip
-          .style("opacity", 1)
-          .html(`${categories[d.index]}<br/><strong>${d.value.toFixed(1)}k</strong> total`);
+        if (selectedCategory === null) {
+          tooltip
+            .style("opacity", 1)
+            .html(`${categories[d.index]}<br/><strong>${d.value.toFixed(1)}k</strong> total`);
+        }
       })
       .on("mousemove", function(event) {
         tooltip
@@ -321,9 +380,16 @@
     // Create legend items
     const legendItems = d3.select("#legend-items");
     
-    categories.forEach(cat => {
+    categories.forEach((cat, idx) => {
       const item = legendItems.append("div")
-        .attr("class", "legend-item");
+        .attr("class", "legend-item")
+        .on("click", function() {
+          if (selectedCategory === idx) {
+            highlightCategory(null);
+          } else {
+            highlightCategory(idx);
+          }
+        });
       
       item.append("div")
         .attr("class", "legend-color")
@@ -332,6 +398,15 @@
       item.append("span")
         .attr("class", "legend-text")
         .text(cat);
+    });
+
+    // Click outside to reset
+    d3.select("body").on("click", function(event) {
+      if (!event.target.closest(".legend-item") && 
+          !event.target.closest(".group-arc") && 
+          !event.target.closest(".ribbon")) {
+        highlightCategory(null);
+      }
     });
   </script>
 </body>
