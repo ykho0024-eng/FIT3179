@@ -8,7 +8,7 @@
 <body>
   <div id="vis"/>
   <script>
-    const spec = {
+    const spec ={
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "height": 320,
   "width": 580,
@@ -447,14 +447,13 @@
       "name": "color",
       "type": "ordinal",
       "range": [
-        "#1f77b4",
-        "#ff7f0e",
-        "#2ca02c",
-        "#d62728",
-        "#9467bd",
-        "#8c564b",
-        "#e377c2",
-        "#7f7f7f"
+        "#778a70",  // Firearm - Blue
+        "#ff7f0e",  // Knife - Orange
+        "#d99d5d",  // Syringe - Green
+        "#4a4b9d",  // Bottle/glass - Red
+        "#9467bd",  // Bat/bar/club - Purple
+        "#cd7372",  // No weapon used - Brown
+        "#fedc5e",  // Other - Pink
       ],
       "domain": {"data": "rawData", "field": "stk1"}
     },
