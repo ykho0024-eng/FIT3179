@@ -1,160 +1,199 @@
+/* css/style.css */
 :root {
-    --npslightbrown: #c46c39;
-    --npsdarkbrown: #98542c;
-    --npsdarkgreen: #2d4b1e;
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #e74c3c;
+    --light-gray: #ecf0f1;
+    --dark-gray: #7f8c8d;
 }
 
-@font-face {
-    font-family: "Rawlinson";
-    src: url('fonts/Rawlinson Bold.otf');
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.4;
+    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
-@font-face {
-    font-family: "NationalPark-Regular";
-    src: url('fonts/NationalPark-Regular.otf');
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: -1;
 }
 
-@font-face {
-    font-family: "NationalPark-Bold";
-    src: url('fonts/NationalPark-Bold.otf');
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    color: white;
+}
+
+.title h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.title h4 {
+    font-size: 1.3rem;
+    margin: 10px 0 0;
+    font-weight: normal;
+    opacity: 0.9;
 }
 
 h2 {
-    text-align: center;
-    font-family: "Rawlinson";
-    color: var(--npsdarkbrown);
-    font-size: 90px;
-    margin: 10px;
-}
-
-h3 {
-    text-align: center;
-    font-family: "Rawlinson";
-    font-size: 40px;
-    color: var(--npsdarkbrown);
-    margin: 5px
-}
-
-h5 {
-    text-align: center;
-    font-family: "Rawlinson";
-    font-size: 18px;
-    color: var(--npslightbrown);
-    margin: 5px;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 8px;
+    margin-top: 30px;
     margin-bottom: 15px;
+    line-height: 1.2;
+    font-size: 1.5rem;
 }
 
-h6 {
-    text-align: center;
-    font-family: "NationalPark-Regular";
-    font-size: 14px;
-    color: var(--npslightbrown);
-    margin: 0px;
-    margin-bottom: 15px;
-}
-
-.divider {
-    height: 70px;
+.vis-container {
     width: 100%;
+    height: 500px;
+    border: none;
 }
 
-hr {
-    margin: 50px;
-    height: 3px!important;
-    background-color: var(--npslightbrown)
+.figure {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-#nps_img {
-    padding-top: 25px;
-    padding: 25px;
-    width: 45px;;
+.figure p {
+    margin-bottom: 11px;
+    line-height: 1.4;
+    text-align: left;
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.marks {
-    font-family: "Rawlinson";
-}
-
-#margin {
-    background-color: white!important;
-}
-
-#container {
-    background-color: #fef8f5;
-    align-self: center;
-}
-
-
-.right_side_text {
-    margin-right: 30px;
-}
-
-.left_side_text {
-    margin-left: 20px;
+ul {
+    padding-left: 18px;
+    margin: 8px 0;
+    text-align: left;
 }
 
 li {
-    font-family: "NationalPark-Regular";
-    font-size: 16px;
-    color: var(--npslightbrown);
-    margin-bottom: 15px;
+    margin-bottom: 6px;
+    line-height: 1.4;
 }
 
-#bump_chart {
-    margin-left: 30px;
-    margin-right: 40px;
+strong {
+    color: var(--accent-color);
 }
 
-#small_multiples {
-    margin-left: 40px;
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    color: var(--dark-gray);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
 }
 
-#stacked_chart {
-    margin-left: 40px;
+a {
+    color: var(--accent-color);
 }
 
-#timeline {
-    margin-right: 40px;
-    margin-left: 10px;
+.highlight-box {
+    background-color: var(--light-gray);
+    padding: 12px;
+    border-radius: 5px;
+    margin: 12px 0;
+    line-height: 1.4;
+    border-left: 4px solid var(--accent-color);
+    text-align: left;
 }
 
-.weighted_text {
-    font-family: "NationalPark-Bold";
+.section-container {
+    margin-bottom: 25px;
 }
 
-.backcountry_text {
-    font-family: "NationalPark-Bold";
-    color: #1b9e77;
+.pure-u-2-3, .pure-u-1-3, .pure-u-1-2 {
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
-.rv_text {
-    font-family: "NationalPark-Bold";
-    color: #666666;   
+.main-intro-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 5px;
+    align-items: stretch;
+    min-height: 200px;
+    max-height: 250px;
 }
 
-.tent_text {
-    font-family: "NationalPark-Bold";
-    color: #d95f02;   
+.main-intro-text {
+    flex: 1;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-label, select, input {
-    font-family: "NationalPark-Regular";
-    color: var(--npslightbrown);
-    background-color: #fef8f5;
-    border-color: var(--npslightbrown);
-    margin: 20px;
+.main-intro-text p {
+    margin: 0;
+    line-height: 1.6;
 }
 
-.vega-bind {
-    margin-top: 10px;
+.main-intro-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-height: 220px;
 }
 
-#stacked_chart > div > form > div:nth-child(1) > label > span:nth-child(3) {
-    margin-left: 7px;
+.main-intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+p, li, .highlight-box, footer {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 1rem !important;
 }
